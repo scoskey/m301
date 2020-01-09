@@ -1,4 +1,8 @@
-# Math 301 syllabus
+---
+title: Math 301, Spring 2020
+---
+
+# Math 301 Syllabus
 
 ## Course information
 
