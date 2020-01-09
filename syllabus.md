@@ -16,10 +16,9 @@ Office hours: TBA, and by appointment
 
 ## Anticipated learning outcomes
 
-* Appreciation of beauty in abstract concepts
-* Fluency in the language of linear algebra
-* Solve abstract problems in linear algebra
-* Solve applied problems using linear algebra
+* Fluency with core linear algebra concepts
+* Solve problems in abstract linear algebra
+* Solve problems in applications using linear algebra
 
 ## Rough plan
 
