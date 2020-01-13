@@ -48,8 +48,8 @@ Office hours: TBA, and by appointment
 
 ## Classwork
 
-Each day following the content discussion, we will start an in-class activity.  We will also have occasional announced homework quizzes instead of activities. A small portion of your grade will be based on attendance, attention, collaboration and completion of these activities and quizzes.
+You are expected to attend class, prepared to ask questions and discuss the material. Following the discussion, we will start an in-class activity. A small portion of your grade will be based on attendance, attention, collaboration and completion of these activities.
 
 ## Homework
 
-Weekly homework assignments will typically be given Thursday and collected the following Wednesday. All work will be evaluated for completeness, and certain items will be evaluated for correcteness and style. You are encouraged to collaborate with your peers inside and outside of class, and you are free to use online resources when you are stuck. But please keep in mind that you must always fully understand your solutions and most importantly *write them in your own words*.
+Weekly homework assignments will typically be given Thursday and collected the following Thursday. All work will be evaluated for completeness, and certain items will be evaluated for correcteness and style. You are encouraged to collaborate with your peers inside and outside of class, and you are free to use online resources when you are stuck. But please keep in mind that you must always fully understand your solutions and most importantly *write them in your own words*.
