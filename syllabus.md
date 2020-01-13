@@ -16,13 +16,15 @@ Office hours: TBA, and by appointment
 
 ## Course content
 
-...
+Linear algebra starts with the study of solutions to systems of linear equations. We will learn the standard algorithm to find solutions using matrices. Morever the subject becomes much deeper once one understands that the solutions to systems of linear equations form mathematical structure called a vector space.
+
+Solving linear equations may seem like a specialized niche, but it turns out to be important in almost all areas of mathematics and its applications. We will see applications such as finding statistical best fit, population modeling, and internet search.
 
 ## Anticipated learning outcomes
 
 * Fluency with core linear algebra concepts
-* Solve problems in abstract linear algebra
-* Solve problems in applications using linear algebra
+* Use linear algebra to solve problems in applied fields
+* Appreciate value of linear algebra in mathematics and related fields
 
 ## Rough plan
 
