@@ -6,3 +6,4 @@ Welcome to the course web site for Math 301 (001), Spring 2020! Please visit the
 
 * [syllabus](syllabus)
 * [homework](homework)
+* [notes](notes) (disclaimer: work in progress)
