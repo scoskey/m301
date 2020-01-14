@@ -8,7 +8,7 @@ title: Math 301, Spring 2020
 
 Meeting times: W,F from 10:30&ndash;11:45am  
 Meeting place: RFH 102-B  
-Recommended text: Strang, \emph{Introduction to linear algebra}, 5th edition  
+Recommended text: Strang, *Introduction to linear algebra*, 5th edition  
 Web site: `scoskey.org/m301`  
 My email: `scoskey@boisestate.edu`  
 My office: MB 238-B  
@@ -16,15 +16,15 @@ Office hours: TBA, and by appointment
 
 ## Course content
 
-Linear algebra starts with the study of solutions to systems of linear equations. We will learn the standard algorithm to find solutions using matrices. Morever the subject becomes much deeper once one understands that the solutions to systems of linear equations form mathematical structure called a vector space.
+Linear algebra starts with the study of solutions to systems of linear equations. We will learn the standard algorithm to find solutions using matrices. Morever the subject becomes much deeper once one understands that the solutions to systems of linear equations form a mathematical structure called a vector space.
 
-Solving linear equations may seem like a specialized niche, but it turns out to be important in almost all areas of mathematics and its applications. We will see applications such as finding statistical best fit, population modeling, and internet search.
+Solving linear equations may seem like a specialized tool, but linear algebra it turns out to be valuable in almost all areas of mathematics and its applications. We will explore applications such as finding statistical best fit, population modeling, and internet search.
 
 ## Anticipated learning outcomes
 
 * Fluency with core linear algebra concepts
-* Use linear algebra to solve problems in applied fields
 * Appreciate value of linear algebra in mathematics and related fields
+* Use linear algebra to solve pure and applied problems
 
 ## Rough plan
 
@@ -54,4 +54,4 @@ You are expected to attend class, prepared to ask questions and discuss the mate
 
 ## Homework
 
-Weekly homework assignments will typically be given Thursday and collected the following Thursday. All work will be evaluated for completeness, and certain items will be evaluated for correcteness and style. You are encouraged to collaborate with your peers inside and outside of class, and you are free to use online resources when you are stuck. But please keep in mind that you must always fully understand your solutions and most importantly *write them in your own words*.
+Weekly homework assignments will typically be given Friday and collected the following Thursday. All work will be evaluated for completeness, and certain items will be evaluated for correcteness and style. You are encouraged to collaborate with your peers inside and outside of class, and you are free to use online resources when you are stuck. But please keep in mind that you must always fully understand your solutions and most importantly *write them in your own words*.
