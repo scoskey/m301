@@ -45,6 +45,7 @@
 \newtheorem{rem}[thm]{Remark}
 \newtheorem{example}[thm]{Example}
 \newtheorem*{notes}{Notes and further reading}
+\newtheorem*{reading}{Reading}
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 \renewcommand{\theequation}{\arabic{section}.e\arabic{equation}}
@@ -64,72 +65,103 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Systems of linear equations and vectors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Based on ILA 5th, \S 2.1.
+\begin{reading}
+  Strang, ILA 5th, \S 2.1.
+\end{reading}
+
+What is the equation of a line? The most commonly taught version is $y=mx+b$, and there are many other correct answers to the question. However the \emph{standard form} of a line is $ax+by=c$. This is considered standard because it treats the two variables symmetrically. In this course we will look at generalizations of this simple type of equation.
 
 \begin{itemize}
-\item What is the equation of a line? Students may think of several answers, but the \emph{standard form} is $ax+by=c$. Why is it standard? It treats the variables symmetrically.
-\item In this course we will look at generalizations of this simple type of equation
-\item First we will consider the case when we have more than two variables. For example $ax+by+cz=d$. This is not the equation of a line (what is it?). But due to its similarity we still call it a \emph{linear equation}.
-\item Second we will consider the case when we have more than one equation. For example, $ax+by=c$; $dx+ey=f$. This is called a \emph{system of linear equations}.
-\item Let's look at several examples of simple problems which can be modeled by a system of linear equations.
-\item Example 1. Economics. The NYT reported that ``The Interview'' had two million online transactions, split between rentals and downloads. A rental costs \$6 and a download costs \$15. The total revenue was \$15 million. The NYT could not determine how many transactions were rentals and how many were sales. Can you help them?
-\[\systeme{r+s=2\text{ million},6r+15s=15\text{ million}}
-\]
-\item Example 2. Flows. Vehicles driving in each segment of a one-way grid are counted during a period of one hour. The results are shown in the figure.
+  \item We will consider equations with more than two variables $x,y$. For example if we want to have three variables $x,y,z$, then the analogous equation is $ax+by+cz=d$. Of course, this is not the equation of a line (what is it?). But due to its similarity we still call it a \emph{linear equation}.
+  \item We will consider situations when we have more than one equation. For example we can have the two equations true simultaneously: $\{ax+by=c;\ dx+ey=f\}$. We call this a \emph{system of linear equations}.
+\end{itemize}
+
+Let's look at a few examples of simple problems which can be modeled by a system of linear equations.
+
+\begin{example}[Economics]
+  The New York Times reported that the film ``The Interview'' had two million online sales, split between rentals and downloads. A rental costs \$6 and a download costs \$15. The total revenue was \$15 million. The NYT could not determine how many transactions were rentals and how many were sales. With a little work, we can set up a system of linear equations.
+  \[\systeme{r+s=2\text{ million},6r+15s=15\text{ million}}
+  \]
+\end{example}
+
+\begin{example}[Modeling flow]
+  Vehicles driving in each segment of a one-way grid are counted during a period of one hour. The results are shown in the figure.
   \begin{center}
     \begin{tikzpicture}[shorten <=2pt,shorten >=2pt,scale=1.5]
-      \draw[->] (0,1) -- node{$520$} (1,1);
-      \draw[->] (1,1) -- node{$w$} (2,1);
-      \draw[->] (2,1) -- node{$600$} (3,1);
+      \draw[->] (0,1) -- node[fill=white]{$520$} (1,1);
+      \draw[->] (1,1) -- node[fill=white]{$w$} (2,1);
+      \draw[->] (2,1) -- node[fill=white]{$600$} (3,1);
 
-      \draw[<-] (0,2) -- node{$610$} (1,2);
-      \draw[<-] (1,2) -- node{$y$} (2,2);
-      \draw[<-] (2,2) -- node{$640$} (3,2);
+      \draw[<-] (0,2) -- node[fill=white]{$610$} (1,2);
+      \draw[<-] (1,2) -- node[fill=white]{$y$} (2,2);
+      \draw[<-] (2,2) -- node[fill=white]{$640$} (3,2);
 
-      \draw[<-] (1,0) -- node{$480$} (1,1);
-      \draw[<-] (1,1) -- node{$z$} (1,2);
-      \draw[<-] (1,2) -- node{$450$} (1,3);
+      \draw[<-] (1,0) -- node[fill=white]{$480$} (1,1);
+      \draw[<-] (1,1) -- node[fill=white]{$z$} (1,2);
+      \draw[<-] (1,2) -- node[fill=white]{$450$} (1,3);
 
-      \draw[->] (2,0) -- node{$390$} (2,1);
-      \draw[->] (2,1) -- node{$x$} (2,2);
-      \draw[->] (2,2) -- node{$310$} (2,3);
+      \draw[->] (2,0) -- node[fill=white]{$390$} (2,1);
+      \draw[->] (2,1) -- node[fill=white]{$x$} (2,2);
+      \draw[->] (2,2) -- node[fill=white]{$310$} (2,3);
     \end{tikzpicture}
   \end{center}
-  Assume that for each intersection, the number of cars entering it is the same as the number of cars leaving it. What are the values of the unknowns?
+  Assume that for each intersection, the number of cars entering it is the same as the number of cars leaving it. What are the values of the unknowns? Again with a little work we can approach this using a system of linear equations.
   \[\begin{cases}x+640=y+310\\y+450=z+610\\z+520=w+480\\w+390=x+600\end{cases}
   \]
-\item Example 3. Trend lines. Given sampled data points, what is the equation of a trend line that best describes the overall behavior of the data? For example suppose you are measuring the change in a quantity over time. At time $t=2$ you measure $3$, at time $t=3$ you measure $5$, and at time $t=6$ you measure $6$.
+\end{example}
+
+\begin{example}[Best fit line]
+  Given sampled data points, what is the equation of a trend line that best describes the overall behavior of the data? For example suppose you are measuring the change in a quantity over time. At time $t=2$ you measure $3$, at time $t=3$ you measure $5$, and at time $t=6$ you measure $6$. We want to find the coefficients $m,b$ of a line $y=mx+b$ that best fits the data. After a lttle calculus, we arrive at the following.
   \[\systeme{49m+11b-57=0,11m+3b-14=0}
   \]
-\item Before we study how to solve these types of systems, let us visualize what is going on. Consider the example system
-  \[\systeme{x-2y=1,3x+2y=11}
-  \]
-\item The classical way to visualize this is by graphing the two lines and looking for the point where they intersect.
-  \begin{center}
-    \begin{tikzpicture}
-      \draw[gray!30,very thin,dashed] (-0.9,-0.9) grid (4.9,4.9);
-      \draw[->,thick] (-1,0)--(5,0);
-      \draw[->,thick] (0,-1)--(0,5);
-      \draw[domain=0:4] plot (\x,.5*\x-.5);
-      \draw[domain=1:4] plot (\x,11/2-3/2*\x);
-    \end{tikzpicture}
-  \end{center}
-\item However, another revealing way to visualize this system is to consider it as a \emph{single system} with \emph{vector coefficients}.
-  \[\begin{bmatrix}1\\3\end{bmatrix}x+\begin{bmatrix}-2\\2\end{bmatrix}y
-    =\begin{bmatrix}1\\11\end{bmatrix}
-  \]
-\item Note that we write our vectors vertically instead of horizontally, as one often does in calc 3.
-\item Recall that we scale vectors by lenghening and shortening them, and that we add vectors ``tail to tip''. Thus this system is asking, how many of the vector $(1,2)$ and how many of the vector $(-2,2)$ do we need to obtain $(1,11)$?
+\end{example}
+  
+Our short term goal will be to learn how to solve systems like these. But before we begin doing so, let's visualize systems and their solutions geometrically. Consider the following example system:
+\[\systeme{x-2y=1,3x+2y=11}
+\]
 
-  (figure)
-\item Either way the answer is $x=3$, $y=1$.
-\item Note that geogebra can be extremely helpful to visualize the row picture! It also shows the effect of elimination on the system.
-\end{itemize}
+The classical way to visualize the system and its solution is to graph the two equations and highlight the point or points where they intersect.
+\begin{center}
+  \begin{tikzpicture}
+    \draw[gray!30,very thin,dashed] (-0.9,-0.9) grid (4.9,4.9);
+    \draw[->,thick] (-1,0)--(5,0);
+    \draw[->,thick] (0,-1)--(0,5);
+    \draw[domain=0:4] plot (\x,.5*\x-.5) node[right]{$x-2y=1$};
+    \draw[domain=1:4] plot (\x,11/2-3/2*\x);
+    \node[left] at (1,4) {$3x+2y=11$};
+  \end{tikzpicture}
+\end{center}
+
+But since the system is linear, there is another very revealing way to visualize the system and its solutions. We will consider the system as a \emph{single equation} with \emph{vector coefficients}.
+\[\begin{bmatrix}1\\3\end{bmatrix}x+\begin{bmatrix}-2\\2\end{bmatrix}y
+  =\begin{bmatrix}1\\11\end{bmatrix}
+\]
+
+We should say a little bit about vectors. First, if you are coming from calculus, you may be used to writing vectors horizontally. Now we write them vertically in order to fit our two equations together. Next, recall that we can scale vectors by lenghening and shortening them by a scalar factor, and that we can add vectors ``tail to tip''.
+
+Viewed this way, the system is asking, how many of the vector $(1,3)$ and how many of the vector $(-2,2)$ do we need in order to obtain the vector $(1,11)$?
+
+\begin{center}
+  \begin{tikzpicture}[scale=.5]
+    \draw[gray!30,very thin,dashed] (-2.9,-0.9) grid (3.9,12.9);
+    \node[circle,fill,draw,inner sep=1.5,label=right:{$(1,11)$}] at (1,11) (tip) {};
+    \draw[->,thick] (-3,0)--(4,0);
+    \draw[->,thick] (0,-1)--(0,12);
+    \draw[->] (0,0)--(1,3) node[right]{$(1,3)$};
+    \draw[dashed,->] (0,0)--(3,9) node[right]{$3\cdot(1,3)$};
+    \draw[dashed,->] (3,9)--(tip);
+    \draw[->] (0,0)--(-2,2) node[left]{$(-2,2)$};
+    \draw[dashed,->] (-2,2)--(tip);
+  \end{tikzpicture}
+\end{center}
+
+In both the classical and vector views, the solution is $x=3$, $y=1$.
+
+% Note that geogebra can be extremely helpful to visualize the row picture! It also shows the effect of elimination on the system.
 
 \newpage
 \subsection*{Activity for \S \thesection}
