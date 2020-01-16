@@ -1,2 +1,4 @@
 title: Math 301, Spring 2020
 theme: jekyll-theme-modernist
+github:
+  is_project_page: false
