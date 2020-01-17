@@ -187,6 +187,59 @@ In both the classical and vector views, the solution is $x=3$, $y=1$.
 
 Based on ILA 5th, \S 2.2.
 
+In the previous class we argued using three examples that it is important to solve systems of linear equations. In this section we will address how to solve systems of linear equations. Of course, there are dozens of valid methods in existence, and no particular method is necessarily right or wrong. For example, many students solved for one variable in one equation, and then plugged the result into the second equation.
+
+In this class we will provide you with an efficient, deterministic method for solving systems of linear equations, called \emph{elimination}. You will be expected to be able to solve systems using this one prescribed method. There are many benefits to using the elimination method; it is efficient and it reveals valuable information about the system. Moreover if all humans and computers agree to use the same exact steps, we can do linear algebra harmoniously with one another and our machines.
+
+We will now illustrate the method with the simple example from the last class.
+
+\begin{example}
+  Consider the system
+  \[\systeme{x-2y=1,3x+2y=11}
+  \]
+  We begin by ``eliminating'' the $3x$ term. To do this we take the first equation minus three times the second equation, and replace the original second equation with the result. We notate this operation or step by $R_2-3R_1\to R_2$.
+  \[\systeme{x-2y=1,8y=8}
+  \]
+  The elimination is now done in one step. The system is \emph{triangular}, meaning that the only nonzero coefficients are on or above the diagonal. Moreover the new system is equivalent to the old system, in the sense that they have the same solutions.
+
+  Having finished elimination, the system can now be easily solved by \emph{back-substitution}. Here we use the last equation to solve for the last variable, the second-to-last to solve for the second-to-last, and so on if there are more equations. The solution is $x=3$, $y=1$.
+\end{example}
+
+In the previous example, there was only one step of elimination. For larger systems there will be several steps.
+
+\begin{example}
+  Consider the system
+  \[\systeme{2x+4y-2z=2,4x+9y-3z=8,-2x-3y+7z=10}
+  \]
+  Begin by using the upper-left term $2x$ as a \emph{pivot} to eliminate the two terms below it. To do this, we will perform the two operations $R_2-2R_1\to R_2$ and $R_3+1R_1\to R_3$.
+  \[\systeme{2x+4y-2z=2,y+z=4,y+5z=12}
+  \]
+  Next we move to the second column and use the $blah y$ as a pivot to eliminate the term below it. This time we perform the operation $R_3-1R_2\to R_3$.
+  \[\systeme{2x+4y-2z=2,y+z=4,4z=8}
+  \]
+  The system is now upper triangular, and we can back-solve starting with the last equation and the last variable. The solution is $-1,2,2$.
+\end{example}
+
+There is one important case when the elimination steps described above cannot be used. This occurs when the term we want to use as a pivot is $0$. To get around this issue, we exchange the order of the equations.
+
+\begin{example}
+  In the following system, the first equation has $0x$ in its pivot location, so we will need to exchange it with the second row. We denote this operation $R_1\leftrightarrow R_2$.
+  \[\systeme{5y-7z=2,2x+y+z=1,x-y+z=3}
+  \]
+\end{example}
+
+\begin{example}
+  In the following system, there are not as many pivots as there are variables. In this case we can still perform elimination, but we cannot back-solve to get a unique solution. In fact the system has infinitely many solutions.
+  \[\systeme{x-y+2z=1,2x+y-z=-1,5x-2y+5z=2}
+  \]
+\end{example}
+
+\begin{example}
+  In the following system, there are once again not as many pivots as there are variables. In this case the system has no solution.
+  \[\systeme{x-y+2z=1,2x-2y+z=3,-x+y-z=-1}
+  \]
+\end{example}
+
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
