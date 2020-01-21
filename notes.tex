@@ -269,6 +269,61 @@ There is one important case when the elimination steps described above cannot be
 
 Based on ILA 5th, \S 2.4.
 
+When writing systems of linear equations, we rewrite the same variable over and over again. Starting in the next class we will simplify our notation by writing the coefficients as a matrix and the variables as a vector.
+
+However before we dive headlong into new notation, we need to recall the concepts of matrix, vector, and the matrix-times-vector operation. For example, consider the following system.
+\[\systeme{3x-2y+z=4,2x+2y-z=0,-x+y+z=1}
+\]
+The matrix of coefficients of the left-hand-side is
+\[\begin{bmatrix}3&-2&1\\2&2&-1\\-1&1&1\end{bmatrix}
+\]
+The vector of variables is
+\[\begin{bmatrix}x\\y\\z\end{bmatrix}
+\]
+The vector of scalars on the right-hand-side is
+\[\begin{bmatrix}4\\0\\1\end{bmatrix}
+\]
+This system can be written in matrix vector form as follows:
+\[\begin{bmatrix}3&-2&1\\2&2&-1\\-1&1&1\end{bmatrix}
+  \begin{bmatrix}x\\y\\z\end{bmatrix}
+  =\begin{bmatrix}4\\0\\1\end{bmatrix}
+\]
+
+Here we are relying on the matrix-times-vector operation. Here if $A$ is a matrix and $\mathbf{v}$ is a vector (where the number of columns of $A$ is equal to the number of entries of $\mathbf{v}$), then $A\mathbf{v}$ means to multiply each row of $A$ by  $\mathbf{v}$ in the dot product fashion to obtain a new vector $A\mathbf{v}$. For instance
+\[\begin{bmatrix}2&3\\-1&2\end{bmatrix}
+  \begin{bmatrix}5\\7\end{bmatrix}
+  =\begin{bmatrix}(2)(5)+3(7)\\(-1)(5)+(2)(7)\end{bmatrix}
+  =\begin{bmatrix}31\\9\end{bmatrix}
+\]
+
+Matrices will be an important feature throughout this course, they are not only a convenient way to represent the coefficients of a system of linear equations. For example, recalling that vectors scaled or added together, matrices can be scaled or added together also. For example:
+\[\begin{bmatrix}...\end{bmatrix}
+\]
+\[\begin{bmatrix}...\end{bmatrix}
+  + \begin{bmatrix}...\end{bmatrix}
+  = \begin{bmatrix}...\end{bmatrix}
+\]
+
+Unlike vectors, matrices can also be multiplied together. Here each row of the first matrix is multiplied by each column of the second matrix, sum-of-products style.
+\[\begin{bmatrix}...\end{bmatrix}
+  \begin{bmatrix}...\end{bmatrix}
+  = \begin{bmatrix}...\end{bmatrix}
+\]
+
+For nonsquare matrices, this doesn't always make sense. For it to work, the number of columns of the first matrix must match the number of rows of the second matrix.
+\[\begin{bmatrix}...\end{bmatrix}
+  \begin{bmatrix}...\end{bmatrix}
+  = \begin{bmatrix}...\end{bmatrix}
+\]
+
+Returning to square matrices, the presence of the additon and multiplication operations means that we can do \emph{matrix algebra}. It is natural to ask whether matrxi algebra obeys the same laws as traditional algebra: associativity, commutativity, and distributivity.
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item
+\end{activity}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
