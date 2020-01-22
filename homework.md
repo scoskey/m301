@@ -4,6 +4,21 @@ title: Math 301, Spring 2020
 
 # Math 301 Homework
 
+## Homework 2, due Thursday, January 30 at 12pm
+
+1. Let $A$ be the matrix below. Find $A^2$ and $A^3$. What will $A^{100}$ be?  
+  $\begin{bmatrix}1&0&0\\\\0&1&0\\\\0&a&1\end{bmatrix}$
+2. Consider the matrices $A$ and $B$ below. Compute both $A^2+2AB+B^2$ and $(A+B)^2$. Are they the same? If not, what is the correct rule?  
+   $A=\begin{bmatrix}1&2\\\\0&0\end{bmatrix},\qquad
+    B=\begin{bmatrix}1&0\\\\3&0\end{bmatrix}$
+3. Decide whether the following statements are true or false. If true, explain why, and if false give an example showing that it is false.
+  * $A^2$ only makes sense if $A$ is a square matrix
+  * If $AB$ and $BA$ both make sense, then $A$ and $B$ are square matrices.
+  * If $AB$ and $BA$ both make sense, then $AB$ and $BA$ are square matrices.
+  * If $AB=B$ then $A$ is the identity matrix.
+4. ... tba
+  
+
 ## Homework 1, due Thursday, January 23 at 12pm
 
 1. Solve the system of linear equations using any method.
