@@ -348,6 +348,85 @@ Returning to square matrices, the presence of the additon and multiplication ope
 
 Based on ILA 5th, \S 2.3.
 
+We have previously seen that a system of linear equations can be viewed as a single matrix equation $A\mathbf{x}=\mathbf{b}$. For example, consider the following system
+\[\systeme{2x+4y-2z=2,4x+9y-3z=8,-2x-3y+7z=10}
+\]
+We can rewrite it as
+\[\begin{bmatrix}2&4&-2\\4&9&-3\\-2&-3&7\end{bmatrix}
+  \begin{bmatrix}x\\y\\z\end{bmatrix}
+  =\begin{bmatrix}2\\8\\10\end{bmatrix}
+\]
+
+In this section we will see that the row elimination process is just multiplying both sides by a matrix.
+
+\begin{example}
+  Continuing the example from above, the first step of elimination will be $R_2-2R_1\to R_2$. We can carry this out by multiplying both sides (on the left) by the ``elimination matrix''
+  \[\begin{bmatrix}1&&\\-2&1&\\&&1\end{bmatrix}
+  \]
+  [Carry this out]
+\end{example}
+
+As we have seen, every step of row elimination has a corresponding elimination matrix. Here are the rules
+\begin{itemize}
+  \item The step $R_i+\ell R_j\to R_i$ has the matrix with $1$'s down the diagonal and an $\ell$ in position $(i,j)$.
+  \item The step $R_i\leftrightarrow R_j$ has a matrix with $1$'s down the diagonal except row $i$ has a $1$ in position $j$ and row $j$ has a $1$ in position $i$.
+  \item The (so far unused) step $kR_i\to R_i$ has a matrix with $1$'s down the diagonal except for a $k$ in position $(i,i)$.
+\end{itemize}
+This means elimination can be viewed as successive multiplication by elimination matrices:
+\[E_k\cdots E_2E_1A\mathbf{x}=E_k\cdots E_2E_1\mathbf{b}
+\]
+Until the left hand side is in its echelon (or upper triangular) form:
+\[U\mathbf{x}=\mathbf{b}_{\text{new}}
+\]
+
+[Complete the above example, keeping track of the elimination matrices.]
+
+\begin{example}
+  Consider the matrix equation:
+  \[\begin{bmatrix}2&3&1\\-2&-3&-2\\4&1&2\end{bmatrix}
+    \begin{bmatrix}x\\y\\z\end{bmatrix}
+    =\begin{bmatrix}6&-7&7\end{bmatrix}
+  \]
+\end{example}
+
+Note that since we do the same operation to the left and right sides, we often write them both in one combined \emph{augmented matrix}. This is the final and most compact way to write a system of linear equations. 
+
+\begin{example}
+  Consider the system:
+  \[\systeme{x-2y+2z=1,-3x+y+z=-1,-2x+2y+z=1}
+  \]
+  We can write
+  \[\begin{bmatrix}
+      1&-2&2&\vline&1\\
+      -3&1&1&\vline&-1\\
+      -2&2&1&\vline&1
+    \end{bmatrix}
+  \]
+  [Solve]
+\end{example}
+
+Since the augmented matrix hides the variables, it is easy to forget that it represents a system of linear equations. If you are confused, try labeling each column with the corresponding variable name!
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item Write down the $4\times4$ matrices corresponding to the row operations:
+    \begin{enumerate}
+    \item $R_2-5R_1\rightarrow R_2$
+    \item $R_4+7R_2\rightarrow R_4$
+    \item $R_2\leftrightarrow R_4$
+    \end{enumerate}
+  \item For each system of equations, write the corresponding matrix version of the system and use elimination to solve it.  In each step, keep note of the elimination matrices you used.
+    \begin{enumerate}
+    \item \systeme{2x-3y=5,x-y=2}\vspace{.3in}
+    \item \systeme{v+2w=0,u-v-w=-1,2u+v=4}
+    \end{enumerate}
+  \item Consider the $3\times3$ row operations $R_2-2R_1\rightarrow R_2$ (op1) and $R_3+R_1\rightarrow R_3$ (op2). Write down an elimination matrix for each operation. Can you find a single matrix which performs both operations together?
+
+  Now add the third operation $R_3+2R_2\rightarrow R_3$ (op3). Can you find a single matrix which performs all three operations in order?
+\end{activity}
+
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
