@@ -360,10 +360,19 @@ We can rewrite it as
 In this section we will see that the row elimination process is just multiplying both sides by a matrix.
 
 \begin{example}
-  Continuing the example from above, the first step of elimination will be $R_2-2R_1\to R_2$. We can carry this out by multiplying both sides (on the left) by the ``elimination matrix''
+  Continuing the example from above, the first step of elimination will be $R_2-2R_1\to R_2$. We can carry this out by multiplying both sides (on the left) by an ``elimination matrix'':
   \[\begin{bmatrix}1&&\\-2&1&\\&&1\end{bmatrix}
+    \begin{bmatrix}2&4&-2\\4&9&-3\\-2&-3&7\end{bmatrix}
+    \begin{bmatrix}x\\y\\z\end{bmatrix}
+    =\begin{bmatrix}1&&\\-2&1&\\&&1\end{bmatrix}
+    \begin{bmatrix}2\\8\\10\end{bmatrix}
   \]
-  [Carry this out]
+  Resulting in:
+  \[\begin{bmatrix}2&4&-2\\0&1&1\\-2&-3&7\end{bmatrix}
+    \begin{bmatrix}x\\y\\z\end{bmatrix}
+    =\begin{bmatrix}2\\4\\10\end{bmatrix}
+  \]
+  Thus carrying out $R_2-2R_1\to R_2$.
 \end{example}
 
 As we have seen, every step of row elimination has a corresponding elimination matrix. Here are the rules
@@ -379,13 +388,10 @@ Until the left hand side is in its echelon (or upper triangular) form:
 \[U\mathbf{x}=\mathbf{b}_{\text{new}}
 \]
 
-[Complete the above example, keeping track of the elimination matrices.]
-
 \begin{example}
-  Consider the matrix equation:
-  \[\begin{bmatrix}2&3&1\\-2&-3&-2\\4&1&2\end{bmatrix}
-    \begin{bmatrix}x\\y\\z\end{bmatrix}
-    =\begin{bmatrix}6&-7&7\end{bmatrix}
+  Continuing the previous example, we next apply the elimination matrices
+  \[\begin{bmatrix}1\\&1\\1&&1\end{bmatrix},
+    \begin{bmatrix}1\\&1\\&-1&1\end{bmatrix}
   \]
 \end{example}
 
@@ -406,6 +412,15 @@ Note that since we do the same operation to the left and right sides, we often w
 \end{example}
 
 Since the augmented matrix hides the variables, it is easy to forget that it represents a system of linear equations. If you are confused, try labeling each column with the corresponding variable name!
+
+So far we have only used the first type of elimination step, and the first type of elimination matrix. The following example has a row exchange.
+
+\begin{example}
+  \[\begin{bmatrix}2&3&1&\vline&6\\-2&-3&-2&\vline&-7\\4&1&2&\vline&7
+    \end{bmatrix}
+  \]
+\end{example}
+
 
 \newpage
 \subsection*{Activity for \S \thesection}

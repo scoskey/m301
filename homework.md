@@ -16,8 +16,19 @@ title: Math 301, Spring 2020
   * If $AB$ and $BA$ both make sense, then $A$ and $B$ are square matrices.
   * If $AB$ and $BA$ both make sense, then $AB$ and $BA$ are square matrices.
   * If $AB=B$ then $A$ is the identity matrix.
-4. ... tba
-  
+4. For each system of equations, write the corresponding augmented matrix and use elimination to solve it.  In each step, keep note of the elimination matrices you used.
+  * $\set{-3x+4y=-11;\ 3x+5y=20}$
+  * $\set{-x-2y+z=-4;\ 2x+4y+3z=3; 3y+2z=1}$
+5. What $3\times3$ matrix $E$ multiplies a vector $(x,y,z)$ to give $(x,y+z,2y)$? (Note: I type my vectors horizontally to save vertical space on the page only. The question will be easier if you write them vertically.)
+6. Apply elimination to the augmented matrix. For what value of $c$ does the system have a solution?  
+  $\begin{bmatrix}1 & 2 & 3 &\vert &1 \\\\ 2 & 3 & 4 & \vert & 2 \\\\ 4 & 7 & 10 & \vert & c\end{bmatrix}$
+7. Write down the row operations corresponding to the elimination matrices:
+  * $\begin{bmatrix}1 & 0 & 0\\\\ 3 & 1 & 0\\\\ 0 & 0 & 1\end{bmatrix}$
+  * $\begin{bmatrix}1 & 2 & 0\\\\ 0 & 1 & 0\\\\ 0 & 0 & 1\end{bmatrix}$
+  * $\begin{bmatrix}1 & 0 & 0\\\\ 0 & 0 & 1\\\\ 0 & 1 & 0\end{bmatrix}$
+8. Write down the elimination matrix that *undoes* the affect of the given elimination matrix.
+  * $\begin{bmatrix}1&0&0\\\\0&1&0\\\\3&0&1\end{bmatrix}$
+  * $\begin{bmatrix}1&0&0\\\\-3&1&0\\\\4&0&1\end{bmatrix}$ (this is a double elimination matrix which performs two operations)
 
 ## Homework 1, due Thursday, January 23 at 12pm
 
