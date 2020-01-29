@@ -531,14 +531,15 @@ We close this section with the really cool part. Suppose the matrix $A$ models a
   \[\begin{bmatrix}1&1&1\\2&4&5\\0&4&0\end{bmatrix}
   \]
   \begin{enumerate}
-    \item Use elimination to put $A$ into upper triangular form $U$. Keep track of the elimination matrices $E_1,E_2,E_3$.
+    \item Use elimination to put $A$ into upper triangular form $U$. Keep track of the elimination matrices $E_1,E_2,E_3$. (Note in this case $E_2$ is just the identity.)
+    % Consider not having the 0 entry, $E_2$ doesn't have to be the identity
     \item Write the inverse matrices $E_1^{-1},E_2^{-1},E_3^{-1}$ that undo the elimination matrices.
     \item Find the combined matrix $L=E_1^{-1}E_2^{-1}E_3^{-1}$.
     \item Write $A=LU$ and confirm that it is true.
     \item Consider the system
     \[\systeme{x+y+z=1,2x+4y+5z=5/2,4y=-2}
     \]
-    Use your factorization $A=LU$ to write two systems, $L\mathbf{c}=\mathbf{b}$ and $U\mathbf{x}=\mathbf{c}$.
+    Use your factorization $A=LU$ from part (d) to write two systems, $L\mathbf{c}=\mathbf{b}$ and $U\mathbf{x}=\mathbf{c}$.
     \item Solve the system $L\mathbf{c}=\mathbf{b}$ by forth-solving. Solve the system $U\mathbf{x}=\mathbf{c}$ by back-solving. Check that your solution for $\mathbf{x}$ is correct by plugging it into the original system $A\mathbf{x}=\mathbf{b}$.
   \end{enumerate}
   % \item Consider the matrix
