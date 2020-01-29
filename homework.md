@@ -4,6 +4,23 @@ title: Math 301, Spring 2020
 
 # Math 301 Homework
 
+## Homework 3, due Thursday, February 6 at 12pm
+
+1. Factor the following matrices into $LU$ form.
+  * $\begin{bmatrix}2&-3\\\\1&-3\end{bmatrix}$
+  * $\begin{bmatrix}1&0&1\\\\2&2&2\\\\3&4&5\end{bmatrix}$
+2. Use your decomposition from the previous problem to solve each system. (Do not use elimination again! Instead rewrite each system as two triangular systems and use forth-solving and back-solving.)
+  * $\set{x+z=4,\ 2x+2y+2z=4,\ 3x+4y+5z=6}$
+  * $\set{x+z=2,\ 2x+2y+2z=6,\ 3x+4y+5z=14}$
+3. Factor the *tridiagonal* matrix $A$ into $A = LU$. Do you observe anything special about the solution?
+  $A=\begin{bmatrix}2 & 1 & 0 \\\\ 1 & 2 & 1 \\\\ 0 & 1 & 2\end{bmatrix}$
+4. Consider a matrix $A$ which is already lower triangular:
+  $A=\begin{bmatrix}1&0&0\\\\a&1&0\\\\b&c&1\end{bmatrix}$
+  * What are the elimination matrices $E\_1$, $E\_2$, $E\_3$ that reduce $A$ to upper triangular form?
+  * What is the product of the elimination matrices $E=E\_3E\_2E\_1$?
+  * What are $L$ and $U$ in this case?
+5. ... tba
+
 ## Homework 2, due Thursday, January 30 at 12pm
 
 1. Let $A$ be the matrix below. Find $A^2$ and $A^3$. What will $A^{100}$ be?  
