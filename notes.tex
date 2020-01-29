@@ -460,6 +460,97 @@ So far we have only used the first type of elimination step, and the first type 
 
 Based on ILA 5th, \S 2.6.
 
+We begin by recalling the method of elimination matrices from the previous section. Given a system of linear equations, $A\mathbf{x}=\mathbf{b}$ we left-multiply the equation by a sequence of elmination matrices $E_i$ as follows.
+\[E_k\cdots E_2E_1A\mathbf{x}=E_k\cdots E_2E_1\mathbf{b}
+\]
+At the end of the process, the left hand side is in its echelon (or upper triangular) form. In other words, we write the above equation as
+\[U\mathbf{x}=E_k\cdots E_2E_1\mathbf{b}
+\]
+
+In this section we will use matrix algebra to ``divide'' the $E_i's$ back over to the left-hand side. While division doesn't necessarily make sense in matrix algebra, it turns out that the elementary matrices $E_i$ always have an ``inverse matrix'' $E_i^{-1}$ which \emph{undoes} the effect of $E_i$. For example, the following matrices undo one another.
+\[E=\begin{bmatrix}1\\3&1\end{bmatrix},\quad
+  E^{-1}=\begin{bmatrix}1\\-3&1\end{bmatrix}
+\]
+This allows us to rewrite the previous equation as
+\[E_1^{-1}E_2^{-1}\cdots E_k^{-1}U\mathbf{x}=\mathbf{b}
+\]
+
+For the rest of this section, let's assume there are \emph{no row exchanges} needed in the elimination. Then all of the matrices $E_i^{-1}$ are \emph{lower triangular}, meaning all entries above the main diagonal are $0$. We thus arrive at the following conclusion. We can \emph{factor} $A$ as a product $LU$ and write the original system as
+\[LU\mathbf{x}=\mathbf{b}
+\]
+where $L=E_1^{-1}E_2^{-1}\cdots E_k^{-1}$ and $U$ is the eliminated matrix.
+
+There are two reasons to do this. First, just as in ordinary arithmetic, it is often useful to factor something as a product of simpler things. Second, it shows the system is a composition of two triangular systems, which are much easier to solve than general systems.
+
+\begin{example}
+  Factor the matrix $A=LU$.
+  \[A=\begin{bmatrix}2&4&2\\1&5&2\\4&-1&9\end{bmatrix}
+  \]
+  The elimination matrices are
+  \[E_1=\begin{bmatrix}1\\-\frac12&1\\&&1\end{bmatrix},\quad
+    E_2=\begin{bmatrix}1\\&1\\-2&&1\end{bmatrix},\quad
+    E_3=\begin{bmatrix}1\\&1\\&3&1\end{bmatrix}
+  \]
+  The inverse matrices are
+  \[E_1^{-1}=\begin{bmatrix}1\\\frac12&1\\&&1\end{bmatrix}
+    E_2^{-1}=\begin{bmatrix}1\\&1\\2&&1\end{bmatrix}
+    E_3^{-1}=\begin{bmatrix}1\\&1\\&-3&1\end{bmatrix}
+  \]
+  We can combine these together to get $L$. The final answer is
+  \[A=\begin{bmatrix}1&&\\\frac12&1&\\2&-3&1\end{bmatrix}
+    \begin{bmatrix}2&4&2\\&3&1\\&&8\end{bmatrix}
+  \]
+  Finally we can confirm that $A=LU$.
+\end{example}
+
+Next if we have a factored system $LU\mathbf{x}=\mathbf{b}$ we can use the substitution $\mathbf{c}=U\mathbf{x}$ to break it into two triangular systems: $L\mathbf{c}=\mathbf{b}$ and then $U\mathbf{x}=\mathbf{c}$. We can solve the first using ``forth-solving'' and the the second using back-solving.
+
+\begin{example}
+  Consider the system
+  \[\systeme{2x+4y+2z=10,x+5y+2z=11,4x-y+9z=2}
+  \]
+  By the work we have done previously, the system can be broken into two:
+  \[\systeme{c=10,\frac12c+d=11,2c-3d+e=2}
+    \qquad\text{and}\qquad
+    \systeme{2x+4y+2z=c,3y+z=d,8z=e}
+  \]
+  The first can easily be solved forwards with solution $c=10$, $d=6$, $e=0$. We then plug these values into the second to solve backwards with solution $x=1$, $y=2$, $z=0$.
+\end{example}
+
+We close this section with the really cool part. Suppose the matrix $A$ models a given phenomenon, and you want to solve $A\mathbf{x}=\mathbf{b}$ over and over again for many different $\mathbf{b}$'s. If we had to perform elimination each time, we would be spending $O(n^3)$ operations each time. If on the other hand we factor $A=LU$ once, then we can reduce every future instance to backsolving twice, and this takes only $O(n^2)$ operations!
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item Let $A$ be the following matrix.
+  \[\begin{bmatrix}2&-3\\4&3\end{bmatrix}
+  \]
+  Find the elimination matrix $E$ that puts $A$ in upper triangular form $U$. Let $L$ be the inverse matrix $E^{-1}$ that ``undoes'' $E$. Write $A=LU$ and confirm that it is true.
+  \item Let $A$ be the following matrix.
+  \[\begin{bmatrix}1&1&1\\2&4&5\\0&4&0\end{bmatrix}
+  \]
+  \begin{enumerate}
+    \item Use elimination to put $A$ into upper triangular form $U$. Keep track of the elimination matrices $E_1,E_2,E_3$.
+    \item Write the inverse matrices $E_1^{-1},E_2^{-1},E_3^{-1}$ that undo the elimination matrices.
+    \item Find the combined matrix $L=E_1^{-1}E_2^{-1}E_3^{-1}$.
+    \item Write $A=LU$ and confirm that it is true.
+    \item Consider the system
+    \[\systeme{x+y+z=1,2x+4y+5z=5/2,4y=-2}
+    \]
+    Use your factorization $A=LU$ to write two systems, $L\mathbf{c}=\mathbf{b}$ and $U\mathbf{x}=\mathbf{c}$.
+    \item Solve the system $L\mathbf{c}=\mathbf{b}$ by forth-solving. Solve the system $U\mathbf{x}=\mathbf{c}$ by back-solving. Check that your solution for $\mathbf{x}$ is correct by plugging it into the original system $A\mathbf{x}=\mathbf{b}$.
+  \end{enumerate}
+  % \item Consider the matrix
+  % \[A=\begin{bmatrix}1&0&1\\2&2&2\\3&4&5\end{bmatrix}
+  % \]
+  % \begin{enumerate}
+  %   \item Find the three elimination matrices $E_1$, $E_2$, $E_3$ that put $A$ into upper triangular form.
+  %   \item What are $L$ and $U$ for this matrix?
+  %   \item Multiply the matrices from part (a) together in reverse order to get a single matrix $E=E_3E_2E_1$.
+  %   \item What is $EA$? What is $EL$? What is $LE$?
+  % \end{enumerate}
+\end{activity}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
