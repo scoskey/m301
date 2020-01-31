@@ -19,7 +19,16 @@ title: Math 301, Spring 2020
   * What are the elimination matrices $E\_1$, $E\_2$, $E\_3$ that reduce $A$ to upper triangular form?
   * What is the product of the elimination matrices $E=E\_3E\_2E\_1$?
   * What are $L$ and $U$ in this case?
-5. ... tba
+5. Find the inverse of each matrix, or show that it is singular.
+  * $\begin{bmatrix}e&2e\\\\3e&4e\end{bmatrix}$
+  * $\begin{bmatrix}1&3\\\\2&7\end{bmatrix}$
+  * $\begin{bmatrix}1&-1&1\\\\1&1&1\\\\1&2&4\end{bmatrix}$
+6. If $A=\begin{bmatrix}1&1\\\\1&1\end{bmatrix}$ find two matrices $B,C$ such that $AB=AC$ but $B\neq C$. If $A$ is invertible, explain why this would be impossible.
+7. Find invertible matrices $A$ and $B$ such atat $A+B$ is singular. Find singular matrices $A$ and $B$ such that $A+B$ is invertible.
+8. Find three values of $c$ that make the following matrix singular. Explain why it is singular in each case.  
+  $A=\begin{bmatrix}2&c&c\\\\c&c&c\\\\8&7&c\end{bmatrix}$
+9. Use elimination to reduce the following matrix to upper triangular form. In your work you may assume that $a\neq 0$ and $a\neq b$. Considering the three pivots, explain why the matrix is invertible.  
+  $A=\begin{bmatrix}a&b&b\\\\a&a&b\\\\a&a&a\end{bmatrix}$
 
 ## Homework 2, due Thursday, January 30 at 12pm
 
@@ -37,7 +46,7 @@ title: Math 301, Spring 2020
   * $\set{-3x+4y=-11;\ 3x+5y=20}$
   * $\set{-x-2y+z=-4;\ 2x+4y+3z=3; 3y+2z=1}$
 5. What $3\times3$ matrix $E$ multiplies a vector $(x,y,z)$ to give $(x,y+z,2y)$? (Note: I type my vectors horizontally to save vertical space on the page only. The question will be easier if you write them vertically.)
-6. Apply elimination to the augmented matrix. For what value of $c$ does the system have a solution?  
+6. Apply elimination to the augmented matrix. For what value of $c$ does the system have solutions?  
   $\begin{bmatrix}1 & 2 & 3 &\vert &1 \\\\ 2 & 3 & 4 & \vert & 2 \\\\ 4 & 7 & 10 & \vert & c\end{bmatrix}$
 7. Write down the row operations corresponding to the elimination matrices:
   * $\begin{bmatrix}1 & 0 & 0\\\\ 3 & 1 & 0\\\\ 0 & 0 & 1\end{bmatrix}$

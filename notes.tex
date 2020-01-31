@@ -560,6 +560,98 @@ We close this section with the really cool part. Suppose the matrix $A$ models a
 
 Based on ILA 5th, \S 2.5.
 
+In the previous section we have seen that while we cannot necessarily divide matrices, elimination matrices $E$ do have an ``inverse'' $E^{-1}$ which undo the effect of $E$. In this section we will see that most square matrices $A$ have an inverse $A^{-1}$ which undoes multiplication by $A$.
+
+The official definition of $A^{-1}$ is that it is a multiplicative inverse for $A$. First recall that $I$ denotes the identity matrix: the matrix with the same size as $A$, but with $1$'s down the diagonal and $0$'s everywhere else. The identity matrix is the multiplicative identity which means that $AI=IA=A$.
+
+\begin{defn}
+  If $A$ is any square matrix, its \emph{inverse} is the matrix $A^{-1}$ such that $AA^{-1}=A^{-1}A=I$.
+\end{defn}
+
+\begin{example}
+  We have already seen that elimination matrices $A$ have an inverse. Let $A$ be the following matrix
+  \[A=\begin{bmatrix}1&0\\3&1\end{bmatrix}
+  \]
+  Then we have
+  \[A^{-1}=\begin{bmatrix}1&0\\-3&1\end{bmatrix}
+  \]
+  We can verify that $AA^{-1}=I$.
+\end{example}
+
+\begin{example}
+  Other types of matrices have inverses too.
+  \[A=\begin{bmatrix}2&5\\1&3\end{bmatrix},\qquad
+    A^{-1}=\begin{bmatrix}3&-5\\-1&2\end{bmatrix}
+  \]
+  Check that the two matrices are inverses.
+\end{example}
+
+
+Not every matrix has an inverse. In the rest of the section we will talk about how to find out if a matrix has an inverse, and if it does, how to calculate what the inverse is.
+
+Recall that we can use elimination matrices to make a given matrix upper triangular:
+\[E_k\cdots E_1A=U
+\]
+This zeros out the entries below the pivots. The idea is to \emph{continue elimination} to zero out the entries above the pivots as well. We can also ensure the pivots themselves are all $1$ leaving only the identity matrix.
+\[E_m\cdots E_k\cdots E_1A=I
+\]
+The inverse of $A$ is now observed to be the product of all the elimination matrices.
+
+In order to keep a running track of the product of the elimination matrices, we begin with a (super) augmented matrix containing $A$ and the identity $I$. We then perform a side-by-side elimination.
+\begin{align*}
+  [A&\mid I]\\
+  [E_1A&\mid E_1]\\
+    &\vdots\\
+  [E_m\cdots E_1A&\mid E_m\cdots E_1]\\
+  [I&\mid A^{-1}]
+\end{align*}
+When the left side is finally transformed to $I$, the inverse appears in the right side. In order to perform this reduction, we need to eliminate entries below \emph{and above} the pivots, and finally clear the pivots to $1$.
+
+\begin{example}
+  Let $A$ be the following matrix.
+  \[A=\begin{bmatrix}1&4&3\\-1&-2&0\\2&2&3\end{bmatrix}
+  \]
+  Begin with the matrix
+  \[\begin{bmatrix}
+    1&4&3&\vline&1\\
+    -1&-2&0&\vline&&1\\
+    2&2&3&\vline&&&1
+    \end{bmatrix}
+  \]
+  The elimination results in
+  \[\begin{bmatrix}
+    1&&&\vline&-\frac12&-\frac12&\frac12\\
+    &1&&\vline&\frac14&-\frac14&-\frac14\\
+    &&1&\vline&\frac16&\frac12&\frac16
+    \end{bmatrix}
+  \]
+  We may confirm this is $A^{-1}$ by multiplying $AA^{-1}$ and getting $I$.
+\end{example}
+
+It is important to note that not every matrix $A$ has an inverse matrix! First of all the matrix has to be square. Next, in order for the method to work, we have to have a (nonzero) pivots in every diagonal position. A square matrix with no inverse is called \emph{singular}.
+
+\begin{example}
+  The following matrix is singular.
+  \[\begin{bmatrix}1&2&3\\1&2&4\\2&4&7\end{bmatrix}
+  \]
+\end{example}
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item Find the inverse of each matrix, or else show that it is singular.
+  \begin{enumerate}
+    \item $\begin{bmatrix}1&2\\3&4\end{bmatrix}$
+    \item $\begin{bmatrix}\frac12&3\\2&12\end{bmatrix}$
+    \item $\begin{bmatrix}1&0&3\\2&3&4\\1&0&2\end{bmatrix}$
+  \end{enumerate}
+  \item Find the inverse of the matrix (treat the letters $a,b$ as variables):
+  \[\begin{bmatrix}1&a&0\\0&1&b\\0&0&1\end{bmatrix}
+  \]
+  \item Assume $A$ is an invertible $n\times n$ matrix and consider the system $A\mathbf x=\mathbf b$. Is it possible for the system to have no solution? Is it possible for the system to have infinitely many solutions?
+\end{activity}
+
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
