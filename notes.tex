@@ -710,9 +710,12 @@ Thus the column space of $A$ is precisely the set of of all vectors $\mathbf{b}$
   \[A=\begin{bmatrix}1&0\\4&3\\2&3\end{bmatrix}
   \]
   The column space of $A$ is a plane consisting of all combintations of the two column vectors. We can test whether the vector $(-1,-1,1)$ lies in the column space of $A$ by deciding whether the system is consistent:
-  \[A\mathbf{x}=\begin{bmatrix}-1\\-1\\1\end{bmatrix}
+  \[\begin{bmatrix}1&0&\vline&-1\\4&3&\vline&-1\\2&3&\vline&1\end{bmatrix}
   \]
-  [Calculate][Figure showing the concept]
+  Elimination yields
+  \[\begin{bmatrix}1&0&\vline&-1\\0&3&\vline&3\\0&0&\vline&0\end{bmatrix}
+  \]  
+  Thus the vector $(-1,-1,1)$ lies in the column space of $A$, as witnessed by the values $(x,y)=(-1,1)$.
 \end{example}
 
 In the above example we checked whether a single vector $\mathbf{b}$ is in the column space of $A$. More generally we can use algebra to decide which vectors $\mathbf{b}$'s are in the column space of $A$.
