@@ -660,6 +660,94 @@ It is important to note that not every matrix $A$ has an inverse matrix! First o
 
 Based on ILA 5th, \S 3.1.
 
+In previous sections we have seen how to use elimination to solve a system if it has a unique solution, and also how to tell if the system has zero or infinitely many solutions. In this section we will explore the theory behind whether a system does or doesn't have any solutions.
+
+To begin, we have to understand a little more about vectors. Recall that the key fact about vectors is that they can be scaled and added.
+
+\begin{defn}
+  A \emph{vector space} is any collection of mathematical objects that may be scaled and added.
+\end{defn}
+
+For example, let $\RR^n$ denote the space of real vectors with $n$ many components. Thus $\RR^1$ is the real line, $\RR^2$ is the Euclidean plane, $\RR^3$ is real $3$-space, and so on. Since we have seen that real vectors may be added and scaled, $\RR^n$ is a vector space. 
+
+As an aside, other examples of vector spaces include polynomials, continuous functions, differentiable functions, matrices, and so on. But for this class we only care about the vector spaces $\RR^n$, and occasionally about $\mathbb C^n$.
+
+Well that is not exactly true. The spaces $\RR^n$ also contain interesting subspaces, and these are what we will need to study to better understand when matrix equations have solutions.
+
+In order to explain what a subspace is, first note that if $\textbf{v}_1,\ldots,\textbf{v}_k$ are any vectors then a \emph{combination} of $\textbf{v}_1,\ldots,\textbf{v}_k$ is any vector that can be obtained by scaling and adding them.
+
+\begin{defn}
+  A \emph{subspace} of $\RR^n$ is a set of vectors $S$ with the property that all combinations of vectors in $S$ also lie in $S$.
+\end{defn}
+
+Though this definition may seem technical, it turns out that all subspaces of $\RR^n$ have the shape of a point, line, plane, etc, through the origin.
+
+\begin{example}
+  Consider the subset of $\RR^3$:
+  \[S_1=\set{(x,y,z)\in\RR^3\mid x+y+z=0}
+  \]
+  We may verify that $S_1$ is a subspace of $\RR^3$ by checking that scaling and adding vectors in $S_1$ results in vectors that are also in $S_1$. Note that this subspace of $\RR^3$ has the shape of a plane.
+\end{example}
+
+\begin{example}
+  Consider the set
+  \[S_2=\set{(x,y)\in\RR^2\mid 2x+y=1}
+  \]
+  This turns out \emph{not} to be a subspace of $\RR^2$. To see this we can check that the summation property doesn't hold.
+\end{example}
+
+The most important example of a subspace is the column space of a matrix.
+
+\begin{defn}
+  If $A$ is any matrix with column vectors $\mathbf{v}_1,\ldots\mathbf{v}_n$, then the \emph{column space} of $A$ consists of all combinations $\mathbf{v}_1x_1+\cdots+\mathbf{v}_nx_n$ of the columns of $A$.
+\end{defn}
+
+Equivalently, the column space of $A$ consists of all vectors $\mathbf{b}$ such that $A\mathbf{x}=\mathbf{b}$ has a solution.
+
+\begin{example}
+  Consider the matrix:
+  \[A=\begin{bmatrix}1&0\\4&3\\2&3\end{bmatrix}
+  \]
+  The column space of $A$ consists of the plane spanned by the its two column vectors. We can test whether the vector $(-1,-1,1)$ lies in the column space of $A$ by deciding whether the system is consistent:
+  \[A\mathbf{x}=\begin{bmatrix}-1\\-1\\1\end{bmatrix}
+  \]
+  [Sketch showing the concept.]
+\end{example}
+
+We can use algebra to determine for which vectors $\mathbf{b}$'s the equation $A\mathbf{x}=\mathbf{b}$ has solutions.
+
+\begin{example}
+  Decide when the following system is consistent.
+  \[\begin{bmatrix}
+      1&0&\vline&b_1\\
+      4&3&\vline&b_2\\
+      2&3&\vline&b_3
+    \end{bmatrix}
+  \]
+  Using elimination, we find that the system is consistent precisely when [eq].
+\end{example}
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item Find for which vectors $\mathbf{b}$ the equation has a solution.
+  \begin{enumerate}
+    \item $A=\begin{bmatrix}1&4&2\\2&8&4\\-1&-4&-2\end{bmatrix}\mathbf{x}
+    =\begin{bmatrix}b_1\\b_2\\b_3\end{bmatrix}$\vspace{.3in}
+    \item $A=\begin{bmatrix}1&4\\2&9\\-1&-4\end{bmatrix}\mathbf{x}
+    =\begin{bmatrix}b_1\\b_2\\b_3\end{bmatrix}$\vspace{.3in}
+    \item $A=\begin{bmatrix}-2&1&4\\0&-5&-4\\1&-3&-4\end{bmatrix}\mathbf{x}
+    =\begin{bmatrix}1\\1\\1\end{bmatrix}$
+  \end{enumerate}
+  \item Decide whether each of the following is true or false. Explain your answers!
+  \begin{enumerate}
+    \item The matrix $A$ and $2A$ have the same column space
+    % \item If the column space of the matrix $A$ is trivial (a point) then $A$ is trivial (the zero matrix)
+    \item Given a matrix $A$, the set of vectors $\mathbf{b}$ such that $A\mathbf{x}=\mathbf{b}$ has a solution forms a subspace
+    \item Given a matrix $A$ and a vector $\mathbf{b}$, the set of vectors $\mathbf{x}$ such that $A\mathbf{x}=\mathbf{b}$ forms a subspace
+  \end{enumerate}
+\end{activity}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
