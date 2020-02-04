@@ -6,10 +6,10 @@ title: Math 301, Spring 2020
 
 ## Homework 4, due Thursday, February 13 at 12pm
 
-1. Which vectors $\mathbf{b}$ lie in the column space of the given matrix $A$?
+1. Find the column space of each matrix $A$. The answer consists of one or more equations in the variables $b\_1,b\_2,b\_3$ that decide when $A\mathbf{x}=\mathbf{b}$ has a solution.
   * $A=\begin{bmatrix}2&1&1\\\\4&2&1\\\\-2&-1&0\end{bmatrix}$
   * $A=\begin{bmatrix}2&1&1\\\\4&2&2\\\\-2&-1&-1\end{bmatrix}$
-2. What is the geometric shape (line or plane or etc, in $\mathbb R$ to what power) of the column space of each of these matrices? Explain your answers!  
+2. For each matrix below, what is the geometric shape of the column space? Your answer should say whether it is a (point / line / plane / etc) in $\mathbb R$ to the (1 / 2 / 3 / etc). Briefly explain your answers!  
   $\begin{bmatrix}1&2\\\\0&0\\\\0&0\end{bmatrix},\quad
   \begin{bmatrix}1&0\\\\0&2\\\\0&0\end{bmatrix},\quad
   \begin{bmatrix}1&0\\\\2&0\\\\0&0\end{bmatrix}$
