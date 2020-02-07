@@ -37,7 +37,7 @@ title: Math 301, Spring 2020
   * $\begin{bmatrix}1&3\\\\2&7\end{bmatrix}$
   * $\begin{bmatrix}1&-1&1\\\\1&1&1\\\\1&2&4\end{bmatrix}$
 6. If $A=\begin{bmatrix}1&1\\\\1&1\end{bmatrix}$ find two matrices $B,C$ such that $AB=AC$ but $B\neq C$. If $A$ is invertible, explain why this would be impossible.
-7. Find invertible matrices $A$ and $B$ such atat $A+B$ is singular. Find singular matrices $A$ and $B$ such that $A+B$ is invertible.
+7. Find invertible matrices $A$ and $B$ such that $A+B$ is singular. Find singular matrices $A$ and $B$ such that $A+B$ is invertible.
 8. Find three values of $c$ that make the following matrix singular. Explain why it is singular in each case.  
   $A=\begin{bmatrix}2&c&c\\\\c&c&c\\\\8&7&c\end{bmatrix}$
 9. Use elimination to reduce the following matrix to upper triangular form. In your work you may assume that $a\neq 0$ and $a\neq b$. Considering the three pivots, explain why the matrix is invertible.  
