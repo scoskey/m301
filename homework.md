@@ -6,10 +6,10 @@ title: Math 301, Spring 2020
 
 ## Homework 4, due Thursday, February 13 at 12pm
 
-1. Which vectors $\mathbf{b}$ lie in the column space of the given matrix $A$?
+1. Find the column space of each matrix $A$. The answer consists of one or more equations in the variables $b\_1,b\_2,b\_3$ that decide when $A\mathbf{x}=\mathbf{b}$ has a solution.
   * $A=\begin{bmatrix}2&1&1\\\\4&2&1\\\\-2&-1&0\end{bmatrix}$
   * $A=\begin{bmatrix}2&1&1\\\\4&2&2\\\\-2&-1&-1\end{bmatrix}$
-2. What is the geometric shape (line or plane or etc, in $\mathbb R$ to what power) of the column space of each of these matrices? Explain your answers!  
+2. For each matrix below, what is the geometric shape of the column space? Your answer should say whether it is a (point / line / plane / etc) in $\mathbb R$ to the (1 / 2 / 3 / etc). Briefly explain your answers!  
   $\begin{bmatrix}1&2\\\\0&0\\\\0&0\end{bmatrix},\quad
   \begin{bmatrix}1&0\\\\0&2\\\\0&0\end{bmatrix},\quad
   \begin{bmatrix}1&0\\\\2&0\\\\0&0\end{bmatrix}$
@@ -36,7 +36,7 @@ title: Math 301, Spring 2020
   * $\begin{bmatrix}1&3\\\\2&7\end{bmatrix}$
   * $\begin{bmatrix}1&-1&1\\\\1&1&1\\\\1&2&4\end{bmatrix}$
 6. If $A=\begin{bmatrix}1&1\\\\1&1\end{bmatrix}$ find two matrices $B,C$ such that $AB=AC$ but $B\neq C$. If $A$ is invertible, explain why this would be impossible.
-7. Find invertible matrices $A$ and $B$ such atat $A+B$ is singular. Find singular matrices $A$ and $B$ such that $A+B$ is invertible.
+7. Find invertible matrices $A$ and $B$ such that $A+B$ is singular. Find singular matrices $A$ and $B$ such that $A+B$ is invertible.
 8. Find three values of $c$ that make the following matrix singular. Explain why it is singular in each case.  
   $A=\begin{bmatrix}2&c&c\\\\c&c&c\\\\8&7&c\end{bmatrix}$
 9. Use elimination to reduce the following matrix to upper triangular form. In your work you may assume that $a\neq 0$ and $a\neq b$. Considering the three pivots, explain why the matrix is invertible.  
