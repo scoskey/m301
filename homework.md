@@ -15,7 +15,6 @@ title: Math 301, Spring 2020
   \begin{bmatrix}1&0\\\\2&0\\\\0&0\end{bmatrix}$
 3. Suppose $A$ is a matrix and $B$ is the same matrix $A$ except with an additional column added onto the right. Can the column space of $B$ be larger than the column space of $A$? Can the column space of $B$ be the same as the column space of $A$? For each question give an example or say why it is not possible to do so.
 4. Suppose that $A$ is a $5\times5$ invertible matrix. What is the column space of $A$? How do you know?
-5. ...
 
 ## Homework 3, due Thursday, February 6 at 12pm
 
