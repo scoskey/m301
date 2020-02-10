@@ -83,6 +83,10 @@ title: Math 301, Spring 2020
 
 <!-- % 2.1, exercises 4, 5, 6, 26, and 28. -->
 
+## Homework specifications
+
+Please write neatly and show all work in a clear flow. If you submit by hand, please tear off ragged edges from spiral notebooks. If you submit by email, please use a high quality scanner or app to ensure the following: all pages are included in a single pdf attachment, only the paper is visible, the background is white, the text is dark and legible, and your name appears on the first page.
+
 <script>
 window.MathJax = {
   tex: {
