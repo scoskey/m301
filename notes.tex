@@ -731,6 +731,8 @@ In the above example we checked whether a single vector $\mathbf{b}$ is in the c
   Using elimination, we find that the system is consistent precisely when $b_3-2b_1=0$.
 \end{example}
 
+% State that the shape of a column space is a d-dimensional subspace of R^m. The column space itself is described by a set of equations that determine which b are in it.
+
 \newpage
 \subsection*{Activity for \S \thesection}
 
@@ -756,6 +758,65 @@ In the above example we checked whether a single vector $\mathbf{b}$ is in the c
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Based on ILA 5th, \S 3.2.
+
+In the last section we introduced vector spaces, and introduced the column space of a matrix. There are several more subspaces that can be associated with a given matrix $A$, and in this session we investigate the second most important one, the null space.
+
+\begin{defn}
+  Given a matrix $A$, the \emph{null space} of $A$ is the set of all $\mathbf{x}$ such that $A\mathbf{x}=\mathbf{0}$.
+\end{defn}
+
+In function terminology, the column space of $A$ is the range, and the null space is the set of zeros or roots.
+
+Note that if $A$ is $m\times n$, then the null space of $A$ is a subset of $\RR^n$. It is also important for us to check that the null space is really a subspace of $\RR^n$. For example if we have $A\mathbf{x^1}=\mathbf{0}$ and $A\mathbf{x^2}=\mathbf{0}$, then we have $A(\mathbf{x^1}+\mathbf{x^2})=\mathbf{0}$ too.
+
+In the following example we show how to calculate the null space of a matrix.
+
+\begin{example}
+  Consider the following matrix.
+  \[A=\begin{bmatrix}
+      1&2&2\\2&4&8\\3&6&10
+    \end{bmatrix}
+  \]
+  To write the solution, we identify the variables whose column has no pivot as \emph{free variables}, and the variables whose column has a pivot as \emph{basic variables}. We solve for the basic variables \emph{in terms of} the free variables.
+  \[\begin{bmatrix}x\\y\\z\end{bmatrix}
+    =\begin{bmatrix}-2y\\y\\0\end{bmatrix}
+  \]
+\end{example}
+
+When we find the null space, we can achieve some additional clarity if we eliminate both below and above the pivots, and also clear the pivots to $1$s. This is called the \emph{reduced row echelon form} (RREF) of the matrix.
+
+\begin{example}
+  Consider the following matrix.
+  \[A=\begin{bmatrix}
+      1&2&2&4\\3&8&6&16
+    \end{bmatrix}
+  \]
+  We again solve for the basic variables as functions of the free variables. In fact by factoring out the free variables, we can also write the solution in \emph{parametric vector form}. The resulting numeric vectors are called the \emph{special solutions} and the free variables are the parameters.
+  \[\begin{bmatrix}x\\y\\z\\w\end{bmatrix}
+    =\begin{bmatrix}-2\\0\\1\\0\end{bmatrix}z
+    +\begin{bmatrix}0\\-2\\0\\1\end{bmatrix}w
+  \]
+\end{example}
+
+Since the parameters are in some sense unnecessary information, we often write just the \emph{null space matrix} which is just the matrix of special solutions.
+\[N=\begin{bmatrix}
+    -2&0\\0&-2\\1&0\\0&1
+  \end{bmatrix}
+\]
+It is called the null space matrix because $AN=0=$ the zero matrix.
+
+Each special solution provides a recipe for a combination of the columns of $A$ that gives $\mathbf{0}$.
+
+\begin{example}
+  Consider the following matrix.
+  \[A=\begin{bmatrix}
+      1&2&2&3\\2&4&8&10\\3&6&10&13
+    \end{bmatrix}
+  \]
+  Calculate the null space matrix.
+\end{example}
+
+% State that the shape of the null space is a n-d-dimensional subspace of R^n.
 
 
 \newpage
