@@ -759,25 +759,26 @@ In the above example we checked whether a single vector $\mathbf{b}$ is in the c
 
 Based on ILA 5th, \S 3.2.
 
-In the last section we introduced vector spaces, and introduced the column space of a matrix. There are several more subspaces that can be associated with a given matrix $A$, and in this session we investigate the second most important one, the null space.
+In the last section we introduced vector spaces, along with our primary example, the column space of a matrix. As it turns out, there are several more important subspaces that are associated with a given matrix $A$ (see the cover of the text!). In this session we introduce the null space.
 
 \begin{defn}
   Given a matrix $A$, the \emph{null space} of $A$ is the set of all $\mathbf{x}$ such that $A\mathbf{x}=\mathbf{0}$.
 \end{defn}
 
-In function terminology, the column space of $A$ is the range, and the null space is the set of zeros or roots.
+Thinking of $A$ as a function, the column space of $A$ is the range, and the null space is the set of zeros or roots.
 
-Note that if $A$ is $m\times n$, then the null space of $A$ is a subset of $\RR^n$. It is also important for us to check that the null space is really a subspace of $\RR^n$. For example if we have $A\mathbf{x^1}=\mathbf{0}$ and $A\mathbf{x^2}=\mathbf{0}$, then we have $A(\mathbf{x^1}+\mathbf{x^2})=\mathbf{0}$ too.
+Note that if $A$ is $m\times n$, then the null space of $A$ is a subset of $\RR^n$. It is important for us to check that the null space is really a subspace of $\RR^n$, that is, closed under scaling and addition: if $A\mathbf{x}=0$ then $A\alpha\mathbf{x}=\alpha A\mathbf{x}=\mathbf{0}$ too; if $A\mathbf{x}=\mathbf{0}$ and $A\mathbf{w}=\mathbf{0}$, then we have $A(\mathbf{x}+\mathbf{w})=A\mathbf{x}+A\mathbf{w}=\mathbf{0}$ too.
 
-In the following example we show how to calculate the null space of a matrix.
+We want to find the null space of a given matrix. We begin with an example.
 
 \begin{example}
   Consider the following matrix.
-  \[A=\begin{bmatrix}
-      1&2&2\\2&4&8\\3&6&10
-    \end{bmatrix}
+  \[A=\begin{bmatrix}1&2&2\\2&4&8\\3&6&10\end{bmatrix}
   \]
-  To write the solution, we identify the variables whose column has no pivot as \emph{free variables}, and the variables whose column has a pivot as \emph{basic variables}. We solve for the basic variables \emph{in terms of} the free variables.
+  As usual the first step is to perform elimination.
+  \[A=\begin{bmatrix}1&2&2\\0&0&4\\0&0&0\end{bmatrix}
+  \]
+  Next identify the variables whose column has no pivot, called \emph{free variables}, and the variables whose column has a pivot, called \emph{basic variables}. Then solve for the basic variables \emph{in terms of} the free variables.
   \[\begin{bmatrix}x\\y\\z\end{bmatrix}
     =\begin{bmatrix}-2y\\y\\0\end{bmatrix}
   \]
@@ -787,36 +788,61 @@ When we find the null space, we can achieve some additional clarity if we elimin
 
 \begin{example}
   Consider the following matrix.
-  \[A=\begin{bmatrix}
-      1&2&2&4\\3&8&6&16
-    \end{bmatrix}
+  \[A=\begin{bmatrix}1&2&2&4\\3&8&6&16\end{bmatrix}
   \]
-  We again solve for the basic variables as functions of the free variables. In fact by factoring out the free variables, we can also write the solution in \emph{parametric vector form}. The resulting numeric vectors are called the \emph{special solutions} and the free variables are the parameters.
+  The first step is to eliminate all the way to RREF.
+  \[A=\begin{bmatrix}1&0&2&0\\0&1&0&2\end{bmatrix}
+  \]
+  Then solve for the basic variables in terms of the free variables.
+  \[\begin{bmatrix}x\\y\\z\\w\end{bmatrix}
+  =\begin{bmatrix}-2z\\-2w\\z\\w\end{bmatrix}
+  \]
+  Even better, by factoring out the free variables, we can write the solution in \emph{parametric vector form}. The resulting numeric vectors are called the \emph{special solutions}, and the free variables are the parameters.
   \[\begin{bmatrix}x\\y\\z\\w\end{bmatrix}
     =\begin{bmatrix}-2\\0\\1\\0\end{bmatrix}z
     +\begin{bmatrix}0\\-2\\0\\1\end{bmatrix}w
   \]
+  Since the parameters are in some sense unnecessary information, we often write just the \emph{null space matrix} which is just the matrix of special solutions.
+  \[N=\begin{bmatrix}-2&0\\0&-2\\1&0\\0&1\end{bmatrix}
+  \]
+  It is called the null space matrix because $AN=0=$ the zero matrix.
 \end{example}
 
-Since the parameters are in some sense unnecessary information, we often write just the \emph{null space matrix} which is just the matrix of special solutions.
-\[N=\begin{bmatrix}
-    -2&0\\0&-2\\1&0\\0&1
-  \end{bmatrix}
-\]
-It is called the null space matrix because $AN=0=$ the zero matrix.
-
-Each special solution provides a recipe for a combination of the columns of $A$ that gives $\mathbf{0}$.
+The special solutions $A\mathbf{x}=\mathbf{0}$ each provide a recipe for a combination of the columns of $A$ that gives $\mathbf{0}$.
 
 \begin{example}
-  Consider the following matrix.
+  Calculate the null space matrix of $A$.
   \[A=\begin{bmatrix}
       1&2&2&3\\2&4&8&10\\3&6&10&13
     \end{bmatrix}
   \]
-  Calculate the null space matrix.
 \end{example}
 
 % State that the shape of the null space is a n-d-dimensional subspace of R^n.
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item For each system, set up an augemented matrix and eliminate to RREF. Then write the solution as a combination of special solutions.
+  \begin{enumerate}
+    \item \systeme{2x+3y-z=0,x+z=0}
+    \item \systeme{x+3y+3z=0,2x+6y+9z=0,-x-3y+3z=0}
+  \end{enumerate}
+  \item Eliminate each matrix to RREF, and find the null space matrix $N$. (The columns of $N$ are the special solutions.) Check that $AN=0$.
+  \begin{enumerate}\itemsep10pt
+    \item $A=\begin{bmatrix}1&0&2&-3\\-2&1&0&-7\end{bmatrix}$
+    \item $A=\begin{bmatrix}1&2.5&1&0\\2&5&3&-2\end{bmatrix}$
+    \item $A=\begin{bmatrix}2&4&2\\0&4&4\\-2&4&6\end{bmatrix}$
+  \end{enumerate}
+  \item Consider the modification to the system in 1(b):
+  \[\systeme{x+3y+3z=2,2x+6y+9z=7,-x-3y+3z=4}
+  \]
+  \begin{enumerate}
+    \item Using ordinary elimination and back-solving, find \emph{one} solution to this system.
+    \item Add your solution for 3(a) to one of the special solutions from 1(b). Check that the result is a solution to this system too. How can you explain this?
+  \end{enumerate}
+\end{activity}
 
 
 \newpage

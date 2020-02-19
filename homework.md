@@ -4,6 +4,20 @@ title: Math 301, Spring 2020
 
 # Math 301 Homework
 
+## Homework 5, due Thursday, February 27 at 12pm
+
+1. Eliminate to RREF.
+  * $\begin{bmatrix}-1&3&5\\\\-2&6&10\end{bmatrix}$
+  * $\begin{bmatrix}-1&3&5\\\\-2&6&7\end{bmatrix}$
+2. For each of the following matrices $A$, if it has a nonzero null space, find its null space matrix $N$ (the matrix whose columns are the special solutions). Check that $AN=0$.
+  * $A=\begin{bmatrix}2&3\\\\4&6\\\\-2&-3\end{bmatrix}$
+  * $A=\begin{bmatrix}2&3\\\\4&6\\\\-2&-6\end{bmatrix}$
+3. Give an example of a matrix whose column space contains the vectors $(1,1,5)$ and $(0,3,1)$ and whose null space contains the vector $(1,1,2)$.
+4. Going back and forth between systems and parametric forms.
+  * Solve the ``system'' of equations $x - 3y - z = 0$. Write your answer in parametric vector form.
+  * Find the column space of the matrix $N=\begin{bmatrix}3&1\\\\1&0\\\\0&1\end{bmatrix}$
+5. ...
+
 ## Homework 4, due Thursday, February 13 at 12pm
 
 1. Find the column space of each matrix $A$. The answer consists of one or more equations in the variables $b\_1,b\_2,b\_3$ that decide when $A\mathbf{x}=\mathbf{b}$ has a solution.
