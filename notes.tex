@@ -802,7 +802,7 @@ When we find the null space, we can achieve some additional clarity if we elimin
     =\begin{bmatrix}-2\\0\\1\\0\end{bmatrix}z
     +\begin{bmatrix}0\\-2\\0\\1\end{bmatrix}w
   \]
-  Since the parameters are in some sense unnecessary information, we often write just the \emph{null space matrix} which is just the matrix of special solutions.
+  Since the parameters are in some sense unnecessary information, we often write just the \emph{null space matrix} which is the matrix whose columns are the special solutions.
   \[N=\begin{bmatrix}-2&0\\0&-2\\1&0\\0&1\end{bmatrix}
   \]
   It is called the null space matrix because $AN=0=$ the zero matrix.
@@ -812,16 +812,21 @@ The special solutions $A\mathbf{x}=\mathbf{0}$ each provide a recipe for a combi
 
 \begin{example}
   Calculate the null space matrix of $A$.
-  \[A=\begin{bmatrix}
-      1&2&2&3\\2&4&8&10\\3&6&10&13
-    \end{bmatrix}
+  \[A=\begin{bmatrix}1&2&2&3\\2&4&8&10\\3&6&10&13\end{bmatrix}
+  \]
+  The solution is
+  \[N=\begin{bmatrix}-2&-1\\1&0\\0&-1\\0&1\end{bmatrix}
   \]
 \end{example}
+
+% State the trick for finding N
 
 % State that the shape of the null space is a n-d-dimensional subspace of R^n.
 
 \newpage
 \subsection*{Activity for \S \thesection}
+
+% Start with eliminated matrices, then move to RREF problems
 
 \begin{activity}
   \item For each system, set up an augemented matrix and eliminate to RREF. Then write the solution as a combination of special solutions.
