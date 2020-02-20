@@ -857,6 +857,68 @@ The special solutions $A\mathbf{x}=\mathbf{0}$ each provide a recipe for a combi
 
 Based on ILA 5th, \S 3.3.
 
+In the previous section we showed how to find the complete solution to a system of linear equations $A\mathbf{x}=\mathbf{0}$. A system with $\mathbf{0}$ on the right-hand side is called a \emph{homogeneous} system, just as in differential equations. We will now use this as a stepping stone to solving a general system of linear equations, $A\mathbf{x}=\mathbf{b}$.
+
+Recall that the solutions to $A\mathbf{x}=\mathbf{0}$ all lie in the \emph{null space}, which is a vector subspace of $\RR^n$. It turns out that solutions to the system $A\mathbf{x}=\mathbf{0}$ all lie in a \emph{translate} of the null space.
+
+To get the idea, let's look at the case of one equation in two variables. For example, first consider the \emph{homogeneous} equation:
+\[2x+3y=0
+\]
+The solutions to this equation form a line through the origin, a subspace of $\RR^2$. We can plot it: the line through the origin with slope $-2/3$.
+
+Next consider an \emph{inhomogeneous} equation with the same left-hand side:
+\[2x+3y=3
+\]
+The solutions to this equation form a line, but not through the origin. It is the same line as above but shifted to the right by $3/2$ (or up by $1$).
+
+We can redo this problem in matrix notation. We are using the matrix $A=\begin{bmatrix}2&3\end{bmatrix}$. First we find the general solution to $A\mathbf{x}=\mathbf{0}$, that is, the null space of $A$:
+\[\mathbf{x}_{\mathrm{null}}
+  =\begin{bmatrix}-3/2\\1\end{bmatrix}y
+\]
+The null space is the line through the origin that we found above. The general solution to $A\mathbf{x}=[3]$ is then:
+\[\mathbf{x}_{\mathrm{general}}
+  =\begin{bmatrix}3/2\\0\end{bmatrix}
+  +\begin{bmatrix}-3/2\\1\end{bmatrix}y
+\]
+which is the line translated away from the origin that we found above.
+
+In general, we will find that the general solution to a system of linear equations $A\mathbf{x}=\mathbf{b}$ will be equal to a single vector (the particular solution) added to the vectors in the null space (the combinations of the special solutions). This strongly mirrors the method from systems of linear differential equations.
+
+\begin{example}
+  Consider the system $A\mathbf{x}=\mathbf{b}$:
+  \[\begin{bmatrix}
+      1&3&0&2\\0&0&1&4\\1&3&1&6
+    \end{bmatrix}
+    \mathbf{x}=
+    \begin{bmatrix}
+      1\\6\\7
+    \end{bmatrix}
+  \]
+  \begin{itemize}
+  \item Step one. Eliminate the full system to RREF.
+    \[\begin{bmatrix}
+        1&3&0&2&\vline&1\\
+        &&1&4&\vline&6\\
+        &&&&\vline&
+      \end{bmatrix}
+    \]
+  \item Step two. Find the null space. Then forget about the right-hand side briefly and find the null space of $A$ in parametric vector form as usual.
+  \item Step three. Find the particular solution to the original system by setting the free variables to zero. Note there is also a ``trick'' here using the right-hand side of RREF.
+  \item Step four. The answer is the sum of the particular and general solutions.
+    \[\mathbf{x}_{\mathrm{general}}
+      =\begin{bmatrix}1\\0\\6\\0\end{bmatrix}
+      +\begin{bmatrix}-3\\1\\0\\0\end{bmatrix}x_2
+      +\begin{bmatrix}-2\\0\\-4\\1\end{bmatrix}x_4
+    \]
+  \end{itemize}
+\end{example}
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item hi
+\end{activity}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
