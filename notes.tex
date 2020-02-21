@@ -902,9 +902,9 @@ In general, we will find that the general solution to a system of linear equatio
         &&&&\vline&
       \end{bmatrix}
     \]
-  \item Step two. Find the null space. Then forget about the right-hand side briefly and find the null space of $A$ in parametric vector form as usual.
+  \item Step two. Find the null space. Forget about the right-hand side briefly, pretend it is zeros, and find the null space of $A$ in \emph{parametric vector form}.
   \item Step three. Find the particular solution to the original system by setting the free variables to zero. Note there is also a ``trick'' here using the right-hand side of RREF.
-  \item Step four. The answer is the sum of the particular and general solutions.
+  \item Step four. Write the solution; it is just the sum of the particular and general solutions.
     \[\mathbf{x}_{\mathrm{general}}
       =\begin{bmatrix}1\\0\\6\\0\end{bmatrix}
       +\begin{bmatrix}-3\\1\\0\\0\end{bmatrix}x_2
@@ -917,7 +917,14 @@ In general, we will find that the general solution to a system of linear equatio
 \subsection*{Activity for \S \thesection}
 
 \begin{activity}
-  \item hi
+  \item For each system, solve or state that it is inconsistent. If the system is consistent, find the null space in parametric vector form, the particular solution, and finally write the general solution.
+  \begin{enumerate}\itemsep10pt
+    \item $\systeme{2x+3y-z=1,x+z=1}$
+    \item $\systeme{x+3y+3z=1,2x+6y+9z=5,-x-3y+3z=5}$
+    \item $\begin{bmatrix}1&3&1&2\\2&6&4&8\\0&0&2&4\end{bmatrix}\mathbf{x}
+      =\begin{bmatrix}1\\3\\1\end{bmatrix}$
+  \end{enumerate}
+  \item Suppose that $A$ is $m\times n$ and has $r$ many pivots. Assume you know the system $A\mathbf x=\mathbf b$ is consistent. What is the dimension of the set of solutions?
 \end{activity}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
