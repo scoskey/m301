@@ -16,7 +16,12 @@ title: Math 301, Spring 2020
 4. Going back and forth between systems and parametric forms.
   * Solve the ``system'' of equations $x - 3y - z = 0$. Write your answer in parametric vector form.
   * Find the column space of the matrix $N=\begin{bmatrix}3&1\\\\1&0\\\\0&1\end{bmatrix}$
-5. ...
+5. For each system, solve or state that it is inconsistent. If the system is consistent, find the null space in parametric vector form, the particular solution, and finally write the general solution.
+  * $\\{2y+z=1,\ x-4y-2z=1,\ x=1\\}$
+  * $\\{2y+z=1,\ x-4y-2z=2,\ x=4\\}$
+  * $\begin{bmatrix}1&0&2&3\\\\1&3&2&0\\\\2&0&4&9\end{bmatrix}\mathbf{x}
+    =\begin{bmatrix}2\\\\5\\\\10\end{bmatrix}$
+6. Give an example of a system of two equations in three variables with particular solution $\mathbf x_p=(2,4,0)$ and with special solution $(1,1,1)$.
 
 ## Homework 4, due Thursday, February 13 at 12pm
 
