@@ -24,12 +24,13 @@
 \usepackage{tikz}
 
 \newcommand{\set}[1]{\left\{\,#1\,\right\}}
-\newcommand{\NN}{\mathbb N}
-\newcommand{\ZZ}{\mathbb Z}
-\newcommand{\QQ}{\mathbb Q}
-\newcommand{\RR}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\rng}{rng}
+\DeclareMathOperator{\col}{col}
 
 \theoremstyle{definition}
 \newtheorem{exerc}{Exercise}[section]
@@ -40,7 +41,7 @@
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \theoremstyle{definition}
-\newtheorem{defn}[thm]{Definition}
+\newtheorem{definition}[thm]{Definition}
 \theoremstyle{remark}
 \newtheorem{rem}[thm]{Remark}
 \newtheorem{example}[thm]{Example}
@@ -564,9 +565,9 @@ In the previous section we have seen that while we cannot necessarily divide mat
 
 The official definition of $A^{-1}$ is that it is a multiplicative inverse for $A$. First recall that $I$ denotes the identity matrix: the matrix with the same size as $A$, but with $1$'s down the diagonal and $0$'s everywhere else. The identity matrix is the multiplicative identity which means that $AI=IA=A$.
 
-\begin{defn}
+\begin{definition}
   If $A$ is any square matrix, its \emph{inverse} is the matrix $A^{-1}$ such that $AA^{-1}=A^{-1}A=I$.
-\end{defn}
+\end{definition}
 
 \begin{example}
   We have already seen that elimination matrices $A$ have an inverse. Let $A$ be the following matrix
@@ -667,41 +668,41 @@ We will still be viewing a system of linear equations as a single matrix equatio
 \]
 If we view $A$ as a function mapping inputs $\mathbf{x}$ to outputs $\mathbf{b}$, then observe that $A\mathbf{x}=\mathbf{b}$ has solutions if and only if $\mathbf{b}$ is in the \emph{range} of $A$. This means we have to study the concept of range for matrices. Before we do that, we will need to introduce vector spaces. Recall that the key fact about vectors is that they can be scaled and added.
 
-\begin{defn}
+\begin{definition}
   A \emph{vector space} is any collection of mathematical objects that may be scaled and added.
-\end{defn}
+\end{definition}
 
-For example, let $\RR^n$ denote the space of real vectors with $n$ many components. Thus $\RR^1$ is the real line, $\RR^2$ is the Euclidean plane, $\RR^3$ is real $3$-space, and so on. Since we have seen that real vectors may be scaled and added, $\RR^n$ is a vector space. There are many other examples of vector spaces includeing polynomials, continuous functions, differentiable functions, matrices, and more. But for this class we care exclusively about the vector spaces $\RR^n$.
+For example, let $\R^n$ denote the space of real vectors with $n$ many components. Thus $\R^1$ is the real line, $\R^2$ is the Euclidean plane, $\R^3$ is real $3$-space, and so on. Since we have seen that real vectors may be scaled and added, $\R^n$ is a vector space. There are many other examples of vector spaces includeing polynomials, continuous functions, differentiable functions, matrices, and more. But for this class we care exclusively about the vector spaces $\R^n$.
 
-Well that is not exactly true. The spaces $\RR^n$ also contain interesting subspaces, and these are what we will need to study to better understand the range of a matrix, and when matrix equations have solutions.
+Well that is not exactly true. The spaces $\R^n$ also contain interesting subspaces, and these are what we will need to study to better understand the range of a matrix, and when matrix equations have solutions.
 
 In order to explain what a subspace is, we first make the following definition: if $\textbf{v}_1,\ldots,\textbf{v}_k$ are any vectors then a \emph{combination} of $\textbf{v}_1,\ldots,\textbf{v}_k$ is any vector that can be obtained by scaling and adding them.
 
-\begin{defn}
-  A \emph{subspace} of $\RR^n$ is a set of vectors $S$ with the property that all combinations of vectors in $S$ also lie in $S$.
-\end{defn}
+\begin{definition}
+  A \emph{subspace} of $\R^n$ is a set of vectors $S$ with the property that all combinations of vectors in $S$ also lie in $S$.
+\end{definition}
 
-Though this definition may seem technical, if we think about subspaces geometrically, it turns out that all subspaces of $\RR^n$ have the shape of a point, line, plane, etc, passing through the origin.
+Though this definition may seem technical, if we think about subspaces geometrically, it turns out that all subspaces of $\R^n$ have the shape of a point, line, plane, etc, passing through the origin.
 
 \begin{example}
-  Consider the subset of $\RR^3$:
-  \[S=\set{(x,y,z)\in\RR^3\mid x+y+z=0}
+  Consider the subset of $\R^3$:
+  \[S=\set{(x,y,z)\in\R^3\mid x+y+z=0}
   \]
-  We may verify that $S$ is a subspace of $\RR^3$ by checking that scaling and adding vectors in $S_1$ results in vectors that are also in $S_1$. Note that this subspace of $\RR^3$ has the shape of a plane.
+  We may verify that $S$ is a subspace of $\R^3$ by checking that scaling and adding vectors in $S_1$ results in vectors that are also in $S_1$. Note that this subspace of $\R^3$ has the shape of a plane.
 \end{example}
 
 \begin{example}
   Consider the set
-  \[S=\set{(x,y)\in\RR^2\mid 2x+y=1}
+  \[S=\set{(x,y)\in\R^2\mid 2x+y=1}
   \]
-  We can see that this set $S$ is \emph{not} a subspace of $\RR^2$ by finding two vectors in $S$ whose sum is not in $S$..
+  We can see that this set $S$ is \emph{not} a subspace of $\R^2$ by finding two vectors in $S$ whose sum is not in $S$..
 \end{example}
 
 The most important example of a subspace is the range of a matrix, called its column space.
 
-\begin{defn}
+\begin{definition}
   If $A$ is any matrix with column vectors $\mathbf{v}_1,\ldots\mathbf{v}_n$, then the \emph{column space} of $A$ consists of all combinations $\mathbf{v}_1x_1+\cdots+\mathbf{v}_nx_n$ of the column vectors of $A$.
-\end{defn}
+\end{definition}
 
 Thus the column space of $A$ is precisely the set of of all vectors $\mathbf{b}$ such that $A\mathbf{x}=\mathbf{b}$ has a solution. The column space of $A$ is the range of $A$.
 
@@ -761,13 +762,13 @@ Based on ILA 5th, \S 3.2.
 
 In the last section we introduced vector spaces, along with our primary example, the column space of a matrix. As it turns out, there are several more important subspaces that are associated with a given matrix $A$ (see the cover of the text!). In this session we introduce the null space.
 
-\begin{defn}
+\begin{definition}
   Given a matrix $A$, the \emph{null space} of $A$ is the set of all $\mathbf{x}$ such that $A\mathbf{x}=\mathbf{0}$.
-\end{defn}
+\end{definition}
 
 Thinking of $A$ as a function, the column space of $A$ is the range, and the null space is the set of zeros or roots.
 
-Note that if $A$ is $m\times n$, then the null space of $A$ is a subset of $\RR^n$. It is important for us to check that the null space is really a subspace of $\RR^n$, that is, closed under scaling and addition: if $A\mathbf{x}=0$ then $A\alpha\mathbf{x}=\alpha A\mathbf{x}=\mathbf{0}$ too; if $A\mathbf{x}=\mathbf{0}$ and $A\mathbf{w}=\mathbf{0}$, then we have $A(\mathbf{x}+\mathbf{w})=A\mathbf{x}+A\mathbf{w}=\mathbf{0}$ too.
+Note that if $A$ is $m\times n$, then the null space of $A$ is a subset of $\R^n$. It is important for us to check that the null space is really a subspace of $\R^n$, that is, closed under scaling and addition: if $A\mathbf{x}=0$ then $A\alpha\mathbf{x}=\alpha A\mathbf{x}=\mathbf{0}$ too; if $A\mathbf{x}=\mathbf{0}$ and $A\mathbf{w}=\mathbf{0}$, then we have $A(\mathbf{x}+\mathbf{w})=A\mathbf{x}+A\mathbf{w}=\mathbf{0}$ too.
 
 We want to find the null space of a given matrix. We begin with an example.
 
@@ -859,12 +860,12 @@ Based on ILA 5th, \S 3.3.
 
 In the previous section we showed how to find the complete solution to a system of linear equations $A\mathbf{x}=\mathbf{0}$. A system with $\mathbf{0}$ on the right-hand side is called a \emph{homogeneous} system, just as in differential equations. We will now use this as a stepping stone to solving a general system of linear equations, $A\mathbf{x}=\mathbf{b}$.
 
-Recall that the solutions to $A\mathbf{x}=\mathbf{0}$ all lie in the \emph{null space}, which is a vector subspace of $\RR^n$. It turns out that solutions to the system $A\mathbf{x}=\mathbf{0}$ all lie in a \emph{translate} of the null space.
+Recall that the solutions to $A\mathbf{x}=\mathbf{0}$ all lie in the \emph{null space}, which is a vector subspace of $\R^n$. It turns out that solutions to the system $A\mathbf{x}=\mathbf{0}$ all lie in a \emph{translate} of the null space.
 
 To get the idea, let's look at the case of one equation in two variables. For example, first consider the \emph{homogeneous} equation:
 \[2x+3y=0
 \]
-The solutions to this equation form a line through the origin, a subspace of $\RR^2$. We can plot it: the line through the origin with slope $-2/3$.
+The solutions to this equation form a line through the origin, a subspace of $\R^2$. We can plot it: the line through the origin with slope $-2/3$.
 
 Next consider an \emph{inhomogeneous} equation with the same left-hand side:
 \[2x+3y=3
@@ -939,6 +940,69 @@ In general, we will find that the general solution to a system of linear equatio
 
 Based on ILA 5th, \S 3.4.
 
+Recall that the column space of a matrix $A$ consists of all combinations of the columns of $A$. Sometimes we say the columns are a \emph{spanning set} for the column space. The idea is if I want to tell you about a plane, I only need to tell you two vectors in the plane (a spanning set) and not every vector in the plane. You can deduce the rest using combinations.
+
+We have seen that sometimes not all the columns are necessary to form a spanning set. For example, consider the matrix:
+\[A=\begin{bmatrix}1&1&3\\2&0&2\\3&1&5\end{bmatrix}
+\]
+Notice that the third column of $A$ is a combination of the first two. The first two columns already form a spanning set, making the third column redundant. Geometrically, the three columns of $A$ point in three distinct directions, but never manage to break outside of a plane.
+
+\begin{definition}
+  We say that a set of vectors is \emph{linearly dependent} if one of the vectors is a combination of the others. Otherwise we say the set is \emph{linearly independent}. If $V$ is a vector space, then a linearly independent spanning set for $V$ is called a \emph{basis} for $V$.
+\end{definition}
+
+A basis for a vector space has ``just the right number'' of vectors. A basis for a plane will have two vectors, for a three-dimensional vector space will have three vectors, etc. In fact we can take the definition of \emph{dimension} as the number of vectors in a basis.
+
+Turning to practical matters, suppose we are given a matrix $A$, and asked to find bases for its column space and null space. Beginning with the column space, the goal is to remove the redundant columns until we are left with the right number, the basis. There is a simple rule to determine which columns should be in the basis and which columns are redundant: The basic (non-free) variable columns belong in the basis, and the free variable columns are redundant.
+
+\begin{example}
+  Consider the following matrix:
+  \[A=\begin{bmatrix}1&2&0&3\\1&2&-1&-1\\2&4&-1&2\end{bmatrix}
+  \]
+  The RREF is as follows:
+  \[R=\begin{bmatrix}1&2&0&3\\0&0&1&4\\&&&\end{bmatrix}
+  \]
+  The RREF shows exactly why the free variable columns are redundant: the entries reveal how they are combinations of earlier columns. The basis for the column space consists of the basic variable columns from \emph{the original matrix}.
+  \[\text{basis for $C(A)$: }\begin{bmatrix}1\\1\\2\end{bmatrix},
+  \begin{bmatrix}0\\-1\\-1\end{bmatrix}
+  \]
+\end{example}
+
+We also wish to find a basis for the null space of $A$. In fact we have already done this: the special solutions are the basis.
+
+\begin{example}
+  The basis for the null space of the matrix in the previous problem consists of the \emph{special solutions}:
+  \[\text{basis for $N(A)$: }\begin{bmatrix}2\\1\\0\\0\end{bmatrix},
+  \begin{bmatrix}-3\\0\\-4\\1\end{bmatrix}
+  \]
+\end{example}
+
+To summarize: To find a basis for the column space of $A$, we eliminate to REF, identify the pivot columns, and select those columns from the original matrix $A$. To find a basis for the null space of $A$, we find the special solutions or null space matrix.
+
+We can apply the same reasoning to remove the redundant elements from any set of vectors, and find a linearly independent subset with the same span.
+
+\begin{example}
+  Find a basis for the subspace of $\R^3$ spanned by the given vectors. What is the dimension of the subspace?
+  \[\begin{bmatrix}1\\0\\1\end{bmatrix},\ 
+    \begin{bmatrix}2\\0\\2\end{bmatrix},\ 
+    \begin{bmatrix}3\\0\\3\end{bmatrix},\ 
+    \begin{bmatrix}2\\1\\2\end{bmatrix}
+  \]
+  We can squash these vectors into the columns of a matrix and find the RREF:
+  \[R=\begin{bmatrix}1&2&3&0\\0&0&0&1\\&&&\end{bmatrix}
+  \]
+  The basic columns are $1,4$, so the basis consists of the first and fourth vector:
+  \[\text{basis: }\begin{bmatrix}1\\0\\1\end{bmatrix},\ 
+  \begin{bmatrix}2\\1\\2\end{bmatrix}
+  \]
+\end{example}
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item 
+\end{activity}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -947,6 +1011,60 @@ Based on ILA 5th, \S 3.4.
 
 Based on ILA 5th, \S 3.5.
 
+We have previously discussed two ``fundamental'' subspaces associated with a given matrix $A$: the column space and the null space.
+
+The column space is the span of the columns, the null space is the combinations of the columns that give zero. It should not surprise us that there are two corresponding spaces for the rows.
+
+We can study rows as columns using the transpose:
+
+\begin{definition}
+  Given a matrix $A$ we form the \emph{transpose} matrix $A^T$ as follows: The rows of $A^T$ are the columns of $A$ and the columns of $A^T$ are the rows of $A$.
+\end{definition}
+
+\begin{example}
+\end{example}
+
+The four fundamental subspaces corresponding to a matrix $A$:
+\begin{itemize}
+  \item The column space $C(A)$ is the set of all combinations of (span of) the column vectors of $A$
+  \item The null space $N(A)$ is the set of all solutions to $A\mathbf{x}=\mathbf{0}$, that is, the null combinations of the columns
+  \item The row space $R(A)$ is the set of all combinations of (span of) the row vectors of $A$. This is also $C(A^T)$.
+  \item The left-null space $LN(A)$ is the set of all solutions to $\mathbf{y}^TA=\mathbf{0}$, that is, the null combinations of the rows. This is also $N(A^T)$.
+\end{itemize}
+
+We wish to find bases and dimensions of the four fundamental subspaces corresponding to $A$. We already know how to find a basis for the column and null space.
+
+To find a basis for the row space, simply take the \emph{nonzero rows} of the REF or RREF matrix.
+
+To find a basis for the left-null space, there are two tough options: (1) find the null space of $A^T$; (2) keep track of elimination steps to write $EA=R$ and take the rows of $E$ corresponding to zero rows of $R$
+
+There is also a trick to find a basis for the row space: it is the nonzero rows of the REF of $A$.
+
+\begin{example}
+  Find bases and dimensions of the four fundamental subspaces.
+  \[A=\begin{bmatrix}
+      1&3&0&5\\2&6&1&16\\5&15&0&25
+    \end{bmatrix}
+  \]
+  The RREF form and the elimination matrix are
+  \[R=\begin{bmatrix}
+      1&3&0&5\\&&1&6\\&
+    \end{bmatrix},\qquad
+    E=\begin{bmatrix}
+      1&&\\-2&1&\\-5&&1
+    \end{bmatrix}
+  \]
+\end{example}
+
+The dimensions of the four fundamental subspaces can all be calculated from the shape $m\times n$ of $A$ and the number of pivots $r$.
+\begin{itemize}
+  \item $C(A)$ is a $r$-dimensional subspace of $\R^m$
+  \item $N(A)$ is an $n-r$-dimensional subspace of $\R^n$
+  \item $R(A)$ is an $r$-dimensional subspace of $\R^n$
+  \item $LN(A)$ is an $m-r$-dimensional subspace of $\R^m$
+\end{itemize}
+
+The number of pivots $r$ is called the \emph{rank} of the matrix $A$ and measures the size of the matrix in terms of the dimension of its row or column space.
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
