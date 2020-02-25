@@ -1001,7 +1001,30 @@ We can apply the same reasoning to remove the redundant elements from any set of
 \subsection*{Activity for \S \thesection}
 
 \begin{activity}
-  \item 
+  \item Find a basis for the null space and column space of each matrix.
+  \begin{enumerate}
+    \item $A=\begin{bmatrix}1&-1&3\\-2&2&-6\end{bmatrix}$
+    \item $A=\begin{bmatrix}1&2&4\\0&1&-2\end{bmatrix}$
+    \item $A=\begin{bmatrix}1&3&0&-1\\2&6&1&-4\\1&3&-2&3\end{bmatrix}$
+    \item $A=\begin{bmatrix}2&0&-1&4&2\\4&1&0&2&-1\\2&1&1&-2&-3\end{bmatrix}$
+  \end{enumerate}
+  \item Determine whether the set of vectors is independent or dependent. If it is dependent, eliminate the (and only the) redundant vectors to find an independent subset.
+  \begin{enumerate}
+    \item $\begin{bmatrix}1\\0\\1\end{bmatrix},\quad
+      \begin{bmatrix}1\\1\\1\end{bmatrix},\quad
+      \begin{bmatrix}1\\1\\2\end{bmatrix},\quad
+      \begin{bmatrix}2\\3\\6\end{bmatrix}$
+      \vspace{6pt}
+    \item $\begin{bmatrix}2\\0\\0\\4\end{bmatrix},\quad
+      \begin{bmatrix}3\\6\\0\\6\end{bmatrix},\quad
+      \begin{bmatrix}4\\7\\0\\8\end{bmatrix},\quad
+      \begin{bmatrix}1\\0\\9\\2\end{bmatrix}$
+  \end{enumerate}
+  \item
+  \begin{enumerate}
+    \item Give an example of three vectors $\mathbf{v}_1,\mathbf{v}_2,\mathbf{v}_3$ such that (1) the vectors are linearly dependent, and (2) if you remove any one of them the remaining two are linearly independent.
+    \item Give an example of three vectors $\mathbf{w}_1,\mathbf{w}_2,\mathbf{w}_3$ such that (1) the vectors are linearly dependent; (2) if you remove $\mathbf{w}_1$ then the remaining two are linearly independent, and; (3) if you remove $\mathbf{w}_2$ then the remaining two are linearly dependent.
+  \end{enumerate}
 \end{activity}
 
 \newpage
@@ -1011,60 +1034,93 @@ We can apply the same reasoning to remove the redundant elements from any set of
 
 Based on ILA 5th, \S 3.5.
 
-We have previously discussed two ``fundamental'' subspaces associated with a given matrix $A$: the column space and the null space.
+We have previously discussed two ``fundamental'' subspaces associated with a given matrix $A$: the column space and the null space. The column space is the span of the columns, the null space is the combinations of the columns that give zero. It should not surprise us that there are two more fundamental subspaces corresponding to the rows.
 
-The column space is the span of the columns, the null space is the combinations of the columns that give zero. It should not surprise us that there are two corresponding spaces for the rows.
-
-We can study rows as columns using the transpose:
+We can view the rows of a matrix as columns of the ``transpose'' matrix.
 
 \begin{definition}
   Given a matrix $A$ we form the \emph{transpose} matrix $A^T$ as follows: The rows of $A^T$ are the columns of $A$ and the columns of $A^T$ are the rows of $A$.
 \end{definition}
 
 \begin{example}
+  \[\begin{bmatrix}1&2&3\\4&5&6\end{bmatrix}^T
+    =\begin{bmatrix}1&4\\2&5\\3&6\end{bmatrix}
+  \]
 \end{example}
 
-The four fundamental subspaces corresponding to a matrix $A$:
+The four fundamental subspaces corresponding to a matrix $A$ are the following.
 \begin{itemize}
-  \item The column space $C(A)$ is the set of all combinations of (span of) the column vectors of $A$
-  \item The null space $N(A)$ is the set of all solutions to $A\mathbf{x}=\mathbf{0}$, that is, the null combinations of the columns
-  \item The row space $R(A)$ is the set of all combinations of (span of) the row vectors of $A$. This is also $C(A^T)$.
-  \item The left-null space $LN(A)$ is the set of all solutions to $\mathbf{y}^TA=\mathbf{0}$, that is, the null combinations of the rows. This is also $N(A^T)$.
+  \item $C(A)$, the \emph{column space}, the span (combinations) of the columns of $A$
+  \item $N(A)$, the \emph{null space}, the solutions to $A\mathbf{x}=\mathbf{0}$ (the combinations of the columns that give zero, also the equations of the row space)
+  \item $R(A)$, the \emph{row space}, the span (combinations) of the rows of $A$
+  \item $LN(A)$, the \emph{left null space}, the solutions to $\mathbf{y}^TA=\mathbf{0}$ (the combinations of the rows that give zero, also the equations of the column space)
 \end{itemize}
 
-We wish to find bases and dimensions of the four fundamental subspaces corresponding to $A$. We already know how to find a basis for the column and null space.
+The four subspaces are depicted on the cover of our book.
 
-To find a basis for the row space, simply take the \emph{nonzero rows} of the REF or RREF matrix.
-
-To find a basis for the left-null space, there are two tough options: (1) find the null space of $A^T$; (2) keep track of elimination steps to write $EA=R$ and take the rows of $E$ corresponding to zero rows of $R$
-
-There is also a trick to find a basis for the row space: it is the nonzero rows of the REF of $A$.
+We wish to find bases and dimensions of the four fundamental subspaces corresponding to $A$. In all cases we first need to calculate the RREF.
+\begin{itemize}
+  \item $C(A)$: The basis consists of the columns of the original matrix corresponding to basic columns of the RREF.
+  \item $N(A)$: The basis consists of the special solutions.
+  \item $R(A)$: The basis consists of the nonzero rows of the RREF matrix.
+  \item $LN(A)$: The basis consists of the coefficients of the equations that determine the column space. (Alternatively, start with $A^T$ and find the null space.)
+\end{itemize}
 
 \begin{example}
-  Find bases and dimensions of the four fundamental subspaces.
+  Consider the matrix $A$ below. Find bases and dimensions of the four fundamental subspaces.
   \[A=\begin{bmatrix}
       1&3&0&5\\2&6&1&16\\5&15&0&25
     \end{bmatrix}
   \]
-  The RREF form and the elimination matrix are
+  We first augment the matrix with an unknown right-hand side $\mathbf{b}$, and find RREF.
   \[R=\begin{bmatrix}
-      1&3&0&5\\&&1&6\\&
-    \end{bmatrix},\qquad
-    E=\begin{bmatrix}
-      1&&\\-2&1&\\-5&&1
+    1&3&0&5&\vline&b_1\\
+    &&1&6&\vline&b_2-2b_1\\
+    &&&&\vline&b_3-5b_1
     \end{bmatrix}
   \]
+  % E=\begin{bmatrix}1&&\\-2&1&\\-5&&1\end{bmatrix}
+  The four bases are thus:
+  \[\text{C(A): }\begin{bmatrix}1\\2\\5\end{bmatrix},
+    \begin{bmatrix}0\\1\\0\end{bmatrix},\quad
+    \text{N(A): }\begin{bmatrix}-3\\1\\0\\0\end{bmatrix},
+    \begin{bmatrix}-5\\0\\-6\\1\end{bmatrix},\quad
+    \text{R(A): }\begin{bmatrix}1\\3\\0\\5\end{bmatrix},
+    \begin{bmatrix}0\\0\\1\\6\end{bmatrix},\quad
+    \text{LN(A): }\begin{bmatrix}-5\\0\\1\end{bmatrix}
+  \]
+  We can also see that $C(A)$ is a $2$-dimensional subspace of $\R^3$, $N(A)$ is a $2$-dimensional subspace of $\R^4$, $R(A)$ is a $2$-dimensional subspace of $\R^4$, and $LN(A)$ is a $1$-dimensional subspace of $\R^3$.
 \end{example}
 
-The dimensions of the four fundamental subspaces can all be calculated from the shape $m\times n$ of $A$ and the number of pivots $r$.
+If $A$ is $m\times n$, the dimensions of the four fundamental subspaces of $A$ can always be calculated $m$, $n$, and the number of pivots $r$.
 \begin{itemize}
-  \item $C(A)$ is a $r$-dimensional subspace of $\R^m$
+  \item $C(A)$ is an $r$-dimensional subspace of $\R^m$
   \item $N(A)$ is an $n-r$-dimensional subspace of $\R^n$
   \item $R(A)$ is an $r$-dimensional subspace of $\R^n$
   \item $LN(A)$ is an $m-r$-dimensional subspace of $\R^m$
 \end{itemize}
-
 The number of pivots $r$ is called the \emph{rank} of the matrix $A$ and measures the size of the matrix in terms of the dimension of its row or column space.
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item For each of the following matrices $A$, find bases and dimensions of all four fundamental subspaces corresponding to $A$.
+  \begin{enumerate}
+    \item $A=\begin{bmatrix}
+      2&4&0&1\\1&2&3&4
+    \end{bmatrix}$
+    \item $A=\begin{bmatrix}
+      -2&1&0&4&1\\4&-2&1&3&1\\2&-1&1&7&2
+    \end{bmatrix}$
+  \end{enumerate}
+  \item Given each set of info, find the dimensions of all four fundamental subspaces corresponding to $A$.
+  \begin{enumerate}
+    \item $A$ is a $3\times 5$ matrix with two pivots.
+    \item The null space is a three-dimensional subspace of $\R^5$ and the left-null space is one-dimensional.
+  \end{enumerate}
+  \item Let $P$ be the plane with equation $\begin{bmatrix}2&3&-1\end{bmatrix}\mathbf{x}=\mathbf{0}$. Find all solutions to the equation in parametric vector form. Which of the four subspaces is this? Recall that the \emph{normal line} is perpendicular to the plane and passes through $(2,3,-1)$. Which of the four subspaces is this?
+\end{activity}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
