@@ -4,6 +4,18 @@ title: Math 301, Spring 2020
 
 # Math 301 Homework
 
+## Homework 7, due Thursday, March 12 at 12pm
+
+1. In each problem, let $V$ be the subspace with the given basis. Find a basis for $V^\perp$.
+  * Basis for $V$: $\begin{bmatrix}1\\\\3\\\\4\end{bmatrix},\quad
+     \begin{bmatrix}5\\\\2\\\\7\end{bmatrix}$
+  * Basis for $V$: $\begin{bmatrix}1\\\\2\\\\2\\\\3\end{bmatrix},\quad
+     \begin{bmatrix}1\\\\3\\\\3\\\\2\end{bmatrix}$
+2. Let $A$ be the given matrix. Draw the (traditional) graph of $R(A)$ and $N(A)$ on one set of axes, and the graph of $C(A)$ and $LN(A)$ on a second set of axes.  
+   $A=\begin{bmatrix}1&2\\\\3&6\end{bmatrix}$
+3. Can you construct a $2\times 2$ matrix $A$ such that the sum of the rows of $A$ is the vector $(1,1)$ and the sum of the columns of $A$ is the vector $(0,0)$? If not, why not?
+4. ...
+
 ## Homework 6, due Thursday, March 5 at 12pm
 
 1. For each matrix $A$, find bases and dimensions for all four fundamental subspaces.
