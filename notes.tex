@@ -36,15 +36,15 @@
 \newtheorem{exerc}{Exercise}[section]
 \swapnumbers
 \theoremstyle{plain}
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{cor}[thm]{Corollary}
-\newtheorem{lem}[thm]{Lemma}
-\newtheorem{prop}[thm]{Proposition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
 \theoremstyle{definition}
-\newtheorem{definition}[thm]{Definition}
+\newtheorem{definition}[theorem]{Definition}
 \theoremstyle{remark}
-\newtheorem{rem}[thm]{Remark}
-\newtheorem{example}[thm]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
 \newtheorem*{notes}{Notes and further reading}
 \newtheorem*{reading}{Reading}
 \numberwithin{equation}{section}
@@ -1129,6 +1129,95 @@ The number of pivots $r$ is called the \emph{rank} of the matrix $A$ and measure
 
 Based on ILA 5th, \S 4.1.
 
+In previous sections we saw that solving systems of linear equations is related to two ``fundamental'' subspaces of a matrix: the column space (which determines when it is consistent), and the null space (which are the solutions up to a translation). We then defined two more fundamental subspaces, the row space and the left null space. We saw that the four spaces are related to each other. In this section we reveal one more special property of the four subspaces.
+
+\begin{definition}
+  Vectors $\mathbf{v},\mathbf{w}$ are \emph{orthogonal}, written $\mathbf{v}\perp\mathbf{w}$, if they are perpendicular (at 90 degree angles to one another). Subspaces $V,W$ of $\R^n$ are \emph{orthogonal}, written $V\perp W$, if every vector of $V$ is orthogonal to every vector of $W$.
+\end{definition}
+
+You may recall from previous courses that we can test whether vectors are orthogonal using the dot product.
+
+\begin{lemma}
+  Vectors $\mathbf{v},\mathbf{w}$ are orthogonal if and only if $\mathbf{v}^T\mathbf{w}=0$.
+\end{lemma}
+
+\begin{proof}
+  The reason this statement is true ultimately comes down to the Pythagorean theorem.
+
+  Observe that $\mathbf{v},\mathbf{w}$ are orthogonal if and only if the triangle with corners $\mathbf{0},\mathbf{v},\mathbf{w}$ is a right triangle. By the Pythagorean theorem, this is the case if and only if
+  \[|\mathbf{v}|^2+|\mathbf{w}|^2=|\mathbf{v-w}|^2
+  \]
+  We now use the distance formula, which states that the length of a vector is $|\mathbf{v}|=\sqrt{\sum v_i^2}$ (the distance formula is yet another version of the pythagorean theorem). Thus the previous equation is equivalent to
+  \[\sum v_i^2+\sum w_i^2=\sum(v_i-w_i)^2
+  \]
+  Distributing each summand on the right hand side, we arrive at
+  \[\sum v_i^2+\sum w_i^2=\sum v_i^2-\sum 2v_iw_i+\sum w_i^2
+  \]
+  After cancelling terms, this last equation is equivalent to the desired $\mathbf{v}^T\mathbf{w}=0$.
+\end{proof}
+
+\begin{example}
+  The vector $(1,5,-7,-1)$ is orthogonal to the vector $(2,1,1,0)$. It is also orthogonal to the vector $(1,2,1,4)$. By the same reasoning, we can also say that the line $V$ through $(1,5,-7,-1)$ is orthogonal to the plane $W$ with basis $(2,1,1,0),(1,2,1,4)$.
+\end{example}
+
+For any subspace $V$, there is always a largest subspace $W$ such that $V,W$ are orthogonal.
+
+\begin{definition}
+  If $V$ is a subspace of some Euclidean space $\R^n$, its \emph{orthogonal complement} $V^\perp$ is the subspace consisting of all vectors $\mathbf{w}$ that are orthogonal to all vectors in $V$.
+\end{definition}
+
+\begin{example}
+  If $V$ is the line in $\R^3$ that passes through the vector $(1,-1,2)$, then the orthogonal complement of $V$ would be the vectors $(x,y,z)$ such that
+  \[\begin{bmatrix}1&-1&2\end{bmatrix}
+    \begin{bmatrix}x\\y\\z\end{bmatrix}=0
+  \]
+  In other words, the orthogonal compleement is the set of solutions to $x-y+2z=0$, or in other words, the plane parameterized by
+  \[\begin{bmatrix}1\\1\\0\end{bmatrix}y
+    +\begin{bmatrix}-2\\0\\1\end{bmatrix}z
+  \]
+  It makes sense that the orthogonal complement of a line in $\R^3$ would be a plane---the dimensions of the two subspaces should add to $3$.
+\end{example}
+
+We saw from the example that if $A=\begin{bmatrix}1&-1&2\end{bmatrix}$ then the null space of $A$ is the orthogonal compelement of the row space of $A$. Strang states this is the fundamental theorem of linear algebra.
+
+\begin{theorem}[Fundamental Theorem of Linear Algebra]
+  Given any matrix $A$, the row space and null space are orthogonal complements of each other, and the column space and left-null space are orthogonal compelements of each other.
+\end{theorem}
+
+This theorem completes our understanding of the four fundamental subspaces. It also gives us a general method to calculate orthogonal complements.
+
+\begin{example}
+  Let $V$ be the subspace of $\R^4$ with the basis below. Find a basis for $V^\perp$.
+  \[\text{basis for $V$: }\begin{bmatrix}1\\3\\0\\1\end{bmatrix},\quad
+    \begin{bmatrix}1\\1\\2\\1\end{bmatrix}
+  \]
+  We solve this using the FTLA as follows: put the given vectors into the rows of a matrix, and then find the null space of the matrix. Here are the matrix and the final RREF.
+  \[A=\begin{bmatrix}1&3&0&1\\1&1&2&1\end{bmatrix},\quad
+  R=\begin{bmatrix}1&0&3&1\\0&1&-1&0\end{bmatrix}
+  \]
+  Using the null space trick, we can say:
+  \[\text{basis for $V^\perp$: }\begin{bmatrix}-3\\1\\1\\0\end{bmatrix},\quad
+  \begin{bmatrix}-1\\0\\0\\1\end{bmatrix}
+  \]
+\end{example}
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item In each problem, let $V$ be the subspace with the given basis. Find a basis for $V^\perp$.
+  \begin{itemize}
+    \item Basis for $V$: $\begin{bmatrix}2\\-1\\\frac12\end{bmatrix}$
+    \item Basis for $V$: $\begin{bmatrix}-1\\1\\2\\0\end{bmatrix}$
+    \item Basis for $V$: $\begin{bmatrix}1\\2\\-5\\8\end{bmatrix},\quad \begin{bmatrix}-1\\-1\\3\\-5\end{bmatrix}$
+  \end{itemize}
+  \item 
+    \begin{itemize}
+      \item Find a vector orthogonal to the plane spanned by the vectors $(1,3,4)$ and $(5,2,7)$.
+      \item Find a vector orthogonal to the plane with the equation $3x-y+2z=5$.
+    \end{itemize}
+  \item Consider the vector $(2,3)$ in $\R^2$. What is the closest vector to $(2,3)$ on the $x$-axis? Draw a right triangle that would convince someone your answer is correct.
+\end{activity}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
