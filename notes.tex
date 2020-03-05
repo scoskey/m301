@@ -1226,6 +1226,59 @@ This theorem completes our understanding of the four fundamental subspaces. It a
 
 Based on ILA 5th, \S 4.2.
 
+Given a system of linear equations $A\mathbf{x}=\mathbf{b}$, if it is consistent we know how to solve it. If it is inconsistent, we cannot find any solution. But can we still find a \emph{best approximate solution} $\mathbf{x}$ that makes $A\mathbf{x}$ as close as possible to $\mathbf{b}$? In this section we show how to find best approximate solutions using orthogonality.
+
+Geometrically, if $A\mathbf{x}=\mathbf{b}$ is inconsistent, this means that $\mathbf{b}$ doesn't lie in the column space of $A$. We want to replace $\mathbf{b}$ with the closest possible vector $\mathbf{p}$ that \emph{is} in the column space of $A$, and then solve $A\mathbf{x}=\mathbf{p}$ instead. From a picture [draw], we see that an optimal solution is achieved exactly when the error vector $\mathbf{b}-A\hat{\mathbf{x}}$ is orthogonal to the column space of $A$.
+
+The method is known as \emph{orthogonal projection}.
+\begin{itemize}
+  \item Given an inconsistent equation $A\mathbf{x}=\mathbf{b}$, what vector $\hat{\mathbf{x}}$ makes $A\hat{\mathbf{x}}$ closest to $\mathbf{b}$?
+  \item We note that an optimal solution is found when $C(A)$ is orthogonal to the error term $\mathbf{b}-A\hat{\mathbf{x}}$. In equations, we set
+    \[A^T(\mathbf{b}-A\hat{\mathbf{x}})=0
+    \]
+  \item This always simplifies down to
+    \[A^TA\hat{\mathbf{x}}=A^T\mathbf{b}
+    \]
+  \item We solve this equation to find the optimal solution $\hat{\mathbf{x}}$.
+  \item We can also find the \emph{projection} $\mathbf{p}=A\hat{\mathbf{x}}$, that is, the closest vector to $\mathbf{b}$ in the column space of $A$.
+\end{itemize}
+
+\begin{example}
+  Find the best approximate solution to the inconsistent system
+  \[\begin{bmatrix}1&0\\1&1\\1&2\end{bmatrix}\mathbf{x}
+    =\begin{bmatrix}6\\0\\0\end{bmatrix}
+  \]
+  Step 0, 1, 2, etc.
+\end{example}
+
+The situation is somewhat simpler when $A$ is just a single vector $\mathbf{a}$. Here, we are projecting $\mathbf{b}$ onto the line through $\mathbf{a}$.
+\begin{itemize}
+  \item Given a vector $\mathbf{a}$ and a vector $\mathbf{b}$, what multiple $\hat x$ makes $\mathbf{a}\hat x$ closest to $\mathbf{b}$?
+  \item Once again, we find an optimal solution when $\mathbf{b}-\mathbf{a}\hat x$ is orthogonal to $\mathbf{a}$. In equations this means
+    \[\mathbf{a}^T(\mathbf{b}-\mathbf{a}\hat x)=0
+    \]
+  \item We can actually solve this explicitly to obtain
+    \[\hat x=\mathbf{a}^T\mathbf{b}/\mathbf{a}^T\mathbf{a}
+    \]
+  \item Once again the projection is simply
+    \[\mathbf{p}=
+      \frac{\mathbf{a}^T\mathbf{b}}{\mathbf{a}^T\mathbf{a}}
+      \mathbf{a}
+    \]
+\end{itemize}
+
+\begin{example}
+  $\mathbf{a}=(1,2,3)$ and $\mathbf{b}=(4,6,4)$.
+\end{example}
+
+Given a matrix $A$, we can always find the \emph{projection matrix} $P$ which maps vectors $\mathbf{b}$ to their projections $\mathbf{p}$ in the column space of $A$. Recalling that $A^TA\hat{\mathbf{x}}=A^T\mathbf{b}$ and $\mathbf{p}=A\hat{\mathbf{x}}$, we find that
+  \[P=A(A^TA)^{-1}A^T
+  \]
+
+\begin{example}
+  Returning to the previous example, we find $P$...
+\end{example}
+
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
