@@ -42,7 +42,7 @@ title: Math 301, Spring 2020
     R=\begin{bmatrix}
       1&0&0&4\\\\0&1&0&3\\\\0&0&1&2
     \end{bmatrix}$
-7. If $A$ is a matrix that is wider than it is tall, then $A$ has a nonzero (??) space. If $A$ is a matrix that is taller than it is wide, then $A$ has a nonzero (??) space. Explain your reasoning!
+7. If $A$ is a matrix that is wider than it is tall, then $A$ has a nonzero \_\_\_\_\_ space. If $A$ is a matrix that is taller than it is wide, then $A$ has a nonzero \_\_\_\_\_ space. Explain your reasoning!
 
 ## Homework 5, due Thursday, February 27 at 12pm
 
