@@ -18,7 +18,7 @@ title: Math 301, Spring 2020
 
 ## Homework 6, due Thursday, March 5 at 12pm
 
-1. For each matrix $A$, find bases and dimensions for all four fundamental subspaces.
+1. For each matrix $A$, find bases for all four fundamental subspaces. <!--For each space state it is a \_\_\_-dimensional subspace of $\mathbb{R}$^\_\_\_.-->
   * $A=\begin{bmatrix}1&-1&3\\\\-2&2&-6\end{bmatrix}$
   * $A=\begin{bmatrix}1&2&4\\\\0&1&-2\end{bmatrix}$
   * $A=\begin{bmatrix}1&3&0&-1\\\\2&6&1&-4\\\\1&3&-2&3\end{bmatrix}$
@@ -30,18 +30,15 @@ title: Math 301, Spring 2020
   \begin{bmatrix}0\\\\1\\\\-1\\\\0\end{bmatrix},\quad
   \begin{bmatrix}0\\\\1\\\\0\\\\-1\end{bmatrix},\quad
   \begin{bmatrix}0\\\\0\\\\1\\\\-1\end{bmatrix}$
-3. Find the dimensions and bases for the column space and row space of each matrix. Which two of these four subspaces are identical?  
+3. Find bases for the column space and row space of each matrix. Which two of these four subspaces are identical?  
   $\begin{bmatrix}1&1&0\\\\1&3&1\\\\3&1&-1\end{bmatrix},\quad
   \begin{bmatrix}1&1&0\\\\0&2&1\\\\0&0&0\end{bmatrix}$
 4. Suppose you are given a set of four vectors in $\mathbb R^3$. Your friend tells you the set cannot possibly be independent. Is this true or false, and explain why.
 5. Suppose that $A$ is a $10\times10$ matrix and that its column space is contained in its null space. Explain how you know that $A$ must have $\leq5$ pivots.
 6. Suppose $EA=R$, with $E$ and $R$ given below. Find bases for the row space, null space, and left-null space of $A$. (Do not calculate $A$.)  
-  $E=\begin{bmatrix}
-      1&0&0\\\\6&1&0\\\\9&8&1
-    \end{bmatrix},\qquad
-    R=\begin{bmatrix}
-      1&0&0&4\\\\0&1&0&3\\\\0&0&1&2
-    \end{bmatrix}$
+  $E=\begin{bmatrix}1&0&0\\\\6&1&0\\\\9&8&1\end{bmatrix},\qquad
+    R=\begin{bmatrix}1&0&0&4\\\\0&1&0&3\\\\0&0&1&2\end{bmatrix}$
+    <!--make less boring / also think about the E method-->
 7. If $A$ is a matrix that is wider than it is tall, then $A$ has a nonzero \_\_\_\_\_ space. If $A$ is a matrix that is taller than it is wide, then $A$ has a nonzero \_\_\_\_\_ space. Explain your reasoning!
 
 ## Homework 5, due Thursday, February 27 at 12pm
