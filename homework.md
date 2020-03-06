@@ -14,7 +14,17 @@ title: Math 301, Spring 2020
 2. Let $A$ be the given matrix. Draw the (traditional) graph of $R(A)$ and $N(A)$ on one set of axes, and the graph of $C(A)$ and $LN(A)$ on a second set of axes.  
    $A=\begin{bmatrix}1&2\\\\3&6\end{bmatrix}$
 3. Can you construct a $2\times 2$ matrix $A$ such that the sum of the rows of $A$ is the vector $(1,1)$ and the sum of the columns of $A$ is the vector $(0,0)$? If not, why not?
-4. ...
+4. Find the projection of $\mathbf{b}$ onto the line through $\mathbf{a}$.
+  * $\mathbf b=(2,-1,0)$, $\mathbf a=(1,0,1)$
+  * $\mathbf b=(1,2,2)$, $\mathbf a=(1,1,1)$
+5. Let $A\mathbf{x}=\mathbf{b}$ be the inconsistent system below. Find the best approximate solution $\hat{\mathbf{x}}$ and the projection $\mathbf{p}$ of $\mathbf{b}$ to $C(A)$.
+  * $\begin{bmatrix}1&1\\\\2&0\\\\-1&1\end{bmatrix}\mathbf{x}
+  =\begin{bmatrix}2\\\\1\\\\1\end{bmatrix}$
+  * ...
+6. For the matrix $A$ in exercise 5(a), find the projection matrix $P$.
+7. When projecting $\mathbf{b}$ onto the column space of a matrix $A$, which of the four subspaces contains the projection $\mathbf{p}$? Which of the four subspaces contains the error vector $\mathbf{b}-\mathbf{p}$? Explain your answers.
+
+<!-- Can you construct a $2\times 2$ matrix $A$ such that the sum of the rows of $A$ is the vector $(1,1)$ and the sum of the columns of $A$ is the vector $(0,0)$? If not, why not? -->
 
 ## Homework 6, due Thursday, March 5 at 12pm
 
