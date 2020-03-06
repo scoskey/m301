@@ -20,7 +20,8 @@ title: Math 301, Spring 2020
 5. Let $A\mathbf{x}=\mathbf{b}$ be the inconsistent system below. Find the best approximate solution $\hat{\mathbf{x}}$ and the projection $\mathbf{p}$ of $\mathbf{b}$ to $C(A)$.
   * $\begin{bmatrix}1&1\\\\2&0\\\\-1&1\end{bmatrix}\mathbf{x}
   =\begin{bmatrix}2\\\\1\\\\1\end{bmatrix}$
-  * ...
+  * $\begin{bmatrix}1&0\\\\2&1\\\\0&1\end{bmatrix}\mathbf{x}
+  =\begin{bmatrix}5\\\\0\\\\0\end{bmatrix}$
 6. For the matrix $A$ in exercise 5(a), find the projection matrix $P$.
 7. When projecting $\mathbf{b}$ onto the column space of a matrix $A$, which of the four subspaces contains the projection $\mathbf{p}$? Which of the four subspaces contains the error vector $\mathbf{b}-\mathbf{p}$? Explain your answers.
 
