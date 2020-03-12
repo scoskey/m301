@@ -13,7 +13,7 @@ title: Math 301, Spring 2020
      \begin{bmatrix}1\\\\3\\\\3\\\\2\end{bmatrix}$
 2. Let $A$ be the given matrix. Draw the (traditional) graph of $R(A)$ and $N(A)$ on one set of axes, and the graph of $C(A)$ and $LN(A)$ on a second set of axes.  
    $A=\begin{bmatrix}1&2\\\\3&6\end{bmatrix}$
-3. Can you construct a $2\times 2$ matrix $A$ such that the sum of the rows of $A$ is the vector $(1,1)$ and the sum of the columns of $A$ is the vector $(0,0)$? If not, why not?
+3. Consider a $2\times 2$ matrix $A$ with the following properties: the sum of the rows of $A$ is the vector $(1,1)$ and the sum of the columns of $A$ is the vector $(0,0)$. Give an example of such a matrix $A$, or show that no such matrix exists.
 4. Find the projection of $\mathbf{b}$ onto the line through $\mathbf{a}$.
   * $\mathbf b=(2,-1,0)$, $\mathbf a=(1,0,1)$
   * $\mathbf b=(1,2,2)$, $\mathbf a=(1,1,1)$
