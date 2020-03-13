@@ -1309,6 +1309,81 @@ We close by mentioning that given any matrix $A$, there is a single \emph{projec
 
 Based on ILA 5th, \S 4.3.
 
+In the previous section, we described how to find the orthogonal projection of a given vector $\mathbf{b}$ onto a vector subspace. The projection vector $\mathbf{p}$ is optimal in the sense that it is as close as possible to $\mathbf{b}$.
+
+This concept has an enormous application in statistics, where it is called ``least squares optimization''. We often see data sets which, when plotted, do not form a line, but instead have a visible ``trend''. Given an arbitrary data set, we wish to find the line that most closely fits the data. We will use the fact that the possible data sets form a vector space, and the linear data sets form a subspace. We will take a given data set and \emph{project} it onto the subspace consisting of linear data sets! This is a beautiful and typical example of the power of abstract mathematics!
+
+Here is how it works. Given a sequence of data points $(t_1,b_1),\ldots,(t_n,b_n)$, the data lie on a line of the form $C+Dt=y$ if and only if the following system is consistent:
+\[\begin{cases}1C+t_1 D=b_1\\\vdots\\1C+t_nD=b_n\end{cases}
+\]
+If the system is not consistent we use the method of orthogonal projection, replacing $\mathbf{b}$ with $\mathbf{p}$ and finding the best approximate solutions $\hat C,\hat D$ for $C,D$.
+
+\begin{example}
+  Recall the example that we gave on the very first day of class. Given the following measurements, find the line that best fits the data.
+  \[(0,6),(1,0),(2,0)
+  \]
+  The data lie on a line if and only if the system is consistent:
+  \[\systeme{C+0D=6,C+1D=0,C+2D=0}
+  \]
+  Write it as a matrix equation:
+  \[\begin{bmatrix}1&0\\1&1\\1&2\end{bmatrix}
+    \mathbf{C}=\begin{bmatrix}6\\0\\0\end{bmatrix}
+  \]
+  The data do not lie on a line, so the system is inconsistent. Instead we find the best approximate solution. We actually did this example in the previous section and got $\hat C=5$, $\hat D=-3$. Thus the best fit line is $5-3t=y$. Graphing the line with the data, we see this is reasonable!
+
+  We didn't really need the projection vector $\mathbf{p}$. In this case $\mathbf{p}=(5,2,-1)$, which is simply the vector of $y$-coordinates on the best fit line. The error vector is $(1,-2,1)$ and corresponds to the ``residuals''.
+\end{example}
+
+For a larger data set $(t_i,b_i)$, the $A$ matrix and $\mathbf{b}$ vector will always look like the following:
+\[A=\begin{bmatrix}
+    1&t_1\\
+    2&t_2\\
+    \vdots&\vdots\\
+    1&t_n
+  \end{bmatrix}
+  ,\quad
+  \mathbf{b}=\begin{bmatrix}b_1\\b_2\\\vdots\\b_n\end{bmatrix}
+\]
+
+Here is the really cool part: The method can be used to find the best fit for any linear model, not just a line! Here a linear model means any linear combination of functions. For example we can find a best fit \emph{parabola} using the model $C+Dt+Et^2=y$.
+
+\begin{example}
+  Find the best fit parabola for the given data set.
+  \[\begin{bmatrix}0\\6\end{bmatrix}
+    \begin{bmatrix}1\\0\end{bmatrix}
+    \begin{bmatrix}2\\0\end{bmatrix}
+    \begin{bmatrix}3\\2\end{bmatrix}
+  \]
+  The data lie on a parabolif if and only if the system is consistent:
+  \[\systeme[CDE]{1C+0D+0E=6,1C+1D+1E=0,1C+2D+4E=0,1C+3D+9E=2}
+  \]
+  In other words, the $A$ matrix and $\mathbf{b}$ vector are:
+  \[A=\begin{bmatrix}
+      1&t_1&t_1^2\\
+      1&t_2&t_2^2\\
+      \vdots&\vdots&\vdots\\
+      1&t_n&t_n^2
+    \end{bmatrix}
+    ,\quad
+    \mathbf{b}=\begin{bmatrix}
+      b_1\\b_2\\\vdots\\b_n
+    \end{bmatrix}
+  \]
+  The best approximate solution turns out to be $\hat C=5.8,\hat D=-7.2,\hat E=2$. Thus the best fit parabola $5.8-7.2t+2t^2=y$.
+\end{example}
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item Use the method of orthogonal projections to find the best fit line for the data set.
+  \begin{enumerate}
+    \item $(0,9),(1,4),(2,1)$
+    \item $(0,0),(1,8),(3,8),(4,20)$
+  \end{enumerate}
+  \item Repeat problem 1(b), but this time find the best fit parabola.
+\end{activity}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
