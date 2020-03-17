@@ -9,7 +9,7 @@ title: Math 301, Spring 2020
 1. Given the data set, find the coefficients of the best fit line. Then create an accurate plot of the data and the best fit line.
   * $(-1,7),(1,7),(2,21)$
   * $(-2,4),(-1,2),(0,-1),(1,0),(2,0)$
-2. In the previous question, what was special about the data set? Use this special property to find and explain how a student can solve the problem using dot products and not matrices.
+2. In the previous question, second bullet, what was special about the data set? Use this special property to find and explain how a student can solve the problem using dot products and not matrices.
 3. Given the data set, find the best fit parabola. Then create an accurate plot of the data and the best fit parabola.
   * $(-2,0),(-1,0),(0,1),(1,0),(2,0)$
 
