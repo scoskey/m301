@@ -4,7 +4,7 @@ title: Math 301, Spring 2020
 
 # Math 301 Homework
 
-## Homework 8, due Thursday, March 19 at 12pm
+## Homework 8, due Thursday, March 19
 
 1. Given the data set, find the coefficients of the best fit line. Then create an accurate plot of the data and the best fit line.
   * $(-1,7),(1,7),(2,21)$
