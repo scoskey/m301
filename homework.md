@@ -4,6 +4,27 @@ title: Math 301, Spring 2020
 
 # Math 301 Homework
 
+## Homework 9, due Thursday, April 9
+
+1. For each of the following matrices, find the determinant using the formula $ad-bc$. Then, if possible, find the inverse of the matrix.  
+  (a) $\begin{bmatrix}\cos\theta&-\sin\theta\\\\
+       \sin\theta&\cos\theta\end{bmatrix}$
+  (b) $\begin{bmatrix}1-2\cos^2\theta&-2\cos\theta\sin\theta\\\\
+      -2\cos\theta\sin\theta&1-2\sin^2\theta\end{bmatrix}$
+2. Use elimination and the properties of the determinant to find the determinant of each matrix.  
+  (a) $\begin{bmatrix}1&2&3\\\\4&5&6\\\\7&8&9\end{bmatrix}$
+  (b) $\begin{bmatrix}t&1&t^2\\\\t&1&t\\\\t^2&t&1\end{bmatrix}$
+  (c) $\begin{bmatrix}a&b&x\\\\c&d&y\\\\0&0&1\end{bmatrix}$
+  (d) $\begin{bmatrix}a&0&b\\\\0&5&0\\\\c&0&d\end{bmatrix}$
+  (e) $\begin{bmatrix}3&-1&0&0\\\\-1&3&-1&0\\\\0&-1&3&-1\\\\0&0&-1&3\end{bmatrix}$
+3. Show that the value of the determinant of the following matrix is not affected by the value of $x$. Then write down your \emph{own} example of a matrix, with an $x$ in it, whose determinant is not affected by the value of $x$.  
+  $\begin{bmatrix}1&1&x\\\\1&2&2\\\\1&2&5\end{bmatrix}$
+4. Decide whether each of the following is true or false, and in either case explain your answer.
+  * The determinant of $A+I$ is the determinant of $A$ plus $1$
+  * The determinant of $AB$ is the determinant of $A$ times the determinant of $B$
+  * The determinant of $4A$ is $4$ times the determinant of $A$
+5. ...
+
 ## Homework 8, due Thursday, March 19 at 12pm
 
 1. Given the data set, find the coefficients of the best fit line. Then create an accurate plot of the data and the best fit line.
