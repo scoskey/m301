@@ -6,13 +6,13 @@ title: Math 301, Spring 2020
 
 ## Course information
 
-Meeting times: W,F from 10:30&ndash;11:45am ([zoom classroom](https://boisestate.zoom.us/j/826830210))  
+Meeting times: W,F from 10:30&ndash;11:45am 
 Meeting place: RFH 102-B  
 Recommended text: Strang, *Introduction to linear algebra*, 5th edition  
 Web site: `scoskey.org/m301`  
 My email: `scoskey@boisestate.edu`  
 My office: MB 238-B  
-Office hours: T 1:30-2:30, Th 10:30-11:30, and by appointment ([zoom office hours](https://boisestate.zoom.us/j/255135803))
+Office hours: T 1:30-2:30, Th 10:30-11:30, and by appointment
 
 ## Course content
 
