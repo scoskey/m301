@@ -7,10 +7,8 @@ title: Math 301, Spring 2020
 ## Homework 9, due Thursday, April 9
 
 1. For each of the following matrices, find the determinant using the formula $ad-bc$. Then, if possible, find the inverse of the matrix.  
-  (a) $\begin{bmatrix}\cos\theta&-\sin\theta\\\\
-       \sin\theta&\cos\theta\end{bmatrix}$
-  (b) $\begin{bmatrix}1-2\cos^2\theta&-2\cos\theta\sin\theta\\\\
-      -2\cos\theta\sin\theta&1-2\sin^2\theta\end{bmatrix}$
+  (a) $\begin{bmatrix}\cos\theta&-\sin\theta\\\\\sin\theta&\cos\theta\end{bmatrix}$
+  (b) $\begin{bmatrix}1-2\cos^2\theta&-2\cos\theta\sin\theta\\\\-2\cos\theta\sin\theta&1-2\sin^2\theta\end{bmatrix}$
 2. Use elimination and the properties of the determinant to find the determinant of each matrix.  
   (a) $\begin{bmatrix}1&2&3\\\\4&5&6\\\\7&8&9\end{bmatrix}$
   (b) $\begin{bmatrix}t&1&t^2\\\\t&1&t\\\\t^2&t&1\end{bmatrix}$
