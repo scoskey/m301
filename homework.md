@@ -15,7 +15,7 @@ title: Math 301, Spring 2020
   (c) $\begin{bmatrix}a&b&x\\\\c&d&y\\\\0&0&1\end{bmatrix}$
   (d) $\begin{bmatrix}a&0&b\\\\0&5&0\\\\c&0&d\end{bmatrix}$
   (e) $\begin{bmatrix}3&-1&0&0\\\\-1&3&-1&0\\\\0&-1&3&-1\\\\0&0&-1&3\end{bmatrix}$
-3. Show that the value of the determinant of the following matrix is not affected by the value of $x$. Then write down your \emph{own} example of a matrix, with an $x$ in it, whose determinant is not affected by the value of $x$.  
+3. Show that the value of the determinant of the following matrix is not affected by the value of $x$. Then write down your *own* example of a matrix, with an $x$ in it, whose determinant is not affected by the value of $x$.  
   $\begin{bmatrix}1&1&x\\\\1&2&2\\\\1&2&5\end{bmatrix}$
 4. Decide whether each of the following is true or false, and in either case explain your answer.
   * The determinant of $A+I$ is the determinant of $A$ plus $1$
