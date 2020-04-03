@@ -23,7 +23,14 @@ title: Math 301, Spring 2020
   * The determinant of $A+I$ is the determinant of $A$ plus $1$
   * The determinant of $AB$ is the determinant of $A$ times the determinant of $B$
   * The determinant of $4A$ is $4$ times the determinant of $A$
-5. ...
+5. Use Cramer's formula to find the inverse of the matrices.  
+  (a) $\begin{bmatrix}1&2&0\\\\0&3&0\\\\0&7&1\end{bmatrix}$
+  (b) $\begin{bmatrix}2&-1&0\\\\-1&2&-1\\\\0&-1&2\end{bmatrix}$
+6. Given an $n\times n$ matrix $A$ with determinant $\det(A)$, what is the detereminant of the cofactor matrix $C$ and why? [Hint: Use $AC^T=\det(A)I$.]
+7. Find the area of the paralellogram or parallelepiped determined by the given vectors.  
+  (a) $(3,2)$, $(1,4)$
+  (b) $(1,-1,0)$, $(3,3,1)$, $(-1,-3,6)$
+8. Consider the triangle with corners $(2,1)$, $(3,4)$, and $(0,5)$. What is the area of the triangle? [Hint: a triangle is half a parallelogram.]
 
 ## Homework 8, due Thursday, March 19 at 12pm
 

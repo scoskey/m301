@@ -1402,9 +1402,13 @@ In this section we introduce the concept of the determinant of a matrix. Given a
 As motivation, consider the initial step in the process of inverting a general $2\times2$ matrix:
 \begin{align*}
   \begin{bmatrix}a&b&\vline&1&0\\c&d&\vline&0&1\end{bmatrix}
-  &\to\begin{bmatrix}a&b&\vline&1&0\\0&d-\frac{c}{a}b&\vline&-\frac{c}{a}&1
-  \end{bmatrix}\\
-  &\to\begin{bmatrix}a&b&\vline&1&0\\0&ad-bc&\vline&-c&a\end{bmatrix}
+  &\to\begin{bmatrix}a&b&\vline&1&0\\
+    0&d-\frac{c}{a}b&\vline&-\frac{c}{a}&1\end{bmatrix}\\
+  &\to\begin{bmatrix}a&b&\vline&1&0\\0&ad-bc&\vline&-c&a\end{bmatrix}\\
+  &\to\begin{bmatrix}a&0&\vline&1+\frac{ad-bc}{b}c&-\frac{ad-bc}{b}a\\
+    0&ad-bc&\vline&-c&a\end{bmatrix}\\
+  &\to\begin{bmatrix}1&0&\vline&\frac{d}{ad-bc}&\frac{-b}{ad-bc}\\
+    0&1&\vline&\frac{-c}{ad-bc}&\frac{a}{ad-bc}\end{bmatrix}\\
 \end{align*}
 Notice that after we cleared denominators, the last pivot is $ad-bc$, and that this quantity shows up in the denominator of the entries of $A^{-1}$. Notice also that if this quantity is zero, then the method fails and $A$ is not invertible.
 
@@ -1497,6 +1501,8 @@ Warning: if you use any Scaling or Row Exchange steps while eliminating, you mus
 
 Based on ILA 5th, \S 5.2.
 
+(Skip)
+
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1504,6 +1510,131 @@ Based on ILA 5th, \S 5.2.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Based on ILA 5th, \S 5.3.
+
+We have already said that the determinant of a matrix tells you whether it is invertible (nonzero determinant) or singular (zero determinant). We will use this fact repeatedly in the next chapter. But before moving on, we give two further applications of the determinant.
+
+The first application involves the close connection between determinants and the inverse matrix. The first hint of this was the general formula for the inverse of a $2\times 2$ matrix, in which $\det(A)$ appears in the denominator.
+\[\begin{bmatrix}a&b\\c&d\end{bmatrix}^{-1}
+  =\frac{1}{ad-bc}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}
+\]
+
+For an even bigger hint, we will reveal the general formula for the inverse of a $3\times 3$ matrix.
+\[\begin{bmatrix}a&b&c\\d&e&f\\g&h&i\end{bmatrix}^{-1}
+  =\frac{1}{\det(A)}\begin{bmatrix}ei-fh&ch-bi&bf-ce\\fg-di&ai-cg&cd-af\\
+  dh-eg&bg-ah&ae-bd\end{bmatrix}
+\]
+Once again the determinant appears in the denominator. But note also that the entries of the matrix are determinants as well, though smaller in size. These determinants are obtained by crossing out one row and column of $A$.
+
+\begin{definition}
+  Given a matrix $A$, the corresponding \emph{cofactor matrix} of $A$ is equal to $(-1)^{i+j}$ times the determinant of the submatrix of $A$ with the $i$th row and $j$th column crossed out.
+\end{definition}
+
+To remember the signs of the cofactors $(-1)^{i+j}$ we use the memory device
+\[\begin{bmatrix}
+    +&-&+\\-&+&+&\cdots\\+&-&+\\&\vdots&&\ddots
+  \end{bmatrix}
+\]
+
+\begin{example}
+  The matrix $A$ has cofactor matrix $C$:
+  \[A=\begin{bmatrix}1&2&3\\4&2&2\\1&1&1\end{bmatrix},\qquad
+    C=\begin{bmatrix}0&-2&2\\1&-2&1\\-2&10&-6\end{bmatrix}
+  \]
+\end{example}  
+
+In the above example, look at what happens when we multiply $AC^T$:
+\[AC^T=\begin{bmatrix}1&2&3\\4&2&2\\1&1&1\end{bmatrix}
+  \begin{bmatrix}0&1&-2\\-2&-2&10\\2&1&-6\end{bmatrix}
+  =\begin{bmatrix}2\\&2\\&&2\end{bmatrix}
+\]
+In general the product $AC^T$ is equal to $\det(A)I$, the diagonal matrix with the determinant of $A$ every diagonal entry.
+\[\begin{bmatrix}
+    a_{11}&\cdots&a_{1n}\\
+    \vdots&&\vdots\\
+    a_{n1}&\cdots&a_{nn}
+  \end{bmatrix}
+  \begin{bmatrix}
+    c_{11}&\cdots&c_{1n}\\
+    \vdots&&\vdots\\
+    c_{n1}&\cdots&c_{nn}
+  \end{bmatrix}
+  =\begin{bmatrix}
+    \det(A)\\&\ddots\\&&\det(A)
+  \end{bmatrix}
+\]
+% While this may seem mysterious at first, this really just comes from the cofactor expansion of the determinant. Every diagonal entry of $AC^T$ is of the form $a_{i1}c_{i1}+\cdots+a_{in}c_{in}$ and this equals $\det(A)$. Note that the off-diagonal entries are all zero because they correspond to the cofactor expansion of the determinant of a matrix with a duplicate row.
+
+\begin{theorem}[Cramer's formula for the inverse]
+  \[A^{-1}=\frac{1}{\det(A)}C^T
+  \]
+\end{theorem}
+
+\begin{example}
+  \[A=\begin{bmatrix}1\\1&1\\1&1&1\\1&1&1&1\end{bmatrix},\quad
+    A^{-1}=\begin{bmatrix}1\\-1&1\\&-1&1\\&&-1&1\end{bmatrix}
+  \]
+\end{example}
+
+The second application is about the calculation of the area of a parallelepiped. Recall that a parallelepiped is the higher dimensional analog of a paralellogram and is the region bounded by several vectors and their sums.
+
+Let's first look at the $2$-dimensional parallelogram with vector sides $(a,b)$ and $(c,d)$. Using simple geometry, we can find that the area of the paralellogram is $ad-bc$, the determinant of the matrix consisting of the two vector sides.
+\begin{center}
+  \begin{tikzpicture}[yscale=.7]
+    \draw[->] (-.5,0)--(5.5,0);
+    \draw[->] (0,-.5)--(0,3.5);
+    \draw (0,0) rectangle (5,3);
+    \draw (0,0) -- (1,2) -- (5,3) -- (4,1) -- (0,0);
+    \draw (4,0) -- (4,1) -- (5,1);
+    \draw (0,2) -- (1,2) -- (1,3);
+    \node[below] at (2,0) {$a$};
+    \node[right] at (5,.5) {$b$};
+    \node[below] at (4.5,0) {$c$};
+    \node[right] at (5,2) {$d$};
+  \end{tikzpicture}
+\end{center}
+
+Perhaps surprisingly, this turns out to be true in higher dimensions! The $n$-dimensional volume of the paralellepiped with vector sides $\mathbf{v}_1,\ldots,\mathbf{v}_n$ is given by
+\[V=\left|\det\begin{bmatrix}
+      |&&|\\
+      \mathbf{v}_1&\cdots&\mathbf{v}_n\\
+      |&&|
+    \end{bmatrix}\right|
+\]
+
+To understand briefly how this can be true, we can see that the volume of a parallelepiped satisfies the same four properties that we used to define the determinant.
+\begin{itemize}
+  \item (Identity) If $\mathbf{v}_i=\mathbf{e}_i$ then the parallelepiped is the unit hypercube which clearly has volume $1$.
+  \item (Scaling) If you scale one of the sides of a paralellepiped by $t$ this clearly scales the volume by $t$.
+  \item (Elimination) Adding a multiple of one vector to another slides the parallelepiped along one of its sides. This has no effect on the volume.
+  \item (Row exchange) This has no effect on the volume, but if we consider the volume to be signed, we can assume this is true.
+\end{itemize}
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item Use \textbf{geometry} to find the area of the parallelogram with the vector sides shown below. Then use a \textbf{determinant} to confirm your answer.
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[gray!80,very thin,dashed] (-.5,-.5) grid (5.5,3.5);
+      \draw[->] (-.5,0)--(5.5,0) node[right]{$x$};
+      \draw[->] (0,-.5)--(0,3.5) node[above]{$y$};
+      \draw (0,0) -- (1,2) -- (5,3) -- (4,1) -- (0,0);
+      \node[below] at (1,0) {$1$};
+      \node[left] at (0,1) {$1$};
+    \end{tikzpicture}
+  \end{center}
+  \item Find the volume of the parallelepiped with the vector sides.
+    \[\begin{bmatrix}1\\1\\1\end{bmatrix},
+      \begin{bmatrix}1\\2\\3\end{bmatrix},
+      \begin{bmatrix}1\\3\\4\end{bmatrix}
+    \]
+  \item Use Cramer's rule to find the inverse of each matrix (if it exists).
+  \begin{enumerate}
+    \item $\begin{bmatrix}0&2&-1\\2&1&5\\-1&0&4\end{bmatrix}$
+    \item $\begin{bmatrix}a&&\\b&c&\\d&e&f\end{bmatrix}$
+  \end{enumerate}
+\end{activity}
 
 
 \newpage
