@@ -4,6 +4,23 @@ title: Math 301, Spring 2020
 
 # Math 301 Homework
 
+## Homework 10, due Thursday, April 16
+
+1. Find the eigenvalues and eigenvectors of the matrices.  
+  (a) $\begin{bmatrix}1&-1&0\\\\-1&2&-1\\\\0&-1&1\end{bmatrix}$
+  (b) $\begin{bmatrix}1&2&3\\\\0&4&5\\\\0&0&6\end{bmatrix}$
+  (c) $\begin{bmatrix}1&2&1\\\\3&6&3\\\\4&8&4\end{bmatrix}$
+2. What is the relationship between the eigenvalues/vectors of $A$ and $A^2$? Try it on the matrices:  
+  $A=\begin{bmatrix}-1&3\\\\2&0\end{bmatrix},\qquad
+    A^2=\begin{bmatrix}7&-3\\\\-2&6\end{bmatrix}$
+3. What is the relationship between the eigenvalues/vectors of $A$ and $A+I$? Try it on the matrices:  
+  $A=\begin{bmatrix}1&4\\\\2&3\end{bmatrix},\qquad
+    A+I=\begin{bmatrix}2&4\\\\2&4\end{bmatrix}$
+4. What is the relationship between the eigenvalues/vectors of $A$ and $A^{-1}$? Try it on the matrices:  
+  $A=\begin{bmatrix}0&2\\\\1&1\end{bmatrix},\qquad
+    A^{-1}=\begin{bmatrix}-1/2&1\\\\1/2&0\end{bmatrix}$
+5. ...
+
 ## Homework 9, due Thursday, April 9
 
 1. For each of the following matrices, find the determinant using the formula $ad-bc$. Then, if possible, find the inverse of the matrix.  
