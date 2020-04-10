@@ -1748,6 +1748,159 @@ We now turn to the problem of finding eigenvectors and eigenvalues for a given m
 
 Based on ILA 5th, \S 6.2.
 
+In the previous section we said that for a square matrix $A$, if the special equation $A\mathbf{x}=\lambda\mathbf{x}$ is true then we say that $\lambda$ is an eigenvalue and $\mathbf{x}$ is a corresponding eigenvector of $A$. In most cases, if $A$ is $n\times n$ then there will be exactly $n$ distinct eigenvectors (not counting scalar multiples). Moreover the eigenvectors are linearly independent, which means they make a \emph{basis} for $\R^n$. The basis of eigenvectors is very special, because $A$ acts really nicely (diagonally) with respect to this basis.
+
+To begin exploring this idea, assume that $A$ is $n\times n$ and has $n$ distinct eigenvectors. We let $X$ be the $n\times n$ matrix whose columns are the eigenvectors. Then the matrices $A$ and $X$ interact in a very special way, which we will explore by example first.
+
+\begin{example}
+  Let $A$ be the matrix:
+  \[A=\begin{bmatrix}
+      3 & 4 & 2 \\
+      0 & 1 & 2 \\
+      0 & 0 & 0
+      \end{bmatrix}
+  \]
+  The eigenvalues are $\lambda=3,1,0$, and the corresponding eigenvectors are $(1,2,2)^T$, $(0,1,2)^T$, and $(0,0,1)^T$. When we multiply $AX$ we get:
+  \[AX=\begin{bmatrix}
+      3 & 4 & 2 \\
+      0 & 1 & 2 \\
+      0 & 0 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+      1 & -2 & 2 \\
+      0 & 1 & -2 \\
+      0 & 0 & 1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+      3 & -2 & 0 \\
+      0 & 1 & 0 \\
+      0 & 0 & 0
+    \end{bmatrix}      
+  \]
+\end{example}
+
+We find that $AX=$ the matrix $X$ again but with each column multiplied by the corresponding eigenvalue. To see why this will always be true, we observe:
+
+\[AX=A\begin{bmatrix}
+    \vdots&&\vdots\\
+    \mathbf{x}_1&\cdots&\mathbf{x}_n\\
+    \vdots&&\vdots
+  \end{bmatrix}
+  =\begin{bmatrix}
+    \vdots&&\vdots\\
+    \lambda_1\mathbf{x}_1&\cdots&\lambda_n\mathbf{x}_n\\
+    \vdots&&\vdots
+  \end{bmatrix}
+  =\begin{bmatrix}
+    \vdots&&\vdots\\
+    \mathbf{x}_1&\cdots&\mathbf{x}_n\\
+    \vdots&&\vdots
+  \end{bmatrix}
+  \begin{bmatrix}
+    \lambda_1\\&\ddots&\\&&\lambda_n
+  \end{bmatrix}
+\]
+
+Let $\Lambda$ be the diagonal matrix with eigenvalues in the diagonal entries. We can summarize the above by saying that $AX=X\Lambda$. We can further rewrite this as
+\[A=X\Lambda X^{-1}
+\]
+This equation is said to \emph{diagonalize} the matrix $A$. Of course most matrices $A$ are not diagonal, but this equation shows that in most cases it is possible to transform $A$ to make it diagonal!
+
+\begin{example}
+  Let $A$ be the matrix below. Diagonalize $A$ by writing it as $A=X\Lambda X^{-1}$.
+  \[A=\begin{bmatrix}1&5\\&6\end{bmatrix}
+  \]
+  The eigenvalues are $\lambda=1,6$ and corresponding eigenvectors are $(1,0)^T$ and $(1,-1)^T$. We use these to populate the matrices $\Lambda$ and $X$. We also have to find the inverse of $X$. The solution is:
+  \[A=\begin{bmatrix}1&1\\&1\end{bmatrix}
+    \begin{bmatrix}1&\\&6\end{bmatrix}
+    \begin{bmatrix}1&-1\\&1\end{bmatrix}
+  \]
+  We can check our answer by confirming that the right-hand side multiplies back to $A$.
+\end{example}
+
+There are many applications of diagonalization. One application is the calculation of matrix powers $A^k$. If you can diagonalize $A$ as $A=S\Lambda S^{-1}$, then you can also diagonalize its powers as $A^n=S\Lambda^nS^{-1}$. (Show.)
+
+We will see this come in handy when we want to study the city population problem after $n$ years or in the limit.
+
+\begin{example}
+  For $A$ in the previous example, find $A^{100}$. The answer is
+  \[A^{100}=\begin{bmatrix}1&1\\&1\end{bmatrix}
+    \begin{bmatrix}1&\\&6\end{bmatrix}^{100}
+    \begin{bmatrix}1&-1\\&1\end{bmatrix}
+    =\begin{bmatrix}1&-1+6^{100}\\&6^{100}\end{bmatrix}
+  \]
+\end{example}
+
+We conclude this section with one of the coolest applications of diagonalization. Recall that the Fibonacci sequence begins with $F_0=0$, $F_1=1$ and is defined recursively by $F_{n+1}=F_{n+1}+F_n$. Find an absolute formula for $F_n$.
+\begin{itemize}
+  \item Step 1. Using the variables $F_{n+1}$ and $F_n$, the process is governed by the equations
+  \[\systeme{F_{n+1}=F_n+F_{n-1},F_n=F_n}
+  \]
+  Or in matrix terms we have
+  \[\begin{bmatrix}F_{n+1}\\F_n\end{bmatrix}
+    =\begin{bmatrix}1&1\\1&0\end{bmatrix}
+    \begin{bmatrix}F_n\\F_{n-1}\end{bmatrix}
+  \]
+  Denoting this square matrix by $A$, we want to find
+  \[\begin{bmatrix}F_{n+1}\\F_n\end{bmatrix}
+    =A^n\begin{bmatrix}1\\0\end{bmatrix}
+  \]
+  \item Step 2. We diagonalize the matrix $A$ above. We find that the two eigenvalues are $\lambda_1=(1+\sqrt{5})/2$ and $\lambda_2=(1-\sqrt{5})/2$. The corresponding eigenvectors are $(\lambda_1,1)$ and $(\lambda_2,1)$. Thus we can diagonalize $A$ as
+  \[A=\begin{bmatrix}\lambda_1&\lambda_2\\1&1\end{bmatrix}
+    \begin{bmatrix}\lambda_1\\&\lambda_2\end{bmatrix}
+    \frac{1}{\sqrt{5}}
+    \begin{bmatrix}1&1/\lambda_1\\-1&\lambda_1\end{bmatrix}
+    \]
+  \item Step 3. We are really interested in
+  \begin{align*}
+    \begin{bmatrix}F_{n+1}\\F_n\end{bmatrix}
+    &=A^n\begin{bmatrix}1\\0\end{bmatrix}\\
+    &=\begin{bmatrix}\lambda_1&\lambda_2\\1&1\end{bmatrix}
+      \begin{bmatrix}\lambda_1\\&\lambda_2\end{bmatrix}^n
+      \frac{1}{\sqrt{5}}
+      \begin{bmatrix}1&-\lambda_2\\
+        -1&\lambda_1\end{bmatrix}
+      \begin{bmatrix}1\\0\end{bmatrix}\\
+    &=\frac{1}{\sqrt{5}}
+      \begin{bmatrix}\lambda_1&
+        \lambda_2\\1&1\end{bmatrix}
+      \begin{bmatrix}(\lambda_1)^n\\
+        &(\lambda_2)^n\end{bmatrix}
+      \begin{bmatrix}1&-\lambda_2\\
+        -1&\lambda_1\end{bmatrix}
+      \begin{bmatrix}1\\0\end{bmatrix}\\
+    &=\frac{1}{\sqrt{5}}
+      \begin{bmatrix}
+        \lambda_1^{n+1}-(\lambda_2)^{n+1}\\
+        \lambda_1^n-(\lambda_2)^n
+      \end{bmatrix}
+  \end{align*}
+  We can finally conclude the formula
+  \[F_n=\frac{1}{\sqrt{5}}
+    \left(\left(\frac{1+\sqrt{5}}{2}\right)^n
+    -\left(\frac{1-\sqrt{5}}{2}\right)^n\right)
+  \]
+\end{itemize}
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item In the Fibonacci numbers we said $F_{n+1}$ was the sum of the previous two numbers. To construct the \emph{Gibonacci} numbers, we let $G_{n+1}=$ the \emph{average} of the previous two numbers.
+  \begin{enumerate}
+    \item Using the initial conditions $G_0=0$ and $G_1=1$, write the first $7$ terms of the sequence $G_n$.
+    \item Write the system of equations that models the Gibonacci process.
+    
+      $\systeme{G_{n+1}=,G_n=}$
+    \item Write the $2\times2$ matrix $A$ that models the Gibonacci process.
+    \item Diagonalize the matrix $A$.
+    \item Use your diagonalization to find a formula for the power $A^n$.
+    \item Find the formula for $G_n$.
+    \item Use the above information to find $\lim_{n\to\infty}G_n$.
+  \end{enumerate}
+\end{activity}
+
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

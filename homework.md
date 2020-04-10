@@ -19,7 +19,18 @@ title: Math 301, Spring 2020
 4. What is the relationship between the eigenvalues/vectors of $A$ and $A^{-1}$? Try it on the matrices:  
   $A=\begin{bmatrix}0&2\\\\1&1\end{bmatrix},\qquad
     A^{-1}=\begin{bmatrix}-1/2&1\\\\1/2&0\end{bmatrix}$
-5. ...
+5. For each of the following matrices, diagonalize the matrix if possible. If you can't then explain what went wrong.  
+  * $A=\begin{bmatrix}1&3\\\\0&5\end{bmatrix}$
+  * $B=\begin{bmatrix}3&1\\\\0&3\end{bmatrix}$
+  * $C=\begin{bmatrix}1&1\\\\2&2\end{bmatrix}$
+  * $D=\begin{bmatrix}0&0&-2\\\\1&2&1\\\\1&0&3 \end{bmatrix}$
+6. Use your diagonalization from problem 1(a) to calculate $A^{100}$.
+7. In each of the following, find an example of a $2\times 2$ matrix $A$ with the given properties, and verify your example, or else explain why it is impossible.  
+  * $A$ has two real eigenvalues and is diagonalizable
+  * $A$ has two real eigenvalues and is not diagonalizable
+  * $A$ has two complex eigenvalues and is diagonalizable
+  * $A$ has one real eigenvalue and is dialonalizable
+  * $A$ has one real eigenvalue and is not diagonalizable
 
 ## Homework 9, due Thursday, April 9
 
