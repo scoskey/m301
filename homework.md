@@ -39,7 +39,7 @@ title: Math 301, Spring 2020
   * $B=\begin{bmatrix}3&1\\\\0&3\end{bmatrix}$
   * $C=\begin{bmatrix}1&1\\\\2&2\end{bmatrix}$
   * $D=\begin{bmatrix}0&0&-2\\\\1&2&1\\\\1&0&3 \end{bmatrix}$
-6. Use your diagonalization from problem 1(a) to calculate $A^{100}$.
+6. Use your diagonalization from problem 5(a) to calculate $A^{100}$.
 7. In each of the following, find an example of a $2\times 2$ matrix $A$ with the given properties, and verify your example, or else explain why it is impossible.  
   * $A$ has two real eigenvalues and is diagonalizable
   * $A$ has two real eigenvalues and is not diagonalizable
