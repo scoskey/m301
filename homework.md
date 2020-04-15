@@ -4,6 +4,21 @@ title: Math 301, Spring 2020
 
 # Math 301 Homework
 
+## Homework 11, due Thursday, April 23
+
+1. Find the limit distribution of a Markov process with the given matrix. (In other words, find the eigenvector corresponding to $\lambda=1$.) 
+  $(a)\begin{bmatrix}1&.2\\\\0&.8\end{bmatrix}
+  (b)\begin{bmatrix}.2&1\\\\.8&0\end{bmatrix}
+  (c)\begin{bmatrix}.5&.25&.25\\\\.25&.5&.25\\\\.25&.25&.5\end{bmatrix}$
+2. Suppose the $2\times2$ matrix shown below is known to be a Markov matrix (the columns sum to $1$). What is the eigenvector corresponding to $\lambda=1$?  
+  $A=\begin{bmatrix}a&b\\\\c&d\end{bmatrix}$
+3. Divide a population into $15$-year groups: $0-15$ up through $75-90$. Suppose the fertility of the groups are as follows:  
+  $F\_1=0,\quad F\_2=.6,\quad F\_3=.4,\quad F\_4=0,\quad F\_5=0,\quad F\_6=0$  
+  Suppose the survival of the groups are as follows:  
+  $S\_1=1,\quad S\_2=1,\quad S\_3=.95,\quad S\_4=.9,\quad S\_5=.65$  
+  Write the Leslie matrix modeling this population. Find the overall growth rate of the population (the dominant eigenvalue). Find the limit population distribution. (Use a computer to help with the calculations.)
+4. ...
+
 ## Homework 10, due Thursday, April 16
 
 1. Find the eigenvalues and eigenvectors of the matrices.  
