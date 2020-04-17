@@ -2066,11 +2066,11 @@ For a simple one-variable example, unrestricted population growth is the situati
 In the multivariable version, we simply replace a single scalar $k$ with a matrix $A$. We obtain a linear system of first-order ordinary differential equations.
 \[\begin{cases}
     \mathbf{u}'=A\mathbf{u}\\
-    \mathbf{u}(0)=\mathbf{u}_0
+    \mathbf{u}(0)=\mathbf{u_0}
   \end{cases}
 \]
 It turns out that we can write the solution to such an equation as
-\[\mathbf{u}(t)=e^{At}\mathbf{u}_0
+\[\mathbf{u}(t)=e^{At}\mathbf{u_0}
 \]
 But this leaves us with three burning questions. First, what exactly is $e^{At}$? Second, why does it solve the linear system of differential equations? And third, how can we calculate it?
 
@@ -2079,26 +2079,26 @@ For the first question (what is $e^{At}$), recall that $e^x$ may be defined usin
 \]
 It is a fact that this sum always converges.
 
-For the second question (why does $e^{At}$ solve a differential equation), we simply take the derivative of $\mathbf{u}=e^{At}\mathbf{u}_0$:
+For the second question (why does $e^{At}$ solve $\mathbf{u}'=A\mathbf{u}$), we simply take the derivative of $\mathbf{u}=e^{At}\mathbf{u_0}$:
 \begin{align*}
-  \frac{d}{dt}e^{At}\mathbf{u}_0
+  \frac{d}{dt}e^{At}\mathbf{u_0}
   &=\frac{d}{dt}\left[
     I+At+\frac{(At)^2}{2}+\frac{(At)^3}{3!}+\cdots
-    \right]\mathbf{u}_0\\
+    \right]\mathbf{u_0}\\
   &=\left[0+A+A^2t+A\frac{(At)^2}{2}+\cdots\right]
-    \mathbf{u}_0\\
+    \mathbf{u_0}\\
   &=A\left[I+At+\frac{(At)^2}{2}+\cdots\right]\mathbf{u}_0\\
-  &=Ae^{At}\mathbf{u}_0
+  &=Ae^{At}\mathbf{u_0}
 \end{align*}
 
-For the last question (how to calculate $e^{At}$), if $A$ is diagonalizable then one can compute $e^{At}$ using diagonalization. To see this, if $A=S\Lambda S^{-1}$ then
+For the last question (how to calculate $e^{At}$), if $A$ is diagonalizable then one can compute $e^{At}$ using diagonalization. To see this, if $A=X\Lambda X^{-1}$ then
 \begin{align*}
-  e^A&=e^{S\Lambda S^{-1}}\\
-     &=I+S\Lambda S^{-1}t+\frac{S\Lambda^2S^{-1}t^2}{2}
+  e^A&=e^{X\Lambda X^{-1}}\\
+     &=I+X\Lambda X^{-1}t+\frac{X\Lambda^2X^{-1}t^2}{2}
        +\cdots\\
-     &=S\left[I+\Lambda t+\frac{\Lambda^2t^2}{2}+\cdots
-       \right]S^{-1}\\
-     &=Se^{\Lambda t}S^{-1}
+     &=X\left[I+\Lambda t+\frac{\Lambda^2t^2}{2}+\cdots
+       \right]X^{-1}\\
+     &=Xe^{\Lambda t}X^{-1}
 \end{align*}
 Since $\Lambda$ is diagonal it is easy to calculate $e^{\Lambda t}$ by just applying $e^{at}$ to each of its diagonal entries.
 
@@ -2141,7 +2141,21 @@ We observe that in the limit, the two chambers will have an equal proportion of 
 \subsection*{Activity for \S \thesection}
 
 \begin{activity}
-  \item 
+  \item Consider the linear system of differential equations:
+  \[\begin{cases}
+      u'=u+v & u(0)=2\\
+      v'=\quad\ 2v & v(0)=6
+    \end{cases}
+  \]
+  \begin{enumerate}
+    \item Let $A$ be the matrix below and find $e^{At}$.
+    \[A=\begin{bmatrix}1&1\\0&2\end{bmatrix}
+    \]
+    \item Use the previuos part to solve the linear system.
+  \end{enumerate}
+  \item The rabbit and wolf populations interact according to $r'=6r-2w$, and $w'=2r+w$. In other words, the rabbits breed very fast but lose some to wolf predation, and the wolves breed only modestly but better when there are rabbits.
+
+  Suppose there are initially 30 rabbits and 30 wolves. Find formulas for the populations $r(t)$ and $w(t)$ of each species over time. After a long time, what is the ratio of rabbits to wolves?
 \end{activity}
 
 
