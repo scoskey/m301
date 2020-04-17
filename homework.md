@@ -17,7 +17,10 @@ title: Math 301, Spring 2020
   Suppose the survival of the groups are as follows:  
   $S\_1=1,\quad S\_2=1,\quad S\_3=.95,\quad S\_4=.9,\quad S\_5=.65$  
   Write the Leslie matrix modeling this population. Find the overall growth rate of the population (the dominant eigenvalue). Find the limit population distribution. (Use a computer to help with the calculations.)
-4. ...
+4. For each matrix $A$, find $e^{At}$.  
+  $(a)\begin{bmatrix}4&5\\\\5&4\end{bmatrix} (b)\begin{bmatrix}6&-2\\\\2&1\end{bmatrix}$
+5. The rabbit and wolf populations interact according to $r'=6r-2w$, and $w'=2r+w$. Suppose there are initially 30 rabbits and 30 wolves. Find formulas for the populations $r(t)$ and $w(t)$ of each species over time. After a long time, what is the ratio of rabbits to wolves?
+6. If $A$ has eigenvalues $\lambda\_1$ and $\lambda\_2$, what are the eigenvalues of $e^A$? Explain your answer.
 
 ## Homework 10, due Thursday, April 16
 
@@ -44,7 +47,7 @@ title: Math 301, Spring 2020
   * $A$ has two real eigenvalues and is diagonalizable
   * $A$ has two real eigenvalues and is not diagonalizable
   * $A$ has two complex eigenvalues and is diagonalizable
-  * $A$ has one real eigenvalue and is dialonalizable
+  * $A$ has one real eigenvalue and is diagonalizable
   * $A$ has one real eigenvalue and is not diagonalizable
 
 ## Homework 9, due Thursday, April 9
