@@ -2093,12 +2093,10 @@ For the second question (why does $e^{At}$ solve $\mathbf{u}'=A\mathbf{u}$), we 
 
 For the last question (how to calculate $e^{At}$), if $A$ is diagonalizable then one can compute $e^{At}$ using diagonalization. To see this, if $A=X\Lambda X^{-1}$ then
 \begin{align*}
-  e^A&=e^{X\Lambda X^{-1}}\\
-     &=I+X\Lambda X^{-1}t+\frac{X\Lambda^2X^{-1}t^2}{2}
-       +\cdots\\
-     &=X\left[I+\Lambda t+\frac{\Lambda^2t^2}{2}+\cdots
-       \right]X^{-1}\\
-     &=Xe^{\Lambda t}X^{-1}
+  e^{At}&=e^{X\Lambda t X^{-1}}\\
+        &=I+X\Lambda X^{-1}t+\frac{X(\Lambda t)^2X^{-1}}{2}+\cdots\\
+        &=X\left[I+\Lambda t+\frac{(\Lambda t)^2}{2}+\cdots\right]X^{-1}\\
+        &=Xe^{\Lambda t}X^{-1}
 \end{align*}
 Since $\Lambda$ is diagonal it is easy to calculate $e^{\Lambda t}$ by just applying $e^{at}$ to each of its diagonal entries.
 
@@ -2165,6 +2163,74 @@ We observe that in the limit, the two chambers will have an equal proportion of 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Based on ILA 5th, \S ??
+
+We conclude our introduction to eigenvalues and eigenvectors with one more application of Markov matrices and the Markov theorem. This time we will look at the concept of ranking search results by their ``importance''.
+
+When you perform an internet search, several things happen. First, the system filters just the sites that match to your search terms. Second, the system ranks the sites according to how important they are. One portion of this second part involves an algorithm that uses eigenvectors. (Google calls it PageRank.)
+
+To see how it works, imagine a very small internet with just five pages. We depict the pages as nods and the links between them as arrows.
+\begin{center}
+  \begin{tikzpicture}[scale=1.2]
+    \node at (0:1) (A) {$A$};
+    \node at (72:1) (B) {$B$}
+    edge[->] (A) edge[<-,bend left] (A);
+    \node at (144:1) (C) {$C$} edge[<-] (A) edge[<-,bend left] (B);
+    \node at (216:1) (D) {$D$} edge[<-] (A) edge[<-,bend left] (C);
+    \node at (288:1) (E) {$E$} edge[<-] (C) edge[<-,bend left] (D);
+  \end{tikzpicture}
+\end{center}
+
+We model browsing with a matrix as follows. We postulate a generic user who clicks links on the pages. Each time she opens a page, she chooses one of the links at random, with equal probability. If a page has no links, she chooses one of the other pages at random. Thus for this internet we have
+\[A=\begin{bmatrix}
+    &1/2&&&1/5\\
+    1/3&&&&1/5\\
+    1/3&1/2&&&1/5\\
+    1/3&&1/2&&1/5\\
+    &&1/2&1&1/5
+  \end{bmatrix}
+\]
+
+If we initially assume that the pages are visited with some probability vector $\mathbf{u}_0$, then $A^n\mathbf{u}_0$ gives the likelihood of being on each page after $n$ clicks.
+
+The steady state solution $A^\infty\mathbf{u}_0$ gives us an unbiased measurement of the relative popularity of each web page!
+
+Since the matrix is Markov, we can calculate this simply by finding the eigenvector corresponding to $\lambda=1$. Using Octave, we find that $A-I$ has the RREF form
+\[A-I\sim\begin{bmatrix}
+    1&&&&-9/25\\
+    &1&&&-8/25\\
+    &&1&&-12/25\\
+    &&&1&-14/25\\
+    \phantom{1}
+  \end{bmatrix}
+\]
+We conclude that the eigenvector is
+\[(9/25,8/25,12/25,14/25,1)
+\]
+Which we can renormalize to
+\[(0.13,0.12,0.18,0.21,0.37)
+\]
+This tells us that E is the most popular, followed by D.
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item Consider the following (very very small) internet.
+  \begin{center}
+    \begin{tikzpicture}
+      \node at (0,0) (A) {$A$};
+      \node at (2,0) (B) {$B$} edge[->] (A);
+      \node at (0,-2) (C) {$C$} edge[->] (B);
+      \node at (2,-2) (D) {$D$} edge[->] (B) edge[->] (C)
+      edge[<-,bend right] (B);
+    \end{tikzpicture}
+  \end{center}
+  \begin{enumerate}
+    \item Write down a $4\times4$ matrix $A$ that represents this internet.
+    \item Find the eigenvector corresponding to $\lambda=1$ and rank the pages according to importance.
+  \end{enumerate}
+  \item Repeat the above activity with your own internet that you create. Make sure it has at least six pages. Try to make it so it is unclear which page is most important.
+\end{activity}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
