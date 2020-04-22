@@ -2190,11 +2190,9 @@ We model browsing with a matrix as follows. We postulate a generic user who clic
   \end{bmatrix}
 \]
 
-If we initially assume that the pages are visited with some probability vector $\mathbf{u}_0$, then $A^n\mathbf{u}_0$ gives the likelihood of being on each page after $n$ clicks.
+If we initially assume that the pages are visited with some probability vector $\mathbf{u}_0$, then $A^n\mathbf{u}_0$ gives the likelihood of being on each page after $n$ clicks. The big idea is that the limit $A^\infty\mathbf{u}_0$ gives us a reasonable measurement of the relative importance of each web page!
 
-The steady state solution $A^\infty\mathbf{u}_0$ gives us an unbiased measurement of the relative popularity of each web page!
-
-Since the matrix is Markov, we can calculate this simply by finding the eigenvector corresponding to $\lambda=1$. Using Octave, we find that $A-I$ has the RREF form
+Since $A$ is a Markov matrix, we can calculate the limit simply by finding the eigenvector corresponding to $\lambda=1$. Using a computer, we find that $A-I$ has the RREF form
 \[A-I\sim\begin{bmatrix}
     1&&&&-9/25\\
     &1&&&-8/25\\
