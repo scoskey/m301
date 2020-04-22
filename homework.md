@@ -4,6 +4,11 @@ title: Math 301, Spring 2020
 
 # Math 301 Homework
 
+## Homework 12, due Thursday, April 30
+
+1. Complete the activity from Lecture 22.
+2. ...
+
 ## Homework 11, due Thursday, April 23
 
 1. Find the limit distribution of a Markov process with the given matrix. (In other words, find the eigenvector corresponding to $\lambda=1$.) 
