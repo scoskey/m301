@@ -4,10 +4,13 @@ title: Math 301, Spring 2020
 
 # Math 301 Homework
 
-## Homework 12, due Thursday, April 30
+## Homework 12, not collected
 
 1. Complete the activity from Lecture 22.
-2. ...
+2. Complete the activity from Lecture 23.
+3. Find the eigenvalues and eigenvectors of the matrix. Then verify that the eigenvectors are orthogonal.  
+  $\begin{bmatrix}1&0&2\\\\0&-1&-2\\\\2&-2&0\end{bmatrix}$
+4. ...
 
 ## Homework 11, due Thursday, April 23
 

@@ -2233,7 +2233,7 @@ This tells us that E is the most popular, followed by D.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Orthogonalization and the SVD}
+\chapter{Orthogonal bases and the SVD}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2241,7 +2241,80 @@ This tells us that E is the most popular, followed by D.
 \section{Orthogonal bases}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Based on ILA 5th, \S 4.4.
+Based on ILA 5th, \S 6.4.
+
+We have previously discussed the concept of basis for $\R^n$: a family of $n$ vectors $\mathbf{v_1},\ldots,\mathbf{v_n}$ that are linearly independent. A basis is special because any vector in $\R^n$ can be written as a combination of basis vectors.
+
+In this section we introduce the concept of \emph{orthogonal basis}: a family of $n$ vectors $\mathbf{v_1},\ldots,\mathbf{v_n}$ such that $\mathbf{v_i}\perp\mathbf{v_j}$ whenever $i\neq j$. An orthogonal basis is very special because it has the shape of the standard basis (the usual axes), except possibly rotated, reflected, and scaled.
+
+An example of an orthogonal basis for $\R^2$ would be $(3,4),(-4,3)$. Note that you can always normalize the vectors (make the norm $1$) to get what's called an \emph{orthonormal basis}. In this example just divide by the length of the vector: $(3/5,4/5),(-4/5,3/5)$.
+
+An orthonormal basis is special algebraically. For example if $Q$ is a matrix  whose columns are an orthonormal basis, then $Q^{-1}=Q^T$.
+
+\begin{example}
+  FIX---NOT ORTHONORMAL. Let $Q$ be the matrix
+  \[Q=\begin{bmatrix}1&\sqrt{2}&1\\\sqrt{2}&0&-\sqrt{2}\\
+    1&-\sqrt{2}&1\end{bmatrix}
+  \]
+  Then we can see that $QQ^T=I$.
+\end{example}
+
+To see why this always works, note that the columns of $Q$ are the same as the rows of $Q$. When we take the dot product of a column with itself we get $1$ by normality, and when we take the dot product of a column with any other column we get $0$ by orthogonality.
+
+Since we have seen the eigenvectors of a diagonalizable matrix always form a basis, it is natural to ask when the eigenvectors form an orthogonal basis.
+
+\begin{example}
+  Let $A$ be the matrix
+  \[A=\begin{bmatrix}1&2\\2&4\end{bmatrix}
+  \]
+  Then $A$ has eigenvalues $\lambda=0,5$ and corresponding eigenvectors $(1,2),(-2,1)$. These two eigenvectors are orthogonal.
+\end{example}
+
+The matrix in the previous example is symmetric, meaning $A=A^T$. It turns out this always guarantees the eigenvectors are orthogonal, and more.
+
+\begin{theorem}[Spectral theorem]
+  Let $A$ be a real symmetric matrix. Then the eigenvalues of $A$ are all real, and the eigenvectors of $A$ are pairwise orthogonal. Thus $A$ can be diagonalized $A=Q\Lambda Q^T$, where the columns of $Q$ are orthonormal.
+\end{theorem}
+
+We will briefly explain why part of this theorem is true. First we show why a symmetric matrix will have real eigenvalues (recall it is fully possible for a general matrix to have complex eigenvalues). Suppose $A$ is symmetric and that $A\mathbf{x}=\lambda\mathbf{x}$. Then we have:
+\[\lambda\|\mathbf{x}\|=\lambda \bar{\mathbf{x}}^T\mathbf{x}
+  =\bar{\mathbf{x}}^TA\mathbf{x}
+  =\bar{\mathbf{x}}^TA^T\mathbf{x}
+  =(\overline{A\mathbf{x}})^T\mathbf{x}
+  =\bar\lambda\bar{\mathbf{x}}^T\mathbf{x}
+  =\bar\lambda\|\mathbf{x}\|
+\]
+It follows that $\lambda=\bar\lambda$.
+
+Next we show why a symmetric matrix will have orthogonal eigenvectors. Suppose $A$ is symmtric, $\lambda_1\neq\lambda_2$, and $A\mathbf{x_1}=\lambda_1\mathbf{x_1}$ and $A\mathbf{x_2}=\lambda_2\mathbf{x_2}$. Then we have:
+\[\lambda_2\mathbf{x_1}^T\mathbf{x_2}
+  =\mathbf{x_1}^TA\mathbf{x_2}
+  =(A\mathbf{x_1})^T\mathbf{x_2}
+  =\lambda_1\mathbf{x_1}^T\mathbf{x_2}
+\]
+It follows that $\mathbf{x_1}^T\mathbf{x_2}=\mathbf{0}$.
+
+It remains to prove that a symmetric matrix $A$ must always have $n$ distinct eigenvectors. We leave this to the textbook.
+
+\begin{example}
+  Let $A$ be the matrix
+  \[A=\begin{bmatrix}4&6\\6&9\end{bmatrix}
+  \]
+  Find the eigenvalues and eigenvectors, then diagonalize it $Q\Lambda Q^T$.
+\end{example}
+
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item Find the eigenvalues and eigenvectors of the symmetric matrices. Check that the eigenvectors are orthogonal to each other.
+  \begin{enumerate}
+    \item $\begin{bmatrix}1&-1\\-1&1\end{bmatrix}$
+    \item $\begin{bmatrix}1&3\\3&1\end{bmatrix}$
+    \item $\begin{bmatrix}2&-1&0\\-1&2&-1\\0&-1&2\end{bmatrix}$
+  \end{enumerate}
+\end{activity}
 
 
 \newpage
