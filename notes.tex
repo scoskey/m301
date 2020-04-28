@@ -2303,7 +2303,6 @@ It remains to prove that a symmetric matrix $A$ must always have $n$ distinct ei
   Find the eigenvalues and eigenvectors, then diagonalize it $Q\Lambda Q^T$.
 \end{example}
 
-
 \newpage
 \subsection*{Activity for \S \thesection}
 
@@ -2323,5 +2322,62 @@ It remains to prove that a symmetric matrix $A$ must always have $n$ distinct ei
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Based on ILA 5th, \S 7.2.
+
+In the previous section we saw how to diagonalize a symmetric matrix $A=Q\Lambda Q^T$. Often in applications a matrix $A$ represents a data structure such as an image. In this case $A$ will very large and its contents will be non-random. This usually means $A$ will have a few eigenvalues that are large (the signal) and many that are small (the noise). If that is true, we can create a compressed version of $A$ that is still a good approximation to $A$ by zeroing out the smaller eigenvalues (and their corresponding eigenvectors).
+
+Of course if $A$ really does represent an image then it isn't very likely to be symmetric, or even square. In this section we generalize the diagonalization to work on an arbitrary matrix $A$. The cost is that the eigenvectors on the left and right sides of $A$ won't be the same anymore. This is called the singular value decompositoin $A=U\Sigma V^T$.
+
+The key idea to achieve this decomposition is that for any matrix $A$, the two matrices $A^TA$ and $AA^T$ are square and symmetric. The eigenvalues of $A^TA$ and $AA^T$ are the same, their square roots are called singular values, and they run down the diagonal of the $\Sigma$ in the SVD. The eigenvectors of $A^TA$ and $AA^T$ are two orthogonal bases and they form the columns of $U$ and $V$ in the SVD.
+
+Here is how it works for an $m\times n$ matrix $A$.
+
+\begin{itemize}
+  \item Find find $A^TA$ and diagonalize it in an orthonormal way. Let $\lambda_i$ be the eigenvalues of $A^TA$ and $\mathbf{v_i}$ a corresponding orthonormal family of eigenvectors. The right singular vectors of $A$ are just the vectors $\mathbf{v_i}$. We can put them into the columns of a matrix $V$.
+  \item Next define the singular values of $A$ by $\sigma_i=\sqrt{\lambda_i}$, and put them in the diagonal of an $m\times n$ matrix $\Sigma$. (To see why the $\lambda_i$ are always nonnegative, observe $\|A\mathbf{v}\|^2=\mathbf{v}^TA^TA\mathbf{v}=\mathbf{v}^T\lambda\mathbf{v}=\lambda\|\mathbf{v}\|^2=\lambda$.)
+  \item Now for each nonzero singular value $\sigma_i$ we define the left singular vector $\mathbf{u_i}=A\mathbf{v_i}/\sigma_i$. These are orthonormal. (To see why they are orthonormal, observe that $AA^T\mathbf{u_i}=AA^TA\mathbf{v_i}/\sigma_i=A\lambda_i\mathbf{v_i}/\sigma_i=\lambda_i\mathbf{u_i}$ so the $\mathbf{u_i}$ are eigenvectors of $AA^T$.)
+  \item If necessary, extend the $\mathbf{u_i}$'s to a family of $m$ many orthonormal vectors, and put them in the columns of the matrix $U$.
+\end{itemize}
+
+\begin{example}
+  Let $A$ be the following matrix. Find the singular decomposition $A=U\Sigma V^T$.
+  \[A=\begin{bmatrix}3&0\\4&5\end{bmatrix}
+  \]
+  We first look at $A^TA$:
+  \[A^TA=\begin{bmatrix}25&20\\20&25\end{bmatrix}
+  \]
+  As in the past, we can calculate that eigenvalues of $A^TA$ are $\lambda=45,5$ and the corresponding eigenvectors are $(1,1)^T$ and $(-1,1)^T$.
+  
+  Now the singular values are $\sigma=\sqrt{45},\sqrt{5}$, and the right singular vectors are $(1,1)^T/\sqrt{2}$ and $(-1,1)^T/\sqrt{2}$. Finally the left singular vectors are $(1,3)^T/\sqrt{10}$ and $(-3,1)^T/\sqrt{10}$. The final SVD is thus:
+  \[A=\frac{1}{\sqrt{10}}\begin{bmatrix}1&-3\\3&1\end{bmatrix}
+  \begin{bmatrix}\sqrt{45}\\&\sqrt{5}\end{bmatrix}
+  \frac{1}{\sqrt{2}}\begin{bmatrix}1&-1\\1&1\end{bmatrix}
+  \]
+\end{example}
+
+Note that in the above example, the eigenvalues of the original matrix are $5,3$. The singular decomposition has more information in its dominant singular value, and less information in its smaller singular value.
+
+\begin{example}
+  Let $A$ be the following nonsquare matrix. Find the singular decomposition $A=U\Sigma V^T$.
+  \[A=\begin{bmatrix}0&1\\&&2\\&&&3\end{bmatrix}
+  \]
+  We first look at $A^TA$:
+  \[A=\begin{bmatrix}0\\&1\\&&4\\&&&9\end{bmatrix}
+  \]
+  We can see that the eigenvalues of $A^TA$ are $\lambda=9,4,1,0$ and the corresponding eigenvectors are $(0,0,0,1)^T$, $(0,0,1,0)^T$, $(0,1,0,0)^T$, and $(0,0,0,1)^T$.
+  
+  Now the singular values are $\sigma=3,2,1,0$ and the corresponding right singular vectors are just the same as above. To find the right singular vectors, for each $\sigma_i=3,2,1$ we calculate $A\mathbf{v_i}/\sigma$. We get the vectors $(0,0,1)^T$, $(0,1,0)^T$, and $(1,0,0)^T$. The final SVD is thus:
+  \[A=\begin{bmatrix}&&1\\&1\\1&&\end{bmatrix}
+  \begin{bmatrix}3\\&2\\&&1&0\end{bmatrix}
+  \begin{bmatrix}&&&1\\&&1\\&1\\1\end{bmatrix}
+  \]  
+\end{example}
+
+\newpage
+\subsection*{Activity for \S \thesection}
+
+\begin{activity}
+  \item 
+\end{activity}
+
 
 \end{document}
