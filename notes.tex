@@ -2334,7 +2334,7 @@ Here is how it works for an $m\times n$ matrix $A$.
 \begin{itemize}
   \item Find find $A^TA$ and diagonalize it in an orthonormal way. Let $\lambda_i$ be the eigenvalues of $A^TA$ and $\mathbf{v_i}$ a corresponding orthonormal family of eigenvectors. The right singular vectors of $A$ are just the vectors $\mathbf{v_i}$. We can put them into the columns of a matrix $V$.
   \item Next define the singular values of $A$ by $\sigma_i=\sqrt{\lambda_i}$, and put them in the diagonal of an $m\times n$ matrix $\Sigma$. (To see why the $\lambda_i$ are always nonnegative, observe $\|A\mathbf{v}\|^2=\mathbf{v}^TA^TA\mathbf{v}=\mathbf{v}^T\lambda\mathbf{v}=\lambda\|\mathbf{v}\|^2=\lambda$.)
-  \item Now for each nonzero singular value $\sigma_i$ we define the left singular vector $\mathbf{u_i}=A\mathbf{v_i}/\sigma_i$. These are orthonormal. (To see why they are orthonormal, observe that $AA^T\mathbf{u_i}=AA^TA\mathbf{v_i}/\sigma_i=A\lambda_i\mathbf{v_i}/\sigma_i=\lambda_i\mathbf{u_i}$ so the $\mathbf{u_i}$ are eigenvectors of $AA^T$.)
+  \item Now for each nonzero singular value $\sigma_i$ we define the left singular vector $\mathbf{u_i}=A\mathbf{v_i}/\sigma_i$. (To see why they are orthogonal, observe that $AA^T\mathbf{u_i}=AA^TA\mathbf{v_i}/\sigma_i=A\lambda_i\mathbf{v_i}/\sigma_i=\lambda_i\mathbf{u_i}$ so the $\mathbf{u_i}$ are eigenvectors of $AA^T$.)
   \item If necessary, extend the $\mathbf{u_i}$'s to a family of $m$ many orthonormal vectors, and put them in the columns of the matrix $U$.
 \end{itemize}
 
@@ -2350,7 +2350,7 @@ Here is how it works for an $m\times n$ matrix $A$.
   Now the singular values are $\sigma=\sqrt{45},\sqrt{5}$, and the right singular vectors are $(1,1)^T/\sqrt{2}$ and $(-1,1)^T/\sqrt{2}$. Finally the left singular vectors are $(1,3)^T/\sqrt{10}$ and $(-3,1)^T/\sqrt{10}$. The final SVD is thus:
   \[A=\frac{1}{\sqrt{10}}\begin{bmatrix}1&-3\\3&1\end{bmatrix}
   \begin{bmatrix}\sqrt{45}\\&\sqrt{5}\end{bmatrix}
-  \frac{1}{\sqrt{2}}\begin{bmatrix}1&-1\\1&1\end{bmatrix}
+  \frac{1}{\sqrt{2}}\begin{bmatrix}1&1\\-1&1\end{bmatrix}
   \]
 \end{example}
 
@@ -2361,7 +2361,7 @@ Note that in the above example, the eigenvalues of the original matrix are $5,3$
   \[A=\begin{bmatrix}0&1\\&&2\\&&&3\end{bmatrix}
   \]
   We first look at $A^TA$:
-  \[A=\begin{bmatrix}0\\&1\\&&4\\&&&9\end{bmatrix}
+  \[A^TA=\begin{bmatrix}0\\&1\\&&4\\&&&9\end{bmatrix}
   \]
   We can see that the eigenvalues of $A^TA$ are $\lambda=9,4,1,0$ and the corresponding eigenvectors are $(0,0,0,1)^T$, $(0,0,1,0)^T$, $(0,1,0,0)^T$, and $(0,0,0,1)^T$.
   
@@ -2376,7 +2376,12 @@ Note that in the above example, the eigenvalues of the original matrix are $5,3$
 \subsection*{Activity for \S \thesection}
 
 \begin{activity}
-  \item 
+  \item For each matrix $A$ find the singular value decomposition $A=U\Sigma V^T$.
+  \begin{enumerate}
+    \item $A=\begin{bmatrix}0&4\\0&0\end{bmatrix}$
+    \item $A=\begin{bmatrix}0&4\\1&0\end{bmatrix}$
+    \item $A=\begin{bmatrix}1&1&0\\0&1&1\end{bmatrix}$
+  \end{enumerate}
 \end{activity}
 
 

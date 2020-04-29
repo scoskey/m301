@@ -8,9 +8,12 @@ title: Math 301, Spring 2020
 
 1. Complete the activity from Lecture 22.
 2. Complete the activity from Lecture 23.
-3. Find the eigenvalues and eigenvectors of the matrix. Then verify that the eigenvectors are orthogonal.  
+3. Diagonalize the matrix $A=Q\Lambda Q^T$.  
   $\begin{bmatrix}1&0&2\\\\0&-1&-2\\\\2&-2&0\end{bmatrix}$
-4. ...
+4. Complete the activity from Lecture 24.
+5. Find the singular value decomposition $A=U\Sigma V^T$.  
+  $\begin{bmatrix}1&2\\\\3&6\end{bmatrix}$
+
 
 ## Homework 11, due Thursday, April 23
 
