@@ -2,7 +2,7 @@
 title: Math 301 sample syllabus
 ---
 
-# Math 301 syllabus
+# Math 301 sample syllabus
 
 ## Course information
 
