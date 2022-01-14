@@ -204,9 +204,9 @@ In both the classical and vector views, the solution is $x=3$, $y=1$.
 
 Based on ILA 5th, \S 2.2.
 
-In the previous class we argued using three examples that it is important to solve systems of linear equations. In this section we will address how to solve systems of linear equations. Of course, there are dozens of valid methods in existence, and no particular method is necessarily right or wrong. For example, many students solved for one variable in one equation, and then plugged the result into the second equation.
+In the previous class we argued using three examples that it is \emph{important} to solve systems of linear equations. In this section we will address \emph{how} to solve systems of linear equations. Of course, there are dozens of valid methods in existence. For example, some students use \emph{substitution}, that is, solve for one variable in one equation, and then plug the result into the second equation.
 
-In this class we will provide you with an efficient, deterministic method for solving systems of linear equations, called \emph{elimination}. You will be expected to be able to solve systems using this one prescribed method. There are many benefits to using the elimination method; it is efficient and it reveals valuable information about the system. Moreover if all humans and computers agree to use the same exact steps, we can do linear algebra harmoniously with one another and our machines.
+In this class we will provide you with an efficient, deterministic method for solving systems of linear equations, called \emph{elimination}. You will be expected to be able to solve systems using this method, even if you are aware of others. The elimination method has a lot of key benefits---it is efficient and it reveals valuable information about the system. Moreover, we all agree (and our computers agree) to use the same exact steps, we can do linear algebra harmoniously together.
 
 We will now illustrate the method with the simple example from the last class.
 
@@ -214,7 +214,7 @@ We will now illustrate the method with the simple example from the last class.
   Consider the system
   \[\systeme{x-2y=1,3x+2y=11}
   \]
-  We begin by ``eliminating'' the $3x$ term. To do this we take the first equation minus three times the second equation, and replace the original second equation with the result. We notate this operation or step by $R_2-3R_1\to R_2$.
+  We begin by ``eliminating'' the $3x$ term. To do this we take the first equation minus three times the second equation, and replace the original second equation with the result. We notate this operation or step by $R_2\leftarrow R_2-3R_1$.
   \[\systeme{x-2y=1,8y=8}
   \]
   The elimination is now done in one step. The system is \emph{triangular}, meaning that the only nonzero coefficients are on or above the diagonal. Moreover the new system is equivalent to the old system, in the sense that they have the same solutions.
@@ -228,10 +228,10 @@ In the previous example, there was only one step of elimination. For larger syst
   Consider the system
   \[\systeme{2x+4y-2z=2,4x+9y-3z=8,-2x-3y+7z=10}
   \]
-  Begin by using the upper-left term $2x$ as a \emph{pivot} to eliminate the two terms below it. To do this, we will perform the two operations $R_2-2R_1\to R_2$ and $R_3+1R_1\to R_3$.
+  Begin by using the upper-left term $2x$ as a \emph{pivot} to eliminate the two terms below it. To do this, we will perform the two operations $R_2\leftarrow R_2-2R_1$ and $R_3\leftarrow R_3+1R_1$.
   \[\systeme{2x+4y-2z=2,y+z=4,y+5z=12}
   \]
-  Next we move to the second column and use the $1y$ (in the second row) as a pivot to eliminate the term below it. This time we perform the operation $R_3-1R_2\to R_3$.
+  Next we move to the second column and use the $1y$ (in the second row) as a pivot to eliminate the term below it. This time we perform the operation $R_3\leftarrow R_3-1R_2$.
   \[\systeme{2x+4y-2z=2,y+z=4,4z=8}
   \]
   The system is now upper triangular, and we can back-solve starting with the last equation and the last variable. The solution is $-1,2,2$.
@@ -261,7 +261,7 @@ There is one important case when the elimination steps described above cannot be
 \subsection*{Activity for \S \thesection}
 
 \begin{activity}
-  \item Use the elimination method to reduce each system to an upper triangular one. For each step of the algorithm, write the notation for the step you are performing (\emph{e.g.}, $R_2+3R_1\to R_2$). Then, use back-solving to find a unique solution, or to show the system has infinitely many solutions or no solutions.
+  \item Use the elimination method to reduce each system to an upper triangular one. For each step of the algorithm, write the notation for the step you are performing (\emph{e.g.}, $R_2\leftarrow R_2+3R_1$). Then, use back-solving to find a unique solution, or to show the system has infinitely many solutions or no solutions.
   \begin{enumerate}
     % next time: pick ones with a solution first!!
     \item \systeme{2x-3y=5,-4x+6y=8}\vspace{.2in}
@@ -386,7 +386,7 @@ We can rewrite it as
 In this section we will see that row elimination corresponds to multiplying both sides of the matrix equation by a special matrix.
 
 \begin{example}
-  Continuing the example from above, the first step of elimination will be $R_2-2R_1\to R_2$. We can carry this out by multiplying both sides (on the left) by an ``elimination matrix'':
+  Continuing the example from above, the first step of elimination will be $R_2\leftarrow R_2-2R_1$. We can carry this out by multiplying both sides (on the left) by an ``elimination matrix'':
   \[\begin{bmatrix}1&&\\-2&1&\\&&1\end{bmatrix}
     \begin{bmatrix}2&4&-2\\4&9&-3\\-2&-3&7\end{bmatrix}
     \begin{bmatrix}x\\y\\z\end{bmatrix}
@@ -398,14 +398,14 @@ In this section we will see that row elimination corresponds to multiplying both
     \begin{bmatrix}x\\y\\z\end{bmatrix}
     =\begin{bmatrix}2\\4\\10\end{bmatrix}
   \]
-  Thus carrying out $R_2-2R_1\to R_2$.
+  Thus carrying out $R_2\leftarrow R_2-2R_1$.
 \end{example}
 
 Every step of row elimination has a corresponding elimination matrix. Here are the rules
 \begin{itemize}
-  \item The step $R_i+\ell R_j\to R_i$ has the matrix with $1$'s down the diagonal and an $\ell$ in position $(i,j)$.
+  \item The step $R_i\leftarrow R_i+\ell R_j$ has the matrix with $1$'s down the diagonal and an $\ell$ in position $(i,j)$.
   \item The step $R_i\leftrightarrow R_j$ has a matrix with $1$'s down the diagonal except row $i$ has a $1$ in position $j$ and row $j$ has a $1$ in position $i$.
-  \item The (so far unused) step $kR_i\to R_i$ has a matrix with $1$'s down the diagonal except for a $k$ in position $(i,i)$.
+  \item The (so far unused) step $R_i\leftarrow kR_i$ has a matrix with $1$'s down the diagonal except for a $k$ in position $(i,i)$.
 \end{itemize}
 This means elimination can be viewed as successive multiplication by elimination matrices:
 \[E_k\cdots E_2E_1A\mathbf{x}=E_k\cdots E_2E_1\mathbf{b}
