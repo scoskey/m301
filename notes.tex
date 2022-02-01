@@ -743,19 +743,17 @@ Thus the column space of $A$ is precisely the set of of all vectors $\mathbf{b}$
 In the above example we checked whether a single vector $\mathbf{b}$ is in the column space of $A$. More generally we can use algebra to describe all vectors $\mathbf{b}$ in the column space of $A$.
 
 \begin{example}
-  Let $A$ be the matrix below. Find equations for the column space of $A$. The answer consists of one or more equations in the variables $b_1,b_2,b_3$ that determine when $A\mathbf{x}=\mathbf{b}$ has a solution.
+  Let $A$ be the matrix in the previous example. Find equations for the column space of $A$. The answer consists of one or more equations in the variables $b_1,b_2,b_3$ that determine when $A\mathbf{x}=\mathbf{b}$ has a solution. To solve this we set up an augmented matrix with unknowns on the right-hand side.
   \[A=\begin{bmatrix}
-      1&0\\
-      4&3\\
-      2&3
+      1&0&\vline&b_1\\
+      4&3&\vline&b_2\\
+      2&3&\vline&b_3\\
     \end{bmatrix}
   \]
-  Using elimination, we find that the system is consistent precisely when $b_3-2b_1=0$. Thus the column space is a plane in $\R^3$.
+  Using elimination, we find that the system is consistent precisely when $b_3-2b_1=0$. This equation is the solution.
 \end{example}
 
-Note that when we are looking for the equations of a subspace, the right-hand side of the equations is always $0$. If we think about subspaces geometrically, this means that subspaces of $\R^n$ all have the shape of a point, line, plane, etc, passing through the origin.
-
-% Generally, if $A$ is an $m\times n$ matrix with $d$ many pivots, then the column space of $A$ will be a $d$-dimension subspace of $\R^m$.
+Note that when we are looking for the equations of a subspace, the right-hand side of the equations is always $0$. If we think about subspaces geometrically, this means that subspaces of $\R^n$ all have the shape of a point, line, plane, etc, passing through the origin. In fact, the dimension of the column space of $A$ corresponds to the number of pivots during elimination.
 
 \newpage
 \subsection*{Activity for \S \thesection}
@@ -849,13 +847,13 @@ The null space matrix $N$ is always as tall as $A$ was wide, and it has one colu
 \subsection*{Activity for \S \thesection}
 
 \begin{activity}
-  \item The following matrices $A$ are in RREF. Find the complete solution to $A\mathbf{x}=\mathbf{0}$ in parametric vector form. Then write the null space matrix $N$ and check that $AN=0$.
+  \item The following matrices $A$ are in RREF. Find the complete solution to $A\mathbf{x}=\mathbf{0}$ in parametric form. Then write the null space matrix $N$ and check that $AN=0$.
   \begin{enumerate}\itemsep10pt
     \item $A=\begin{bmatrix}1&0&1\\0&1&-1\end{bmatrix}$
     \item $A=\begin{bmatrix}1&0&2&3\\0&1&4&5\\0&0&0&0\end{bmatrix}$
     \item $A=\begin{bmatrix}1&-3&0&4\\0&0&1&0\end{bmatrix}$
   \end{enumerate}
-  \item For each system, use elimination to RREF to find the complete solution in parametric vector form.
+  \item For each system, write the coefficients matrix, find its RREF, and write the complete solution in parametric form.
   \begin{enumerate}\itemsep10pt
     \item \systeme{2x+3y-z=0,x+z=0}
     \item \systeme{x+3y+3z=0,2x+6y+9z=0,-x-3y+3z=0}
