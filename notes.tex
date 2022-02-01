@@ -703,42 +703,26 @@ In previous sections we have seen how to use elimination to decide whether a sys
 We will still be viewing a system of linear equations as a single matrix equation
 \[A\mathbf{x}=\mathbf{b}
 \]
-If we view $A$ as a function mapping inputs $\mathbf{x}$ to outputs $\mathbf{b}$, then observe that $A\mathbf{x}=\mathbf{b}$ has solutions if and only if $\mathbf{b}$ is in the \emph{range} of $A$. This means we have to study the concept of range for matrices. Before we do that, we will need to introduce vector spaces. Recall that the key fact about vectors is that they can be scaled and added.
+If we view $A$ as a function mapping inputs $\mathbf{x}$ to outputs $\mathbf{b}$, then observe that $A\mathbf{x}=\mathbf{b}$ has solutions if and only if $\mathbf{b}$ is in the \emph{range} of $A$. This means we have to study the idea of the range of a matrix! Before we do that, it is best to introduce a big concept called a vector space.
 
 \begin{definition}
   A \emph{vector space} is any collection of mathematical objects that may be scaled and added.
 \end{definition}
 
-For example, let $\R^n$ denote the space of real vectors with $n$ many components. Thus $\R^1$ is the real line, $\R^2$ is the Euclidean plane, $\R^3$ is real $3$-space, and so on. Since we have seen that real vectors may be scaled and added, $\R^n$ is a vector space. There are many other examples of vector spaces includeing polynomials, continuous functions, differentiable functions, matrices, and more. But for this class we care exclusively about the vector spaces $\R^n$.
+The first and most important example of a vector space is $\R^n$, the set of vectors with $n$ components. (This is really a sequence of examples because each $n$ gives rise to a different example.) Recall that the key property of vectors in $\R^n$ is that they can be scaled and added together, so in our new terminology we may simply say that $\R^n$ is a vector space.
 
-Well that is not exactly true. The spaces $\R^n$ also contain interesting subspaces, and these are what we will need to study to better understand the range of a matrix, and when matrix equations have solutions.
-
-In order to explain what a subspace is, we first make the following definition: if $\textbf{v}_1,\ldots,\textbf{v}_k$ are any vectors then a \emph{combination} of $\textbf{v}_1,\ldots,\textbf{v}_k$ is any vector that can be obtained by scaling and adding them.
+There are many other examples of vector spaces including polynomials, continuous functions, differentiable functions, matrices, and more. But in this class all the examples that we care about are the vector spaces $\R^n$ and the vector spaces that exist inside $\R^n$ called subspaces.
 
 \begin{definition}
-  A \emph{subspace} of $\R^n$ is a set of vectors $S$ with the property that all combinations of vectors in $S$ also lie in $S$.
+  A \emph{subspace} of $\R^n$ is a subset $S$ of $\R^n$ with the property that scaling and adding vectors in $S$ never ends up outside of $S$.
 \end{definition}
 
-Though this definition may seem technical, if we think about subspaces geometrically, it turns out that all subspaces of $\R^n$ have the shape of a point, line, plane, etc, passing through the origin.
+There are always two fundamental ways to describe a subspace of $\R^n$. One way is using \emph{equations}. For example, the set of solutions to $x+y+z=0$ is a subspace of $\R^3$. If we look at two solutions $(1,1,-2)$ and $(-1,-2,3)$, the sum $(0,-1,1)$ is also a solution. It's important to know that not all equations work. For example the set of solutions to $2x+y=1$ is not a subspace of $\R^2$. If we look at the two solutions $(2,-3)$ and $(1,-1)$, the sum $(3,-4)$ is not a solution.
 
-\begin{example}
-  Consider the subset of $\R^3$:
-  \[S=\set{(x,y,z)\in\R^3\mid x+y+z=0}
-  \]
-  We may verify that $S$ is a subspace of $\R^3$ by checking that scaling and adding vectors in $S_1$ results in vectors that are also in $S_1$. Note that this subspace of $\R^3$ has the shape of a plane.
-\end{example}
-
-\begin{example}
-  Consider the set
-  \[S=\set{(x,y)\in\R^2\mid 2x+y=1}
-  \]
-  We can see that this set $S$ is \emph{not} a subspace of $\R^2$ by finding two vectors in $S$ whose sum is not in $S$.
-\end{example}
-
-The most important example of a subspace is the range of a matrix, called its column space.
+The second way to describe a subspace of $\R^n$ is using \emph{combinations}. If $\textbf{v}_1,\ldots,\textbf{v}_k$ are vectors then a \emph{combination} of $\textbf{v}_1,\ldots,\textbf{v}_k$ is any vector that can be obtained by scaling and adding them together.
 
 \begin{definition}
-  If $A$ is any matrix with column vectors $\mathbf{v}_1,\ldots\mathbf{v}_n$, then the \emph{column space} of $A$ consists of all combinations $\mathbf{v}_1x_1+\cdots+\mathbf{v}_nx_n$ of the column vectors of $A$.
+  Given any matrix $A$ with column vectors $\mathbf{v}_1,\ldots\mathbf{v}_n$, the \emph{column space} of $A$ consists of all combinations $\mathbf{v}_1x_1+\cdots+\mathbf{v}_nx_n$ of the column vectors of $A$.
 \end{definition}
 
 Thus the column space of $A$ is precisely the set of of all vectors $\mathbf{b}$ such that $A\mathbf{x}=\mathbf{b}$ has a solution. The column space of $A$ is the range of $A$.
@@ -759,7 +743,7 @@ Thus the column space of $A$ is precisely the set of of all vectors $\mathbf{b}$
 In the above example we checked whether a single vector $\mathbf{b}$ is in the column space of $A$. More generally we can use algebra to describe all vectors $\mathbf{b}$ in the column space of $A$.
 
 \begin{example}
-  Let $A$ be the matrix below. Find the column space of $A$. The answer consists of one or more equations in the variables $b_1,b_2,b_3$ that decide when $A\mathbf{x}=\mathbf{b}$ has a solution.
+  Let $A$ be the matrix below. Find equations for the column space of $A$. The answer consists of one or more equations in the variables $b_1,b_2,b_3$ that determine when $A\mathbf{x}=\mathbf{b}$ has a solution.
   \[A=\begin{bmatrix}
       1&0\\
       4&3\\
@@ -768,6 +752,8 @@ In the above example we checked whether a single vector $\mathbf{b}$ is in the c
   \]
   Using elimination, we find that the system is consistent precisely when $b_3-2b_1=0$. Thus the column space is a plane in $\R^3$.
 \end{example}
+
+Note that when we are looking for the equations of a subspace, the right-hand side of the equations is always $0$. If we think about subspaces geometrically, this means that subspaces of $\R^n$ all have the shape of a point, line, plane, etc, passing through the origin.
 
 % Generally, if $A$ is an $m\times n$ matrix with $d$ many pivots, then the column space of $A$ will be a $d$-dimension subspace of $\R^m$.
 
