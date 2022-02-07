@@ -495,7 +495,7 @@ So far we have only used the first type of elimination step, and the first type 
     \item Write down an elimination matrix for op1 and another one for op2.
     \item Write down an elimination matrix which undoes op1 and another one which undoes op2.
     \item Write down an elimination matrix which does op1 and op2 at the same time.
-    \item Consider the operation $R_2\leftarrow R_3+2R_2$ (op3). Can you find a single matrix which performs all three operations in order?
+    \item Consider the operation $R_3\leftarrow R_3+2R_2$ (op3). Can you find a single matrix which performs all three operations in order?
   \end{itemize}
 \end{activity}
 
@@ -878,7 +878,7 @@ Based on ILA 5th, \S 3.3.
 
 In the previous section we showed how to find the complete solution to a system of linear equations $A\mathbf{x}=\mathbf{0}$. A system with $\mathbf{0}$ on the right-hand side is called a \emph{homogeneous} system, just as in differential equations. We will now use this as a stepping stone to solving a general system of linear equations, $A\mathbf{x}=\mathbf{b}$.
 
-Recall that the solutions to $A\mathbf{x}=\mathbf{0}$ form the \emph{null space} of $A$, which is a vector subspace of $\R^n$. It turns out that solutions to the system $A\mathbf{x}=\mathbf{0}$ form a \emph{translation} of the null space of $A$.
+Recall that the solutions to $A\mathbf{x}=\mathbf{b}$ form the \emph{null space} of $A$, which is a vector subspace of $\R^n$. It turns out that solutions to the system $A\mathbf{x}=\mathbf{0}$ form a \emph{translation} of the null space of $A$.
 
 To get the idea, let's look at the case of one equation in two variables. For example, first consider the \emph{homogeneous} equation:
 \[2x+3y=0
