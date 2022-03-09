@@ -1294,9 +1294,15 @@ Based on ILA 5th, \S 4.2.
 
 Given a system of linear equations $A\mathbf{x}=\mathbf{b}$, if it is consistent we know how to solve it. If it is inconsistent, $\mathbf{b}$ isn't in the column space of $A$ and we can't find any solution. In this case, we can still ask for a \emph{best approximate solution} $\mathbf{x}$ that makes $A\mathbf{x}$ and $\mathbf{b}$ as close as possible. The method is to replace $\mathbf{b}$ with the \emph{nearest vector} $\mathbf{p}$ that is in the column space of $A$ and to solve $A\hat{\mathbf{x}}=\mathbf{p}$ instead.
 
-Geometrically, if $A\mathbf{x}=\mathbf{b}$ is inconsistent, and $\mathbf{b}$ doesn't lie in the column space of $A$, we want to ``project'' $\mathbf{b}$ to the column space, or in other words find its shadow. [Picture] It is not difficult to see that an optimal solution is achieved exactly when the error vector $\mathbf{b}-A\hat{\mathbf{x}}$ is orthogonal to the column space of $A$.
+Geometrically, if $A\mathbf{x}=\mathbf{b}$ is inconsistent, and $\mathbf{b}$ doesn't lie in the column space of $A$, we want to ``project'' $\mathbf{b}$ to the column space, or in other words find its shadow.
 
-The theory for finding $\hat{\mathbf{x}}$ and $\mathbf{p}$ is known as \emph{orthogonal projection} and runs as follows. Given an inconsistent system $A\mathbf{x}=\mathbf{b}$, we set the error term orthogonal to the columns of $A$:
+\begin{figure}[h]
+  [Picture]
+\end{figure}
+
+It is not difficult to see that an optimal solution is achieved exactly when the error vector $\mathbf{b}-A\hat{\mathbf{x}}$ is orthogonal to the column space of $A$.
+
+The theory for finding $\hat{\mathbf{x}}$ and $\mathbf{p}$ is known as \emph{orthogonal projection} and runs as follows. Given an inconsistent system $A\mathbf{x}=\mathbf{b}$, we set the error vector orthogonal to the columns of $A$:
 \[A^T(\mathbf{b}-A\hat{\mathbf{x}})=0
 \]
 This simplifies to:
@@ -1319,7 +1325,7 @@ We then solve this modified system in the usual way to find the best approximate
   \]
 \end{example}
 
-The situation is somewhat simpler when $A$ is just a single vector $\mathbf{a}$. In this case we are projecting $\mathbf{b}$ onto the line through $\mathbf{a}$. Once again, we set the error term $\mathbf{b}-\mathbf{a}\hat x$ orthogonal to $\mathbf{a}$:
+The situation is somewhat simpler when $A$ is just a single vector $\mathbf{a}$. In this case we are projecting $\mathbf{b}$ onto the line through $\mathbf{a}$. Once again, we set the error vector $\mathbf{b}-\mathbf{a}\hat x$ orthogonal to $\mathbf{a}$:
 \[\mathbf{a}^T(\mathbf{b}-\mathbf{a}\hat{x})=0
 \]
 This time we solve explicitly to obtain
@@ -1344,7 +1350,7 @@ We can also explicitly find the projection
   \]
 \end{example}
 
-We close by mentioning that given any matrix $A$, there is a single \emph{projection matrix} $P$ which carries vectors $\mathbf{b}$ to their projections $\mathbf{p}$ in the column space of $A$. To find $P$, we simply observe that $\hat{\mathbf{x}}=(A^TA)^{-1}A^T\mathbf{b}$ and $\mathbf{p}=A\hat{\mathbf{x}}=A(A^TA)^{-1}A^T\mathbf{b}$. In other words:
+We close by mentioning that given any matrix $A$, there is a single \emph{projection matrix} $P$ which carries vectors $\mathbf{b}$ to their projections $\mathbf{p}$ in the column space of $A$. To find a formula for $P$, we can use matrix algebra to write $\hat{\mathbf{x}}=(A^TA)^{-1}A^T\mathbf{b}$ and $\mathbf{p}=A\hat{\mathbf{x}}=A(A^TA)^{-1}A^T\mathbf{b}$. In other words we see that:
 \[P=A(A^TA)^{-1}A^T
 \]
 
@@ -1366,7 +1372,7 @@ We close by mentioning that given any matrix $A$, there is a single \emph{projec
 \subsection*{Activity for \S \thesection}
 
 \begin{activity}
-  \item Let $A\mathbf{x}=\mathbf{b}$ be the inconsistent system below. Find the best approximate solution $\hat{\mathbf{x}}$ and the projection $\mathbf{p}$ of $\mathbf{b}$ to $C(A)$.
+  \item Let $A\mathbf{x}=\mathbf{b}$ be the inconsistent system below. Find the best approximate solution $\hat{\mathbf{x}}$ and the projection $\mathbf{p}$ of $\mathbf{b}$ to $C(A)$. Finally find the projection matrix $P$ corresponding to $C(A)$.
   \begin{enumerate}
     \item $\begin{bmatrix}1&1\\0&1\\0&0\end{bmatrix}
       \mathbf{x}=\begin{bmatrix}2\\3\\4\end{bmatrix}$
@@ -1380,7 +1386,7 @@ We close by mentioning that given any matrix $A$, there is a single \emph{projec
     \item $\mathbf a=\begin{bmatrix}1\\2\\0\\1\end{bmatrix}$,
       $\mathbf b=\begin{bmatrix}1\\0\\1\\0\end{bmatrix}$
   \end{enumerate}
-  \item For the matrix $A$ in 1(a), find the projection matrix $P$.
+  \item When projecting $\mathbf{b}$ onto the column space of a matrix $A$, which of the four subspaces contains the projection $\mathbf{p}$? Which of the four subspaces contains the error vector $\mathbf{b}-\mathbf{p}$? Explain your answers.
 \end{activity}
 
 \newpage
@@ -1473,12 +1479,14 @@ Here is the really cool part: The method can be used to find the best fit for an
 \subsection*{Activity for \S \thesection}
 
 \begin{activity}
-  \item Use the method of orthogonal projections to find the best fit line for the data set.
+  \item Use the method of orthogonal projections to find the best fit line for the data set. Then create an accurate plot of the data together with your proposed best fit line.
   \begin{enumerate}
     \item $(0,9),(1,4),(2,1)$
     \item $(0,0),(1,8),(3,8),(4,20)$
+    \item $(-2,4),(-1,2),(0,-1),(1,0),(2,0)$
   \end{enumerate}
-  \item Repeat problem 1(b), but this time find the best fit parabola.
+  \item Repeat problem 1(b), but this time find the best fit parabola. Then create an accurate plot of the data together with the best fit parabola.
+  \item In problem 1(c), was there something special about the data that helped you find the answer more quickly? Explain.
 \end{activity}
 
 
