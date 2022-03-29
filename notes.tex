@@ -1725,7 +1725,7 @@ For an even bigger hint, we will reveal the general formula for the inverse of a
   =\frac{1}{\det(A)}\begin{bmatrix}ei-fh&ch-bi&bf-ce\\fg-di&ai-cg&cd-af\\
   dh-eg&bg-ah&ae-bd\end{bmatrix}
 \]
-Once again the determinant appears in the denominator. But note also that the entries of the matrix are determinants as well, in fact they are the cofactors of the entries of $A$.
+Once again the determinant appears in the denominator. But note also that the entries of the matrix are determinants as well, in fact they are the cofactors of $A$.
 
 \begin{definition}
   Given a square matrix $A$, the \emph{cofactor matrix} of $A$ is the matrix $C$ whose $ij$-entry is the cofactor $c_{ij}$ (we remind the reader that $c_{ij}$ is equal to $(-1)^{i+j}$ times the determinant of the matrix obtained from $A$ by crossing out row $i$ and column $j$.
@@ -1743,7 +1743,7 @@ In the above example, look at what happens when we multiply $AC^T$:
   \begin{bmatrix}0&1&-2\\-2&-2&10\\2&1&-6\end{bmatrix}
   =\begin{bmatrix}2\\&2\\&&2\end{bmatrix}
 \]
-In general the product $AC^T$ is equal to $\det(A)I$, the diagonal matrix with the determinant of $A$ every diagonal entry.
+In general the product $AC^T$ is equal to $\det(A)I$, the diagonal matrix with the determinant of $A$ in every diagonal entry.
 \[\begin{bmatrix}
     a_{11}&\cdots&a_{1n}\\
     \vdots&&\vdots\\
@@ -1760,7 +1760,7 @@ In general the product $AC^T$ is equal to $\det(A)I$, the diagonal matrix with t
 \]
 % While this may seem mysterious at first, this really just comes from the cofactor expansion of the determinant. Every diagonal entry of $AC^T$ is of the form $a_{i1}c_{i1}+\cdots+a_{in}c_{in}$ and this equals $\det(A)$. Note that the off-diagonal entries are all zero because they correspond to the cofactor expansion of the determinant of a matrix with a duplicate row.
 
-\begin{theorem}[Cofactor for the inverse]
+\begin{theorem}[Cofactor formula for the inverse]
   \[A^{-1}=\frac{1}{\det(A)}C^T
   \]
 \end{theorem}
@@ -1771,7 +1771,7 @@ In general the product $AC^T$ is equal to $\det(A)I$, the diagonal matrix with t
   \]
 \end{example}
 
-The second application is about the calculation of the area of a parallelepiped. Recall that a parallelepiped is the higher dimensional analog of a paralellogram and is the region bounded by several vectors and their sums.
+The second application is about the calculation of the area of a parallelepiped. Recall that a parallelepiped is the higher dimensional analog of a parallelogram and is the region bounded by several vectors and their sums.
 
 Let's first look at the $2$-dimensional parallelogram with vector sides $(a,b)$ and $(c,d)$. Using simple geometry, we can find that the area of the paralellogram is $ad-bc$, the determinant of the matrix consisting of the two vector sides.
 \begin{center}
@@ -1789,7 +1789,7 @@ Let's first look at the $2$-dimensional parallelogram with vector sides $(a,b)$ 
   \end{tikzpicture}
 \end{center}
 
-Perhaps surprisingly, this turns out to be true in higher dimensions! The $n$-dimensional volume of the paralellepiped with vector edges $\mathbf{v}_1,\ldots,\mathbf{v}_n$ is given by
+Perhaps surprisingly, this turns out to be true in higher dimensions. The $n$-dimensional volume of the parallelepiped with vector edges $\mathbf{v}_1,\ldots,\mathbf{v}_n$ is given by
 \[V=\left|\det\begin{bmatrix}
       |&&|\\
       \mathbf{v}_1&\cdots&\mathbf{v}_n\\
@@ -1799,10 +1799,10 @@ Perhaps surprisingly, this turns out to be true in higher dimensions! The $n$-di
 
 To understand briefly how this can be true, we can see that the volume of a parallelepiped satisfies the same four properties that we used to define the determinant.
 \begin{itemize}
-  \item (Identity) If $\mathbf{v}_i=\mathbf{e}_i$ then the parallelepiped is the unit hypercube which clearly has volume $1$.
-  \item (Scaling) If you scale one of the sides of a paralellepiped by $t$ this clearly scales the volume by $t$.
-  \item (Elimination) Adding a multiple of one vector to another slides the parallelepiped along one of its sides. This has no effect on the volume.
-  \item (Row exchange) This has no effect on the volume, but if we consider the volume to be signed, we can assume this is true.
+  \item (Identity) If $\mathbf{v}_i$ are the columns of the identity matrix, then the parallelepiped is the unit hypercube, which clearly has volume $1$.
+  \item (Scaling) If you scale one of the sides of a paralellepiped by $t$ this clearly scales its volume by $t$.
+  \item (Elimination) Adding a multiple of one vector to another shears the parallelepiped along one of its sides. This has no effect on its volume.
+  \item (Row exchange) This has no effect on volume, but if we consider the volume to be signed, we can assume this is true.
 \end{itemize}
 
 \newpage
