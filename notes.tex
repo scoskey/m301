@@ -1877,10 +1877,10 @@ We now turn to the problem of finding eigenvectors and eigenvalues for a given m
     &\iff \lambda^2-5\lambda=0\\
     &\iff (\lambda)(\lambda-5)=0
   \end{align*}
-  Thus the eigenvalues are $0$ and $5$. To find the eigenvectors we move on to Step 2. For the eigenvalue $\lambda=0$ we find the null space of
+  Thus the eigenvalues are $0$ and $5$. To find the eigenvectors we move on to Step 2. For the eigenvalue $\lambda=0$ we find the null space of the matrix:
   \[\begin{bmatrix}1-0&2\\2&4-0\end{bmatrix}
   \]
-  Thus the eigenvector corresponding to $\lambda=0$ is $\mathbf{x}=(-2,1)^T$. For the eigenvalue $\lambda=5$ we find the null space of 
+  Thus the eigenvector corresponding to $\lambda=0$ is $\mathbf{x}=(-2,1)^T$. For the eigenvalue $\lambda=5$ we find the null space of the matrix:
   \[\begin{bmatrix}1-5&2\\2&4-5\end{bmatrix}
   \]
   Thus the eigenvector corresponding to $\lambda=5$ is $\mathbf{x}=(1,2)^T$. We can check our solutions by confirming that $A(-2,1)^T=0(-2,1)^T$ and $A(1,2)^T=5(1,2)^T$.
@@ -1917,12 +1917,6 @@ We now turn to the problem of finding eigenvectors and eigenvalues for a given m
       0 & 1 & 2 \\
       0 & 0 & 0
       \end{bmatrix}$
-    \item $A=\begin{bmatrix}
-      0 & 2 & 0 & 0 \\
-      2 & 0 & 0 & 0 \\
-      0 & 0 & 0 & 2 \\
-      0 & 0 & 2 & 0
-    \end{bmatrix}$
   \end{enumerate}
   \item Suppose $A$ and $B$ are cities, and that each year 10\% of city $A$ movies to city $B$, and 20\% of city $B$ movies to city $A$. Assuming there are no other population changes, find the matrix $A$ which models the population distribution over time. Then find the eigenvalues and eigenvectors of $A$. What is the limit population distribution?
   \item Let $A$ be the matrix from problem 1(b). Put the three eigenvectors you found into the columns of a new matrix $X$. How is $AX$ related to $X$?
@@ -2317,7 +2311,7 @@ To see how it works, imagine a very small network with just five sites. We depic
     \node at (144:1) (C) {$C$} edge[<-] (A) edge[<-,bend left] (B);
     \node at (216:1) (D) {$D$} edge[<-] (A) edge[<-,bend left] (C);
     \node at (288:1) (E) {$E$} edge[<-] (C) edge[<-,bend left] (D);
-  \end{tikzpicture}
+%   \end{tikzpicture}
 \end{center}
 
 We model browsing with a matrix as follows. We postulate a generic user who clicks links on the pages. Each time they open a page, they choose one of the links at random, with equal probability. If a page has no links, they choose one of the other pages at random. Thus for this internet we have
@@ -2477,7 +2471,7 @@ Here are the steps to find the SVD of an $m\times n$ matrix $A$.
 
 \begin{itemize}
   \item Find $A^TA$ and diagonalize it in an orthonormal way. Let $\lambda_i$ be the eigenvalues of $A^TA$ and $\mathbf{v_i}$ a corresponding orthonormal family of eigenvectors. The right singular vectors of $A$ are just the vectors $\mathbf{v_i}$. Put these into the columns of a matrix $V$.
-  \item Next define the singular values of $A$ by $\sigma_i=\sqrt{\lambda_i}$. PUt these in the diagonal entries of an $m\times n$ matrix $\Sigma$.
+  \item Next define the singular values of $A$ by $\sigma_i=\sqrt{\lambda_i}$. Put these in the diagonal entries of an $m\times n$ matrix $\Sigma$.
   \item Now for each nonzero singular value $\sigma_i$ we define the left singular vector $\mathbf{u_i}=A\mathbf{v_i}/\sigma_i$. Put these in the columns of the matrix $U$.
   \item (We will avoid exercises that require this step, but if necessary, extend $U$ to an $m\times m$ matrix by adding additional columns orthogonal to the rest.)
 \end{itemize}
