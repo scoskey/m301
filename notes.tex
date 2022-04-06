@@ -2001,6 +2001,8 @@ This equation is said to \emph{diagonalize} the matrix $A$. Of course most matri
   We can check our answer by confirming that the right-hand side multiplies back to $A$.
 \end{example}
 
+We should note that this process does not always work. If an $n\times n$ matrix has fewer than $n$ independent eigenvectors, then we cannot fill up the diagonalizing matrix $X$. If there are $n$ independent eigenvectors, then the matrix is called \emph{diagonalizable}.
+
 There are many applications of diagonalization. One application is the calculation of matrix powers $A^k$. If you can diagonalize $A$ as $A=S\Lambda S^{-1}$, then you can also diagonalize its powers as $A^k=S\Lambda^kS^{-1}$. This is because the extra $S$'s cancel as follows:
 
 \[A^k=S\Lambda S^{-1}S\Lambda S^{-1}\cdots S\Lambda S^{-1}
@@ -2018,7 +2020,10 @@ This application will come in handy when we study asymptotic behavior of linear 
   \]
 \end{example}
 
-We conclude this section with one of the coolest applications of diagonalization. Recall that the Fibonacci sequence begins with $F_0=0$, $F_1=1$ and is defined recursively by $F_{n+1}=F_{n+1}+F_n$. Find an absolute formula for $F_n$.
+We conclude this section with one of the coolest applications of diagonalization. Recall that the Fibonacci numbers begin with $F_0=0$, $F_1=1$ and are defined recursively by $F_{n+1}=F_{n+1}+F_n$. The first few Fibonacci numbers are therefore:
+\[0,1,1,2,3,5,8,13,21,34,55,89
+\]
+But how can we find an absolute formula for $F_n$? The Fibonacci ``process'' is modeled by a matrix, and we can use the method of diagonalization to analyze it.
 \begin{itemize}
   \item Step 1. Using the variables $F_{n+1}$ and $F_n$, the process is governed by the equations
   \[\systeme{F_{n+1}=F_n+F_{n-1},F_n=F_n}
@@ -2069,8 +2074,6 @@ We conclude this section with one of the coolest applications of diagonalization
   \]
 \end{itemize}
 
-% Define diagonalizable???
-
 \newpage
 \subsection*{Activity for \S \thesection}
 
@@ -2086,6 +2089,14 @@ We conclude this section with one of the coolest applications of diagonalization
     \item Use your diagonalization to find a formula for the power $A^n$.
     \item Find the formula for $G_n$.
     \item Use the above information to find $\lim_{n\to\infty}G_n$.
+  \end{enumerate}
+  \item For each of the following, find an example of a $2\times 2$ matrix $A$ with the given properties and verify it works, or else explain why it is impossible.
+  \begin{enumerate}
+    \item $A$ has two real eigenvalues and is diagonalizable
+    \item $A$ has two real eigenvalues and is not diagonalizable
+    \item $A$ has two complex eigenvalues and is diagonalizable
+    \item $A$ has one real eigenvalue and is diagonalizable
+    \item $A$ has one real eigenvalue and is not diagonalizable
   \end{enumerate}
 \end{activity}
 
