@@ -1918,7 +1918,7 @@ We now turn to the problem of finding eigenvectors and eigenvalues for a given m
       0 & 0 & 0
       \end{bmatrix}$
   \end{enumerate}
-  \item Suppose $A$ and $B$ are cities, and that each year 10\% of city $A$ movies to city $B$, and 20\% of city $B$ movies to city $A$. Assuming there are no other population changes, find the matrix $A$ which models the population distribution over time. Then find the eigenvalues and eigenvectors of $A$. What is the limit population distribution?
+  \item Suppose $E$ and $F$ are cities, and that each year 10\% of city $E$ movies to city $F$, and 20\% of city $F$ movies to city $E$. Assuming there are no other population changes, find the matrix $A$ which models the population distribution over time. Then find the eigenvalues and eigenvectors of $A$. What is the limit population distribution?
   \item Let $A$ be the matrix from problem 1(b). Put the three eigenvectors you found into the columns of a new matrix $X$. How is $AX$ related to $X$?
 \end{activity}
 
@@ -2146,7 +2146,7 @@ This calculation in this example works for a very general class of problems. A v
   Suppose $A$ is a Markov matrix whose entries are nonzero and $\mathbf{x_0}$ is a probability vector. Then $\lim_{n\to\infty}A^n\mathbf{x_0}$ is equal to the eigenvector corresponding to $\lambda=1$ (normalized to be a probability vector).
 \end{theorem}
 
-This theorem is actually a special case of the much more powerful Perron--Frobenius theorem: If $A$ is a (reasonable) matrix, then its dominant (greatest) eigenvalue $\lambda_m$ is real and positive. Then the growth rate of the powers $A^n\mathbf{x}$ is given by $\lambda_m$ and the limit distribution is given by the normalized eigenvector $\mathbf{x}_m$ corresponding to $\lambda_m$.
+This theorem is actually a special case of the much more powerful Perron--Frobenius theorem: If $A$ is almost any reasonable matrix, then its dominant eigenvalue (the greatest in magnitude) $\lambda_d$ is real and positive. The growth rate of the powers $A^n\mathbf{x}$ is given by $\lambda_d$ and the limit distribution is given by the normalized eigenvector $\mathbf{x}_d$ corresponding to $\lambda_d$.
 
 As an example of this theorem, we present the Leslie matrix, which describes how a population changes through the generations.
   
@@ -2156,7 +2156,7 @@ As an example of this theorem, we present the Leslie matrix, which describes how
   Suppose you measure $F_1=.04$, $F_2=1.1$, $F_3=.01$, $S_1=.98$, and $S_2=.92$. Then the process is modelled by the Leslie matrix:
   \[A=\begin{bmatrix}.04&1.1&.01\\.98\\&.92\end{bmatrix}
   \]
-  This isn't a Markov matrix, but it is still subject to the Perron--Frobenius theorem. Using a calculator I found that the largest real eigenvalue was $\lambda=1.06$. Thus the population grows at a rate of 6\% per generation. The corresponding eigenvector, renormalized to sum to $1$, is $(.37,.34,.29)^T$. This tells the asymptotic distribution of the generations.
+  This isn't a Markov matrix, but it is still subject to the Perron--Frobenius theorem. Using a calculator I found that the largest real eigenvalue was $\lambda=1.06$. Thus the population grows at a rate of 6\% per generation. The corresponding eigenvector, renormalized to sum to $1$, is $(.37,.34,.29)^T$. This tells the asymptotic distribution of the generations will be 37\%, 34\%, and 29\%.
 \end{example}
 
 \newpage
@@ -2178,7 +2178,7 @@ As an example of this theorem, we present the Leslie matrix, which describes how
     \end{tikzpicture}
   \end{center}
   \begin{enumerate}
-    \item Write the Markov matrix for these movements
+    \item Write the Markov matrix that models these movements
     \item Find the eigenvector corresponding to $\lambda=1$.
     \item Find the limit population distribution of the three towns.
   \end{enumerate}
