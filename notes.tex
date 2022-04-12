@@ -2243,7 +2243,7 @@ For the last question (how to calculate $e^{At}$), if $A$ is diagonalizable then
 Since $\Lambda$ is diagonal, it is easy to calculate $e^{\Lambda t}$ simply by applying $e^{\lambda t}$ to each of its diagonal entries $\lambda$.
 
 \begin{example}
-  A gas diffuses between two adjacent chambers. Lte $u$ denotes the amount of gas in the first chamber and $v$ the amount in the second chamber, and assume the following equations are satisfied:
+  A gas diffuses between two adjacent chambers. Let $u$ denote the amount of gas in the first chamber and $v$ the amount in the second chamber, and assume the following equations are satisfied:
   \[\begin{cases}
       u'=-u+v & u(0)=15\\
       v'=u-v & v(0)=5
@@ -2259,7 +2259,7 @@ Since $\Lambda$ is diagonal, it is easy to calculate $e^{\Lambda t}$ simply by a
       \frac{1}{-2}
       \begin{bmatrix}-1&-1\\-1&1\end{bmatrix}
   \]
-  It follows that
+  Next we calculate
   \[e^{At}=\begin{bmatrix}1&1\\1&-1\end{bmatrix}
     \begin{bmatrix}e^{0t}\\&e^{-2t}\end{bmatrix}
     \frac{1}{-2}
@@ -2299,6 +2299,7 @@ Since $\Lambda$ is diagonal, it is easy to calculate $e^{\Lambda t}$ simply by a
   \item The rabbit and wolf populations interact according to $r'=6r-2w$, and $w'=2r+w$. In other words, the rabbits breed very fast but lose some to wolf predation, and the wolves breed only modestly but better when there are rabbits.
 
   Suppose there are initially 30 rabbits and 30 wolves. Find formulas for the populations $r(t)$ and $w(t)$ of each species over time. After a long time, what is the ratio of rabbits to wolves?
+  \item Consider the second order differential differential equation $y''=4y'+5y$, with initial conditions $y(0)=1$, $y'(0)=1$. Substitute $u=y$ and $v=y'$ to write this as a $2\times2$ system of differential equations, and then solve it.
 \end{activity}
 
 
@@ -2361,18 +2362,21 @@ This tells us that E is the most popular, followed by D.
   \item Consider the following (very very small) network.
   \begin{center}
     \begin{tikzpicture}[scale=1.2]
-      \node at (0:1) (A) {$A$};
-      \node at (72:1) (B) {$B$}  edge[<-] (A);
-      \node at (144:1) (C) {$C$} edge[<-] (B);
-      \node at (216:1) (D) {$D$} edge[<-] (B) edge[->] (C);
-      \node at (288:1) (E) {$E$} edge[->] (B) edge[->] (A) edge[<-] (C);
+      \node at (0:1) (B) {$B$};
+      \node at (72:1) (C) {$C$}  edge[<-] (B);
+      \node at (144:1) (D) {$D$} edge[<-] (C);
+      \node at (216:1) (E) {$E$} edge[<-] (C) edge[->] (D);
+      \node at (288:1) (F) {$F$} edge[->] (C) edge[->] (B) edge[<-] (D);
     \end{tikzpicture}
   \end{center}
   \begin{enumerate}
     \item Write down a $5\times5$ matrix $A$ that represents this network.
     \item Find the eigenvector corresponding to $\lambda=1$ and rank the sites according to importance. (You may use a computer to help with the computation.)
   \end{enumerate}
-  \item Create your own network with at least six sites. Try to make it unclear which site is most important. Repeat the steps above with your network to find out.
+  \item When calculating importance in network theory, we usually assume there is a *damping factor*: a 15\% chance the user will stop clicking links, and instead start again at random. This means the Markov matrix $A$ that models the network should be replaced with $A_d=\frac{0.15}{n}\mathbb{1}+0.85A$, where $\mathbb{1}$ is the matrix of all $1$'s.
+  
+  Redo the previous problem using the damping factor method. How do the percentages change?
+%   \item Create your own network with at least six sites. Try to make it unclear which site is most important. Repeat the steps above with your network to find out.
 \end{activity}
 
 
