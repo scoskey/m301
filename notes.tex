@@ -1725,7 +1725,7 @@ For an even bigger hint, we will reveal the general formula for the inverse of a
   =\frac{1}{\det(A)}\begin{bmatrix}ei-fh&ch-bi&bf-ce\\fg-di&ai-cg&cd-af\\
   dh-eg&bg-ah&ae-bd\end{bmatrix}
 \]
-Once again the determinant appears in the denominator. But note also that the entries of the matrix are determinants as well, in fact they are the cofactors of the entries of $A$.
+Once again the determinant appears in the denominator. But note also that the entries of the matrix are determinants as well, in fact they are the cofactors of $A$.
 
 \begin{definition}
   Given a square matrix $A$, the \emph{cofactor matrix} of $A$ is the matrix $C$ whose $ij$-entry is the cofactor $c_{ij}$ (we remind the reader that $c_{ij}$ is equal to $(-1)^{i+j}$ times the determinant of the matrix obtained from $A$ by crossing out row $i$ and column $j$.
@@ -1743,7 +1743,7 @@ In the above example, look at what happens when we multiply $AC^T$:
   \begin{bmatrix}0&1&-2\\-2&-2&10\\2&1&-6\end{bmatrix}
   =\begin{bmatrix}2\\&2\\&&2\end{bmatrix}
 \]
-In general the product $AC^T$ is equal to $\det(A)I$, the diagonal matrix with the determinant of $A$ every diagonal entry.
+In general the product $AC^T$ is equal to $\det(A)I$, the diagonal matrix with the determinant of $A$ in every diagonal entry.
 \[\begin{bmatrix}
     a_{11}&\cdots&a_{1n}\\
     \vdots&&\vdots\\
@@ -1760,7 +1760,7 @@ In general the product $AC^T$ is equal to $\det(A)I$, the diagonal matrix with t
 \]
 % While this may seem mysterious at first, this really just comes from the cofactor expansion of the determinant. Every diagonal entry of $AC^T$ is of the form $a_{i1}c_{i1}+\cdots+a_{in}c_{in}$ and this equals $\det(A)$. Note that the off-diagonal entries are all zero because they correspond to the cofactor expansion of the determinant of a matrix with a duplicate row.
 
-\begin{theorem}[Cofactor for the inverse]
+\begin{theorem}[Cofactor formula for the inverse]
   \[A^{-1}=\frac{1}{\det(A)}C^T
   \]
 \end{theorem}
@@ -1771,7 +1771,7 @@ In general the product $AC^T$ is equal to $\det(A)I$, the diagonal matrix with t
   \]
 \end{example}
 
-The second application is about the calculation of the area of a parallelepiped. Recall that a parallelepiped is the higher dimensional analog of a paralellogram and is the region bounded by several vectors and their sums.
+The second application is about the calculation of the area of a parallelepiped. Recall that a parallelepiped is the higher dimensional analog of a parallelogram and is the region bounded by several vectors and their sums.
 
 Let's first look at the $2$-dimensional parallelogram with vector sides $(a,b)$ and $(c,d)$. Using simple geometry, we can find that the area of the paralellogram is $ad-bc$, the determinant of the matrix consisting of the two vector sides.
 \begin{center}
@@ -1789,7 +1789,7 @@ Let's first look at the $2$-dimensional parallelogram with vector sides $(a,b)$ 
   \end{tikzpicture}
 \end{center}
 
-Perhaps surprisingly, this turns out to be true in higher dimensions! The $n$-dimensional volume of the paralellepiped with vector edges $\mathbf{v}_1,\ldots,\mathbf{v}_n$ is given by
+Perhaps surprisingly, this turns out to be true in higher dimensions. The $n$-dimensional volume of the parallelepiped with vector edges $\mathbf{v}_1,\ldots,\mathbf{v}_n$ is given by
 \[V=\left|\det\begin{bmatrix}
       |&&|\\
       \mathbf{v}_1&\cdots&\mathbf{v}_n\\
@@ -1799,10 +1799,10 @@ Perhaps surprisingly, this turns out to be true in higher dimensions! The $n$-di
 
 To understand briefly how this can be true, we can see that the volume of a parallelepiped satisfies the same four properties that we used to define the determinant.
 \begin{itemize}
-  \item (Identity) If $\mathbf{v}_i=\mathbf{e}_i$ then the parallelepiped is the unit hypercube which clearly has volume $1$.
-  \item (Scaling) If you scale one of the sides of a paralellepiped by $t$ this clearly scales the volume by $t$.
-  \item (Elimination) Adding a multiple of one vector to another slides the parallelepiped along one of its sides. This has no effect on the volume.
-  \item (Row exchange) This has no effect on the volume, but if we consider the volume to be signed, we can assume this is true.
+  \item (Identity) If $\mathbf{v}_i$ are the columns of the identity matrix, then the parallelepiped is the unit hypercube, which clearly has volume $1$.
+  \item (Scaling) If you scale one of the sides of a paralellepiped by $t$ this clearly scales its volume by $t$.
+  \item (Elimination) Adding a multiple of one vector to another shears the parallelepiped along one of its sides. This has no effect on its volume.
+  \item (Row exchange) This has no effect on volume, but if we consider the volume to be signed, we can assume this is true.
 \end{itemize}
 
 \newpage
@@ -1877,10 +1877,10 @@ We now turn to the problem of finding eigenvectors and eigenvalues for a given m
     &\iff \lambda^2-5\lambda=0\\
     &\iff (\lambda)(\lambda-5)=0
   \end{align*}
-  Thus the eigenvalues are $0$ and $5$. To find the eigenvectors we move on to Step 2. For the eigenvalue $\lambda=0$ we find the null space of
+  Thus the eigenvalues are $0$ and $5$. To find the eigenvectors we move on to Step 2. For the eigenvalue $\lambda=0$ we find the null space of the matrix:
   \[\begin{bmatrix}1-0&2\\2&4-0\end{bmatrix}
   \]
-  Thus the eigenvector corresponding to $\lambda=0$ is $\mathbf{x}=(-2,1)^T$. For the eigenvalue $\lambda=5$ we find the null space of 
+  Thus the eigenvector corresponding to $\lambda=0$ is $\mathbf{x}=(-2,1)^T$. For the eigenvalue $\lambda=5$ we find the null space of the matrix:
   \[\begin{bmatrix}1-5&2\\2&4-5\end{bmatrix}
   \]
   Thus the eigenvector corresponding to $\lambda=5$ is $\mathbf{x}=(1,2)^T$. We can check our solutions by confirming that $A(-2,1)^T=0(-2,1)^T$ and $A(1,2)^T=5(1,2)^T$.
@@ -1917,14 +1917,8 @@ We now turn to the problem of finding eigenvectors and eigenvalues for a given m
       0 & 1 & 2 \\
       0 & 0 & 0
       \end{bmatrix}$
-    \item $A=\begin{bmatrix}
-      0 & 2 & 0 & 0 \\
-      2 & 0 & 0 & 0 \\
-      0 & 0 & 0 & 2 \\
-      0 & 0 & 2 & 0
-    \end{bmatrix}$
   \end{enumerate}
-  \item Suppose $A$ and $B$ are cities, and that each year 10\% of city $A$ movies to city $B$, and 20\% of city $B$ movies to city $A$. Assuming there are no other population changes, find the matrix $A$ which models the population distribution over time. Then find the eigenvalues and eigenvectors of $A$. What is the limit population distribution?
+  \item Suppose $E$ and $F$ are cities, and that each year 10\% of city $E$ movies to city $F$, and 20\% of city $F$ movies to city $E$. Assuming there are no other population changes, find the matrix $A$ which models the population distribution over time. Then find the eigenvalues and eigenvectors of $A$. What is the limit population distribution?
   \item Let $A$ be the matrix from problem 1(b). Put the three eigenvectors you found into the columns of a new matrix $X$. How is $AX$ related to $X$?
 \end{activity}
 
@@ -2007,6 +2001,8 @@ This equation is said to \emph{diagonalize} the matrix $A$. Of course most matri
   We can check our answer by confirming that the right-hand side multiplies back to $A$.
 \end{example}
 
+We should note that this process does not always work. If an $n\times n$ matrix has fewer than $n$ independent eigenvectors, then we cannot fill up the diagonalizing matrix $X$. If there are $n$ independent eigenvectors, then the matrix is called \emph{diagonalizable}.
+
 There are many applications of diagonalization. One application is the calculation of matrix powers $A^k$. If you can diagonalize $A$ as $A=S\Lambda S^{-1}$, then you can also diagonalize its powers as $A^k=S\Lambda^kS^{-1}$. This is because the extra $S$'s cancel as follows:
 
 \[A^k=S\Lambda S^{-1}S\Lambda S^{-1}\cdots S\Lambda S^{-1}
@@ -2024,7 +2020,10 @@ This application will come in handy when we study asymptotic behavior of linear 
   \]
 \end{example}
 
-We conclude this section with one of the coolest applications of diagonalization. Recall that the Fibonacci sequence begins with $F_0=0$, $F_1=1$ and is defined recursively by $F_{n+1}=F_{n+1}+F_n$. Find an absolute formula for $F_n$.
+We conclude this section with one of the coolest applications of diagonalization. Recall that the Fibonacci numbers begin with $F_0=0$, $F_1=1$ and are defined recursively by $F_{n+1}=F_{n+1}+F_n$. The first few Fibonacci numbers are therefore:
+\[0,1,1,2,3,5,8,13,21,34,55,89
+\]
+But how can we find an absolute formula for $F_n$? The Fibonacci ``process'' is modeled by a matrix, and we can use the method of diagonalization to analyze it.
 \begin{itemize}
   \item Step 1. Using the variables $F_{n+1}$ and $F_n$, the process is governed by the equations
   \[\systeme{F_{n+1}=F_n+F_{n-1},F_n=F_n}
@@ -2075,8 +2074,6 @@ We conclude this section with one of the coolest applications of diagonalization
   \]
 \end{itemize}
 
-% Define diagonalizable???
-
 \newpage
 \subsection*{Activity for \S \thesection}
 
@@ -2092,6 +2089,14 @@ We conclude this section with one of the coolest applications of diagonalization
     \item Use your diagonalization to find a formula for the power $A^n$.
     \item Find the formula for $G_n$.
     \item Use the above information to find $\lim_{n\to\infty}G_n$.
+  \end{enumerate}
+  \item For each of the following, find an example of a $2\times 2$ matrix $A$ with the given properties and verify it works, or else explain why it is impossible.
+  \begin{enumerate}
+    \item $A$ has two real eigenvalues and is diagonalizable
+    \item $A$ has two real eigenvalues and is not diagonalizable
+    \item $A$ has two complex eigenvalues and is diagonalizable
+    \item $A$ has one real eigenvalue and is diagonalizable
+    \item $A$ has one real eigenvalue and is not diagonalizable
   \end{enumerate}
 \end{activity}
 
@@ -2141,7 +2146,7 @@ This calculation in this example works for a very general class of problems. A v
   Suppose $A$ is a Markov matrix whose entries are nonzero and $\mathbf{x_0}$ is a probability vector. Then $\lim_{n\to\infty}A^n\mathbf{x_0}$ is equal to the eigenvector corresponding to $\lambda=1$ (normalized to be a probability vector).
 \end{theorem}
 
-This theorem is actually a special case of the much more powerful Perron--Frobenius theorem: If $A$ is a (reasonable) matrix, then its dominant (greatest) eigenvalue $\lambda_m$ is real and positive. Then the growth rate of the powers $A^n\mathbf{x}$ is given by $\lambda_m$ and the limit distribution is given by the normalized eigenvector $\mathbf{x}_m$ corresponding to $\lambda_m$.
+This theorem is actually a special case of the much more powerful Perron--Frobenius theorem: If $A$ is almost any reasonable matrix, then its dominant eigenvalue (the greatest in magnitude) $\lambda_d$ is real and positive. The growth rate of the powers $A^n\mathbf{x}$ is given by $\lambda_d$ and the limit distribution is given by the normalized eigenvector $\mathbf{x}_d$ corresponding to $\lambda_d$.
 
 As an example of this theorem, we present the Leslie matrix, which describes how a population changes through the generations.
   
@@ -2151,7 +2156,7 @@ As an example of this theorem, we present the Leslie matrix, which describes how
   Suppose you measure $F_1=.04$, $F_2=1.1$, $F_3=.01$, $S_1=.98$, and $S_2=.92$. Then the process is modelled by the Leslie matrix:
   \[A=\begin{bmatrix}.04&1.1&.01\\.98\\&.92\end{bmatrix}
   \]
-  This isn't a Markov matrix, but it is still subject to the Perron--Frobenius theorem. Using a calculator I found that the largest real eigenvalue was $\lambda=1.06$. Thus the population grows at a rate of 6\% per generation. The corresponding eigenvector, renormalized to sum to $1$, is $(.37,.34,.29)^T$. This tells the asymptotic distribution of the generations.
+  This isn't a Markov matrix, but it is still subject to the Perron--Frobenius theorem. Using a calculator I found that the largest real eigenvalue was $\lambda=1.06$. Thus the population grows at a rate of 6\% per generation. The corresponding eigenvector, renormalized to sum to $1$, is $(.37,.34,.29)^T$. This tells the asymptotic distribution of the generations will be 37\%, 34\%, and 29\%.
 \end{example}
 
 \newpage
@@ -2173,7 +2178,7 @@ As an example of this theorem, we present the Leslie matrix, which describes how
     \end{tikzpicture}
   \end{center}
   \begin{enumerate}
-    \item Write the Markov matrix for these movements
+    \item Write the Markov matrix that models these movements
     \item Find the eigenvector corresponding to $\lambda=1$.
     \item Find the limit population distribution of the three towns.
   \end{enumerate}
@@ -2238,7 +2243,7 @@ For the last question (how to calculate $e^{At}$), if $A$ is diagonalizable then
 Since $\Lambda$ is diagonal, it is easy to calculate $e^{\Lambda t}$ simply by applying $e^{\lambda t}$ to each of its diagonal entries $\lambda$.
 
 \begin{example}
-  A gas diffuses between two adjacent chambers. Lte $u$ denotes the amount of gas in the first chamber and $v$ the amount in the second chamber, and assume the following equations are satisfied:
+  A gas diffuses between two adjacent chambers. Let $u$ denote the amount of gas in the first chamber and $v$ the amount in the second chamber, and assume the following equations are satisfied:
   \[\begin{cases}
       u'=-u+v & u(0)=15\\
       v'=u-v & v(0)=5
@@ -2254,7 +2259,7 @@ Since $\Lambda$ is diagonal, it is easy to calculate $e^{\Lambda t}$ simply by a
       \frac{1}{-2}
       \begin{bmatrix}-1&-1\\-1&1\end{bmatrix}
   \]
-  It follows that
+  Next we calculate
   \[e^{At}=\begin{bmatrix}1&1\\1&-1\end{bmatrix}
     \begin{bmatrix}e^{0t}\\&e^{-2t}\end{bmatrix}
     \frac{1}{-2}
@@ -2294,6 +2299,7 @@ Since $\Lambda$ is diagonal, it is easy to calculate $e^{\Lambda t}$ simply by a
   \item The rabbit and wolf populations interact according to $r'=6r-2w$, and $w'=2r+w$. In other words, the rabbits breed very fast but lose some to wolf predation, and the wolves breed only modestly but better when there are rabbits.
 
   Suppose there are initially 30 rabbits and 30 wolves. Find formulas for the populations $r(t)$ and $w(t)$ of each species over time. After a long time, what is the ratio of rabbits to wolves?
+  \item Consider the second order differential differential equation $y''=4y'+5y$, with initial conditions $y(0)=1$, $y'(0)=1$. Substitute $u=y$ and $v=y'$ to write this as a $2\times2$ system of differential equations, and then solve it.
 \end{activity}
 
 
@@ -2356,18 +2362,21 @@ This tells us that E is the most popular, followed by D.
   \item Consider the following (very very small) network.
   \begin{center}
     \begin{tikzpicture}[scale=1.2]
-      \node at (0:1) (A) {$A$};
-      \node at (72:1) (B) {$B$}  edge[<-] (A);
-      \node at (144:1) (C) {$C$} edge[<-] (B);
-      \node at (216:1) (D) {$D$} edge[<-] (B) edge[->] (C);
-      \node at (288:1) (E) {$E$} edge[->] (B) edge[->] (A) edge[<-] (C);
+      \node at (0:1) (B) {$B$};
+      \node at (72:1) (C) {$C$}  edge[<-] (B);
+      \node at (144:1) (D) {$D$} edge[<-] (C);
+      \node at (216:1) (E) {$E$} edge[<-] (C) edge[->] (D);
+      \node at (288:1) (F) {$F$} edge[->] (C) edge[->] (B) edge[<-] (D);
     \end{tikzpicture}
   \end{center}
   \begin{enumerate}
     \item Write down a $5\times5$ matrix $A$ that represents this network.
     \item Find the eigenvector corresponding to $\lambda=1$ and rank the sites according to importance. (You may use a computer to help with the computation.)
   \end{enumerate}
-  \item Create your own network with at least six sites. Try to make it unclear which site is most important. Repeat the steps above with your network to find out.
+  \item When calculating importance in network theory, we usually assume there is a *damping factor*: a 15\% chance the user will stop clicking links, and instead start again at random. This means the Markov matrix $A$ that models the network should be replaced with $A_d=\frac{0.15}{n}\mathbb{1}+0.85A$, where $\mathbb{1}$ is the matrix of all $1$'s.
+  
+  Redo the previous problem using the damping factor method. How do the percentages change?
+%   \item Create your own network with at least six sites. Try to make it unclear which site is most important. Repeat the steps above with your network to find out.
 \end{activity}
 
 
@@ -2477,7 +2486,7 @@ Here are the steps to find the SVD of an $m\times n$ matrix $A$.
 
 \begin{itemize}
   \item Find $A^TA$ and diagonalize it in an orthonormal way. Let $\lambda_i$ be the eigenvalues of $A^TA$ and $\mathbf{v_i}$ a corresponding orthonormal family of eigenvectors. The right singular vectors of $A$ are just the vectors $\mathbf{v_i}$. Put these into the columns of a matrix $V$.
-  \item Next define the singular values of $A$ by $\sigma_i=\sqrt{\lambda_i}$. PUt these in the diagonal entries of an $m\times n$ matrix $\Sigma$.
+  \item Next define the singular values of $A$ by $\sigma_i=\sqrt{\lambda_i}$. Put these in the diagonal entries of an $m\times n$ matrix $\Sigma$.
   \item Now for each nonzero singular value $\sigma_i$ we define the left singular vector $\mathbf{u_i}=A\mathbf{v_i}/\sigma_i$. Put these in the columns of the matrix $U$.
   \item (We will avoid exercises that require this step, but if necessary, extend $U$ to an $m\times m$ matrix by adding additional columns orthogonal to the rest.)
 \end{itemize}
