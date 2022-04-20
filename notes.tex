@@ -2394,24 +2394,25 @@ Based on ILA 5th, \S 6.4.
 
 We have previously discussed the concept of basis for $\R^n$: a family of $n$ vectors $\mathbf{v_1},\ldots,\mathbf{v_n}$ that are linearly independent. A basis is special because any vector in $\R^n$ can be written as a combination of basis vectors.
 
-In this section we introduce the concept of \emph{orthogonal basis}: a family of $n$ vectors $\mathbf{v_1},\ldots,\mathbf{v_n}$ such that $\mathbf{v_i}\perp\mathbf{v_j}$ whenever $i\neq j$. An orthogonal basis is very special because it has the shape of the standard basis (the usual axes), except possibly rotated, reflected, and scaled.
+In this section we introduce the concept of \emph{orthonormal basis}. First, an \emph{orthogonal basis} is a family of $n$ vectors $\mathbf{v_1},\ldots,\mathbf{v_n}$ such that $\mathbf{v_i}\perp\mathbf{v_j}$ for all $i\neq j$. An \emph{orthonormal basis} is an orthogonal basis all of whose vectors have magnitude $1$. An orthonormal basis is very special because it has the shape of the standard basis (the usual axes), except possibly rotated and reflected.
 
-An example of an orthogonal basis for $\R^2$ would be $(3,4)^T,(-4,3)^T$. Note that you can always normalize the vectors (make the norm $1$) to get what's called an \emph{orthonormal basis}. In this example just divide each vector by its length: $(3/5,4/5)^T,(-4/5,3/5)^T$.
+An example of an orthogonal basis for $\R^2$ would be $(3,4)^T,(-4,3)^T$. Note that you can always normalize the vectors (divide each by its madnitude) to make it into an orthonormal basis. In this example we obtain $(3/5,4/5)^T,(-4/5,3/5)^T$.
 
-An orthonormal basis is special algebraically. For example if $Q$ is a matrix  whose columns are an orthonormal basis, then $Q^{-1}=Q^T$.
+We have seen that an orthonormal basis is special geometrically, but it is also special algebraically.
 
-\begin{example}
-  Let $Q$ be the matrix
-  \[Q=\frac16\begin{bmatrix}
-    2\sqrt{3}&3\sqrt{2}&\sqrt{6}\\
-    -2\sqrt{3}&0&2\sqrt{6}\\
-    2\sqrt{3}&-3\sqrt{2}&\sqrt{6}
-  \end{bmatrix}
-  \]
-  Then we can see that $Q^TQ=I$.
-\end{example}
+\begin{proposition}
+  If $Q$ is a matrix whose columns are an orthonormal basis, then $Q^{-1}=Q^T$.
+\end{proposition}
 
-To see why this always works, note that the columns of $Q$ are the same as the rows of $Q^T$. When we take the dot product of a column with itself we get $1$ by normality, and when we take the dot product of a column with any other column we get $0$ by orthogonality.
+For example, let $Q$ be the matrix below and evaluate $Q^TQ$ to get $I$.
+\[Q=\frac16\begin{bmatrix}
+  2\sqrt{3}&3\sqrt{2}&\sqrt{6}\\
+  -2\sqrt{3}&0&2\sqrt{6}\\
+  2\sqrt{3}&-3\sqrt{2}&\sqrt{6}
+\end{bmatrix}
+\]
+
+To see why this always works, note that the columns of $Q$ are the same as the rows of $Q^T$. When we take the dot product of a column with itself we get $1$ because each column has magnitude $1$. When we take the dot product of a column with another column we get $0$ because each pair of columns is orthogonal.
 
 Since we have seen the eigenvectors of a diagonalizable matrix always form a basis, it is natural to ask when the eigenvectors form an orthogonal basis.
 
@@ -2422,19 +2423,19 @@ Since we have seen the eigenvectors of a diagonalizable matrix always form a bas
   Then $A$ has eigenvalues $\lambda=0,5$ and corresponding eigenvectors $(1,2)^T,(-2,1)^T$. These two eigenvectors are orthogonal.
 \end{example}
 
-The matrix in the previous example is \emph{symmetric}, meaning $A^T=A$. It turns out this always guarantees the eigenvectors are orthogonal, and more.
+The matrix in the previous example is \emph{symmetric}, meaning $A^T=A$. It turns out that symmetric matrices always have eigenvectors that form an orthogonal (or orthonormal) basis.
 
 \begin{theorem}[Spectral theorem]
-  Let $A$ be a real symmetric matrix. Then the eigenvalues of $A$ are all real, and the eigenvectors of $A$ are pairwise orthogonal. Thus $A$ can be diagonalized $A=Q\Lambda Q^T$, where the columns of $Q$ are orthonormal.
+  Let $A$ be an $n\times n$ real symmetric matrix. Then the eigenvalues and eigenvectors of $A$ are real, and there are $n$ pairwise orthogonal eigenvectors. Thus $A$ can be diagonalized $A=Q\Lambda Q^T$, where the columns of $Q$ are an orthonormal basis.
 \end{theorem}
 
 We will briefly explain why part of this theorem is true. First we show why a symmetric matrix will have real eigenvalues (recall it is fully possible for a matrix to have complex eigenvalues). Suppose $A$ is symmetric and that $A\mathbf{x}=\lambda\mathbf{x}$. Then we have:
-\[\lambda\|\mathbf{x}\|=\lambda \bar{\mathbf{x}}^T\mathbf{x}
+\[\lambda\|\mathbf{x}\|^2=\lambda \bar{\mathbf{x}}^T\mathbf{x}
   =\bar{\mathbf{x}}^TA\mathbf{x}
   =\bar{\mathbf{x}}^TA^T\mathbf{x}
   =(\overline{A\mathbf{x}})^T\mathbf{x}
   =\bar\lambda\bar{\mathbf{x}}^T\mathbf{x}
-  =\bar\lambda\|\mathbf{x}\|
+  =\bar\lambda\|\mathbf{x}\|^2
 \]
 It follows that $\lambda=\bar\lambda$.
 
@@ -2535,9 +2536,9 @@ Note that in the above example, the eigenvalues of the original matrix are $5,3$
 \begin{activity}
   \item For each matrix $A$ find the singular value decomposition $A=U\Sigma V^T$.
   \begin{enumerate}
-    \item $A=\begin{bmatrix}0&4\\0&0\end{bmatrix}$\\(this is one of those where you will need to put a second vector into the $U$ matrix, orthogonal to the first)
     \item $A=\begin{bmatrix}0&4\\1&0\end{bmatrix}$
     \item $A=\begin{bmatrix}1&1&0\\0&1&1\end{bmatrix}$
+    \item $A=\begin{bmatrix}0&4\\0&0\end{bmatrix}$\\(this is one of those where you will need to put a second vector into the $U$ matrix, orthogonal to the first)
   \end{enumerate}
 \end{activity}
 
