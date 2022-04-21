@@ -2514,7 +2514,24 @@ Next, we know the $\mathbf{v_i}$ are orthogonal because they are eigenvectors of
 
 Note that in the above example, the eigenvalues of the original matrix are $5,3$. The singular decomposition has more information in its dominant singular value, and less information in its smaller singular value. This and other properties of the SVD make it useful in information compression. The idea is that given a large and complex matrix, we can replace some of its smaller singular values with zeros to obtain a simpler matrix approximating the original.
 
-As an example
+As an example, the matrix below left has singular values $\approx4.24,2.45,1.41$. Replacing the smallest singular value with $0$ leads to the matrix below right.
+\[
+\begin{bmatrix}
+  1&0&2&0&1&0&2\\
+  0&1&0&2&0&1&0\\
+  2&0&1&0&2&0&1
+\end{bmatrix}
+\implies
+\begin{bmatrix}
+  1.5&0&1.5&0&1.5&0&1.5\\
+  0&1&0&2&0&1&0\\
+  1.5&0&1.5&0&1.5&0&1.5
+\end{bmatrix}
+\]
+
+A matrix may be used to represent an image, with each entry representing a grayscale value for the corresponding pixel. For example the image below has first ten singular values BLAH. Replacing the remaining singular values with zeros leads to the image below right.
+
+
 
 % \begin{example}
 %   Let $A$ be the following nonsquare matrix. Find the singular decomposition $A=U\Sigma V^T$.
