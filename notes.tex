@@ -2512,23 +2512,25 @@ Next, we know the $\mathbf{v_i}$ are orthogonal because they are eigenvectors of
   \]
 \end{example}
 
-Note that in the above example, the eigenvalues of the original matrix are $5,3$. The singular decomposition has more information in its dominant singular value, and less information in its smaller singular value.
+Note that in the above example, the eigenvalues of the original matrix are $5,3$. The singular decomposition has more information in its dominant singular value, and less information in its smaller singular value. This and other properties of the SVD make it useful in information compression. The idea is that given a large and complex matrix, we can replace some of its smaller singular values with zeros to obtain a simpler matrix approximating the original.
 
-\begin{example}
-  Let $A$ be the following nonsquare matrix. Find the singular decomposition $A=U\Sigma V^T$.
-  \[A=\begin{bmatrix}0&1\\&&2\\&&&3\end{bmatrix}
-  \]
-  We first look at $A^TA$:
-  \[A^TA=\begin{bmatrix}0\\&1\\&&4\\&&&9\end{bmatrix}
-  \]
-  We can see that the eigenvalues of $A^TA$ are $\lambda=9,4,1,0$ and the corresponding eigenvectors are $(0,0,0,1)^T$, $(0,0,1,0)^T$, $(0,1,0,0)^T$, and $(0,0,0,1)^T$.
-  
-  Now the singular values are $\sigma=3,2,1,0$ and the corresponding right singular vectors are just the same as above. To find the right singular vectors, for each $\sigma_i=3,2,1$ we calculate $A\mathbf{v_i}/\sigma$. We get the vectors $(0,0,1)^T$, $(0,1,0)^T$, and $(1,0,0)^T$. The final SVD is thus:
-  \[A=\begin{bmatrix}&&1\\&1\\1&&\end{bmatrix}
-  \begin{bmatrix}3\\&2\\&&1&0\end{bmatrix}
-  \begin{bmatrix}&&&1\\&&1\\&1\\1\end{bmatrix}
-  \]  
-\end{example}
+As an example
+
+% \begin{example}
+%   Let $A$ be the following nonsquare matrix. Find the singular decomposition $A=U\Sigma V^T$.
+%   \[A=\begin{bmatrix}0&1\\&&2\\&&&3\end{bmatrix}
+%   \]
+%   We first look at $A^TA$:
+%   \[A^TA=\begin{bmatrix}0\\&1\\&&4\\&&&9\end{bmatrix}
+%   \]
+%   We can see that the eigenvalues of $A^TA$ are $\lambda=9,4,1,0$ and the corresponding eigenvectors are $(0,0,0,1)^T$, $(0,0,1,0)^T$, $(0,1,0,0)^T$, and $(0,0,0,1)^T$.
+%   
+%   Now the singular values are $\sigma=3,2,1,0$ and the corresponding right singular vectors are just the same as above. To find the right singular vectors, for each $\sigma_i=3,2,1$ we calculate $A\mathbf{v_i}/\sigma$. We get the vectors $(0,0,1)^T$, $(0,1,0)^T$, and $(1,0,0)^T$. The final SVD is thus:
+%   \[A=\begin{bmatrix}&&1\\&1\\1&&\end{bmatrix}
+%   \begin{bmatrix}3\\&2\\&&1&0\end{bmatrix}
+%   \begin{bmatrix}&&&1\\&&1\\&1\\1\end{bmatrix}
+%   \]  
+% \end{example}
 
 \newpage
 \subsection*{Activity for \S \thesection}
