@@ -22,6 +22,7 @@
 \usepackage[linktoc=all,colorlinks,linkcolor=blue]{hyperref}
 \usepackage{systeme}
 \usepackage{tikz}
+\usepackage{graphicx}
 
 \newcommand{\set}[1]{\left\{\,#1\,\right\}}
 \newcommand{\N}{\mathbb N}
@@ -2529,9 +2530,15 @@ As an example, the matrix below left has singular values $\approx4.24,2.45,1.41$
 \end{bmatrix}
 \]
 
-A matrix may be used to represent an image, with each entry representing a grayscale value for the corresponding pixel. For example the image below has first ten singular values BLAH. Replacing the remaining singular values with zeros leads to the image below right.
+A matrix may be used to represent an image, with each component representing a pixel with a grayscale value between 0--255. The image below left has $650$ singular values. The first singular value is roughly $10,660$, and the $30$th is roughly $2,308$, which is just $2.1\%$ as large. Replacing singular values $31$--$650$ with $0$'s leads to the image below right, which can be stored using $8.4\%$ as many entries.
 
-
+\begin{figure}[h]
+  \begin{tikzpicture}
+  \node at (-3,0) {\includegraphics[width=3cm]{bsu}};
+  \node at (0,0) {$\implies$};
+  \node at (3,0) {\includegraphics[width=3cm]{bsu2}};
+  \end{tikzpicture}
+\end{figure}
 
 % \begin{example}
 %   Let $A$ be the following nonsquare matrix. Find the singular decomposition $A=U\Sigma V^T$.
