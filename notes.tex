@@ -4,13 +4,12 @@
 \author{Course notes written by Samuel Coskey\\Based on material from ``Introduction to linear algebra'' by Gilbert Strang}
 
 \usepackage[vscale=.8,vmarginratio=4:3]{geometry}
-\usepackage{mathpazo,amssymb}
+\usepackage{mathpazo,amssymb,bm}
 \usepackage{setspace}\onehalfspacing\raggedbottom
 \renewcommand{\labelitemi}{$\circ$}
 \renewcommand{\labelenumi}{(\alph{enumi})}
 \renewcommand{\chaptername}{Part}
 \renewcommand{\thechapter}{\Roman{chapter}}
-\usepackage{remreset}
 \makeatletter\@removefromreset{section}{chapter}\makeatother
 \usepackage{etoolbox}
 \makeatletter
@@ -275,8 +274,8 @@ There is one important case when the elimination steps described above cannot be
   \item Choose values of $a,b,c,d$ so that there is no solution. Explain why there is no solution.
   \item Choose values of $a,b,c,d$ so that there are infinitely many solutions. Explain why there are infinitely many solutions.
   \end{enumerate}
-  % \item Look at the matrix $A$ and the vector $\mathbf{b}$. Is it possible to combine the columns of $A$, using scalar multiples and addition, to get $b$ as a result?
-  % \[A=\begin{bmatrix}1&2\\-1&-1\end{bmatrix},\qquad \mathbf{b}=\begin{bmatrix}1\\2\end{bmatrix}
+  % \item Look at the matrix $A$ and the vector $\bm{b}$. Is it possible to combine the columns of $A$, using scalar multiples and addition, to get $b$ as a result?
+  % \[A=\begin{bmatrix}1&2\\-1&-1\end{bmatrix},\qquad \bm{b}=\begin{bmatrix}1\\2\end{bmatrix}
   % \]
   \item For each system from \S1, \#2, perform one step of elimination to get the systems below. Plot these new ``row pictures'' and ``column pictures''. What are the relationships between the old pictures and the new ones?
   \begin{enumerate}\itemsep6pt
@@ -313,7 +312,7 @@ This system can be written in matrix vector form as follows:
   =\begin{bmatrix}4\\0\\1\end{bmatrix}
 \]
 
-For this last expression to make sense, we must define what it means to multiply a matrix by a vector. Here if $A$ is a matrix and $\mathbf{v}$ is a vector (where the number of columns of $A$ is equal to the number of entries of $\mathbf{v}$), then writing $A\mathbf{v}$ means we multiply each row of $A$ by  $\mathbf{v}$ in the dot product fashion to obtain a new vector $A\mathbf{v}$. For instance
+For this last expression to make sense, we must define what it means to multiply a matrix by a vector. Here if $A$ is a matrix and $\bm{v}$ is a vector (where the number of columns of $A$ is equal to the number of entries of $\bm{v}$), then writing $A\bm{v}$ means we multiply each row of $A$ by  $\bm{v}$ in the dot product fashion to obtain a new vector $A\bm{v}$. For instance
 \[\begin{bmatrix}2&3\\-1&2\end{bmatrix}
   \begin{bmatrix}5\\7\end{bmatrix}
   =\begin{bmatrix}(2)(5)+(3)(7)\\(-1)(5)+(2)(7)\end{bmatrix}
@@ -392,7 +391,7 @@ It is natural to ask whether matrix algebra obeys the same laws as traditional a
 
 Based on ILA 5th, \S 2.3.
 
-We have previously seen that a system of linear equations can be viewed as a single matrix equation $A\mathbf{x}=\mathbf{b}$. For example, consider the following system
+We have previously seen that a system of linear equations can be viewed as a single matrix equation $A\bm{x}=\bm{b}$. For example, consider the following system
 \[\systeme{2x+4y-2z=2,4x+9y-3z=8,-2x-3y+7z=10}
 \]
 We can rewrite it as
@@ -426,10 +425,10 @@ Every step of row elimination has a corresponding elimination matrix. Here are t
   \item The (so far unused) step $R_i\leftarrow kR_i$ has a matrix with $1$'s down the diagonal except for a $k$ in position $(i,i)$.
 \end{itemize}
 This means elimination can be viewed as successive multiplication by elimination matrices:
-\[E_k\cdots E_2E_1A\mathbf{x}=E_k\cdots E_2E_1\mathbf{b}
+\[E_k\cdots E_2E_1A\bm{x}=E_k\cdots E_2E_1\bm{b}
 \]
 Until the left hand side is in its echelon (or upper triangular) form:
-\[U\mathbf{x}=\mathbf{b}_{\text{new}}
+\[U\bm{x}=\bm{b}_{\text{new}}
 \]
 
 \begin{example}
@@ -508,11 +507,11 @@ So far we have only used the first type of elimination step, and the first type 
 
 Based on ILA 5th, \S 2.6.
 
-We begin by recalling the method of elimination matrices from the previous section. Given a system of linear equations, $A\mathbf{x}=\mathbf{b}$ we left-multiply the equation by a sequence of elmination matrices $E_i$ as follows.
-\[E_k\cdots E_2E_1A\mathbf{x}=E_k\cdots E_2E_1\mathbf{b}
+We begin by recalling the method of elimination matrices from the previous section. Given a system of linear equations, $A\bm{x}=\bm{b}$ we left-multiply the equation by a sequence of elmination matrices $E_i$ as follows.
+\[E_k\cdots E_2E_1A\bm{x}=E_k\cdots E_2E_1\bm{b}
 \]
 At the end of the process, the left hand side is in its echelon (or upper triangular) form. In other words, we write the above equation as
-\[U\mathbf{x}=E_k\cdots E_2E_1\mathbf{b}
+\[U\bm{x}=E_k\cdots E_2E_1\bm{b}
 \]
 
 In this section we will use matrix algebra to ``divide'' the $E_i's$ back over to the left-hand side. While division doesn't necessarily make sense in matrix algebra, it turns out that the elementary matrices $E_i$ always have an ``inverse matrix'' $E_i^{-1}$ which has the opposite effect of $E_i$. For example, the following matrices cancel each other out.
@@ -520,11 +519,11 @@ In this section we will use matrix algebra to ``divide'' the $E_i's$ back over t
   E^{-1}=\begin{bmatrix}1\\-3&1\end{bmatrix}
 \]
 This allows us to rewrite the previous equation as
-\[E_1^{-1}E_2^{-1}\cdots E_k^{-1}U\mathbf{x}=\mathbf{b}
+\[E_1^{-1}E_2^{-1}\cdots E_k^{-1}U\bm{x}=\bm{b}
 \]
 
 For the rest of this section, let's assume there are \emph{no row exchanges} needed in the elimination. Then all of the matrices $E_i^{-1}$ are \emph{lower triangular}, meaning all entries above the main diagonal are $0$. We thus arrive at the following conclusion. We can \emph{factor} $A$ as a product $LU$ and write the original system as
-\[LU\mathbf{x}=\mathbf{b}
+\[LU\bm{x}=\bm{b}
 \]
 where $L=E_1^{-1}E_2^{-1}\cdots E_k^{-1}$ and $U$ is the eliminated matrix.
 
@@ -551,7 +550,7 @@ There are two reasons to do this. First, just as in ordinary arithmetic, it is o
   Finally we should check we are correct by multiplying $LU$ to get $A$.
 \end{example}
 
-Next if we have a factored system $LU\mathbf{x}=\mathbf{b}$ we can use the substitution $\mathbf{c}=U\mathbf{x}$ to break it into two triangular systems: $L\mathbf{c}=\mathbf{b}$ and then $U\mathbf{x}=\mathbf{c}$. We can solve the first using ``forth-solving'' and the the second using back-solving.
+Next if we have a factored system $LU\bm{x}=\bm{b}$ we can use the substitution $\bm{c}=U\bm{x}$ to break it into two triangular systems: $L\bm{c}=\bm{b}$ and then $U\bm{x}=\bm{c}$. We can solve the first using ``forth-solving'' and the the second using back-solving.
 
 \begin{example}
   Consider the system
@@ -565,7 +564,7 @@ Next if we have a factored system $LU\mathbf{x}=\mathbf{b}$ we can use the subst
   The first can easily be solved forwards with solution $c=10$, $d=6$, $e=0$. We then plug these values into the second to solve backwards with solution $x=1$, $y=2$, $z=0$.
 \end{example}
 
-We close this section with the really cool part. Suppose the matrix $A$ models a given phenomenon, and you want to solve $A\mathbf{x}=\mathbf{b}$ over and over again for many different $\mathbf{b}$'s. If we had to perform elimination each time, we would be spending $O(n^3)$ operations each time. If on the other hand we factor $A=LU$ just once, then we can reduce every future instance of $A\mathbf{x}=\mathbf{b}$ to two back-solves, which consumes just $O(n^2)$ operations!
+We close this section with the really cool part. Suppose the matrix $A$ models a given phenomenon, and you want to solve $A\bm{x}=\bm{b}$ over and over again for many different $\bm{b}$'s. If we had to perform elimination each time, we would be spending $O(n^3)$ operations each time. If on the other hand we factor $A=LU$ just once, then we can reduce every future instance of $A\bm{x}=\bm{b}$ to two back-solves, which consumes just $O(n^2)$ operations!
 
 \newpage
 \subsection*{Activity for \S \thesection}
@@ -586,8 +585,8 @@ We close this section with the really cool part. Suppose the matrix $A$ models a
     \item Consider the following system made from the entries of $A$:
     \[\systeme{x+y+z=2,2x+4y+5z=8,3x+5y+2z=2}
     \]
-    Use your factorization $A=LU$ from part (d) to write two systems, $L\mathbf{c}=\mathbf{b}$ and $U\mathbf{x}=\mathbf{c}$.
-    \item Solve the system $L\mathbf{c}=\mathbf{b}$ by forth-solving. Solve the system $U\mathbf{x}=\mathbf{c}$ by back-solving. Check that your solution for $\mathbf{x}$ is correct by plugging it into the original system $A\mathbf{x}=\mathbf{b}$.
+    Use your factorization $A=LU$ from part (d) to write two systems, $L\bm{c}=\bm{b}$ and $U\bm{x}=\bm{c}$.
+    \item Solve the system $L\bm{c}=\bm{b}$ by forth-solving. Solve the system $U\bm{x}=\bm{c}$ by back-solving. Check that your solution for $\bm{x}$ is correct by plugging it into the original system $A\bm{x}=\bm{b}$.
   \end{enumerate}
 \end{activity}
 
@@ -688,7 +687,7 @@ It is important to note that not every matrix $A$ has an inverse matrix! First o
   \item Find the inverse of the matrix (treat the letters $a,b$ as variables):
   \[\begin{bmatrix}1&a&0\\0&1&b\\0&0&1\end{bmatrix}
   \]
-  \item Assume $A$ is an invertible $n\times n$ matrix and consider the system $A\mathbf x=\mathbf b$. Is it possible for the system to have no solution? Is it possible for the system to have infinitely many solutions?
+  \item Assume $A$ is an invertible $n\times n$ matrix and consider the system $A\bm x=\bm b$. Is it possible for the system to have no solution? Is it possible for the system to have infinitely many solutions?
 \end{activity}
 
 
@@ -702,9 +701,9 @@ Based on ILA 5th, \S 3.1.
 In previous sections we have seen how to use elimination to decide whether a system of linear equations has zero, one, or infinitely many solutions. In this section we will explore the theory behind whether and when a system of linear equations has any solutions or not.
 
 We will still be viewing a system of linear equations as a single matrix equation
-\[A\mathbf{x}=\mathbf{b}
+\[A\bm{x}=\bm{b}
 \]
-If we view $A$ as a function mapping inputs $\mathbf{x}$ to outputs $\mathbf{b}$, then observe that $A\mathbf{x}=\mathbf{b}$ has solutions if and only if $\mathbf{b}$ is in the \emph{range} of $A$. This means we have to study the idea of the range of a matrix! Before we do that, it is best to introduce a big concept called a vector space.
+If we view $A$ as a function mapping inputs $\bm{x}$ to outputs $\bm{b}$, then observe that $A\bm{x}=\bm{b}$ has solutions if and only if $\bm{b}$ is in the \emph{range} of $A$. This means we have to study the idea of the range of a matrix! Before we do that, it is best to introduce a big concept called a vector space.
 
 \begin{definition}
   A \emph{vector space} is any collection of mathematical objects that may be scaled and added.
@@ -723,10 +722,10 @@ There are always two fundamental ways to describe a subspace of $\R^n$. One way 
 The second way to describe a subspace of $\R^n$ is using \emph{combinations}. If $\textbf{v}_1,\ldots,\textbf{v}_k$ are vectors then a \emph{combination} of $\textbf{v}_1,\ldots,\textbf{v}_k$ is any vector that can be obtained by scaling and adding them together.
 
 \begin{definition}
-  Given any matrix $A$ with column vectors $\mathbf{v}_1,\ldots\mathbf{v}_n$, the \emph{column space} of $A$ consists of all combinations $\mathbf{v}_1x_1+\cdots+\mathbf{v}_nx_n$ of the column vectors of $A$.
+  Given any matrix $A$ with column vectors $\bm{v}_1,\ldots\bm{v}_n$, the \emph{column space} of $A$ consists of all combinations $\bm{v}_1x_1+\cdots+\bm{v}_nx_n$ of the column vectors of $A$.
 \end{definition}
 
-Thus the column space of $A$ is precisely the set of of all vectors $\mathbf{b}$ such that $A\mathbf{x}=\mathbf{b}$ has a solution. The column space of $A$ is the range of $A$.
+Thus the column space of $A$ is precisely the set of of all vectors $\bm{b}$ such that $A\bm{x}=\bm{b}$ has a solution. The column space of $A$ is the range of $A$.
 
 \begin{example}
   Consider the matrix:
@@ -741,10 +740,10 @@ Thus the column space of $A$ is precisely the set of of all vectors $\mathbf{b}$
   Thus the vector $(-1,-1,1)$ lies in the column space of $A$, as witnessed by the coefficients $(x,y)=(-1,1)$.
 \end{example}
 
-In the above example we checked whether a single vector $\mathbf{b}$ is in the column space of $A$. More generally we can use algebra to describe all vectors $\mathbf{b}$ in the column space of $A$.
+In the above example we checked whether a single vector $\bm{b}$ is in the column space of $A$. More generally we can use algebra to describe all vectors $\bm{b}$ in the column space of $A$.
 
 \begin{example}
-  Let $A$ be the matrix in the previous example. Find equations for the column space of $A$. The answer consists of one or more equations in the variables $b_1,b_2,b_3$ that determine when $A\mathbf{x}=\mathbf{b}$ has a solution. To solve this we set up an augmented matrix with unknowns on the right-hand side.
+  Let $A$ be the matrix in the previous example. Find equations for the column space of $A$. The answer consists of one or more equations in the variables $b_1,b_2,b_3$ that determine when $A\bm{x}=\bm{b}$ has a solution. To solve this we set up an augmented matrix with unknowns on the right-hand side.
   \[A=\begin{bmatrix}
       1&0&\vline&b_1\\
       4&3&\vline&b_2\\
@@ -760,7 +759,7 @@ Note that when we are looking for the equations of a subspace, the right-hand si
 \subsection*{Activity for \S \thesection}
 
 \begin{activity}
-  \item For each matrix $A$, find the column space of $A$. The answer consists of one or more equations in the variables $b_1,b_2,b_3$ that decide when $A\mathbf{x}=\mathbf{b}$ has a solution.
+  \item For each matrix $A$, find the column space of $A$. The answer consists of one or more equations in the variables $b_1,b_2,b_3$ that decide when $A\bm{x}=\bm{b}$ has a solution.
   \begin{enumerate}
     \item $A=\begin{bmatrix}1&4&2\\2&8&4\\-1&-4&-2\end{bmatrix}$\vspace{.3in}
     \item $A=\begin{bmatrix}1&4\\2&9\\-1&-4\end{bmatrix}$\vspace{.3in}
@@ -770,14 +769,14 @@ Note that when we are looking for the equations of a subspace, the right-hand si
   \begin{enumerate}
     \item The matrices $A$ and $2A$ have the same column space
     % \item If the column space of the matrix $A$ is trivial (a point) then $A$ is trivial (the zero matrix)
-    \item Given a matrix $A$, the set of vectors $\mathbf{b}$ such that $A\mathbf{x}=\mathbf{b}$ has a solution forms a vector space
-    \item Given a matrix $A$ and a vector $\mathbf{b}$, the set of vectors $\mathbf{x}$ such that $A\mathbf{x}=\mathbf{b}$ forms a vector space
+    \item Given a matrix $A$, the set of vectors $\bm{b}$ such that $A\bm{x}=\bm{b}$ has a solution forms a vector space
+    \item Given a matrix $A$ and a vector $\bm{b}$, the set of vectors $\bm{x}$ such that $A\bm{x}=\bm{b}$ forms a vector space
   \end{enumerate}
 \end{activity}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Null space: the complete solution to $A\mathbf{x}=\mathbf{0}$}
+\section{Null space: the complete solution to $Ax=0$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Based on ILA 5th, \S 3.2.
@@ -785,12 +784,12 @@ Based on ILA 5th, \S 3.2.
 In the last section we introduced vector spaces, along with our primary example, the column space of a matrix. As it turns out, there are several more important subspaces that are associated with a given matrix $A$ (see the cover of the text!). In this session we introduce the null space.
 
 \begin{definition}
-  Given a matrix $A$, the \emph{null space} of $A$ is the set of all $\mathbf{x}$ such that $A\mathbf{x}=\mathbf{0}$.
+  Given a matrix $A$, the \emph{null space} of $A$ is the set of all $\bm{x}$ such that $A\bm{x}=\bm{0}$.
 \end{definition}
 
 Thinking of $A$ as a function, the column space of $A$ is the range, and the null space is the set of zeros or roots.
 
-Note that if $A$ is $m\times n$, then the null space of $A$ is a subset of $\R^n$. It is important for us to check that the null space is really a subspace of $\R^n$, that is, closed under scaling and addition: if $A\mathbf{x}=0$ then $A\alpha\mathbf{x}=\alpha A\mathbf{x}=\mathbf{0}$ too; if $A\mathbf{x}=\mathbf{0}$ and $A\mathbf{w}=\mathbf{0}$, then we have $A(\mathbf{x}+\mathbf{w})=A\mathbf{x}+A\mathbf{w}=\mathbf{0}$ too.
+Note that if $A$ is $m\times n$, then the null space of $A$ is a subset of $\R^n$. It is important for us to check that the null space is really a subspace of $\R^n$, that is, closed under scaling and addition: if $A\bm{x}=0$ then $A\alpha\bm{x}=\alpha A\bm{x}=\bm{0}$ too; if $A\bm{x}=\bm{0}$ and $A\bm{w}=\bm{0}$, then we have $A(\bm{x}+\bm{w})=A\bm{x}+A\bm{w}=\bm{0}$ too.
 
 We want to find the null space of a given matrix. We begin with an example.
 
@@ -831,7 +830,7 @@ When we find the null space, we can achieve some additional clarity if we elimin
   It is called the null space matrix because $AN=0=$ the zero matrix.
 \end{example}
 
-The solutions to $A\mathbf{x}=\mathbf{0}$ each provide a recipe for a combination of the columns of $A$ that gives $\mathbf{0}$.
+The solutions to $A\bm{x}=\bm{0}$ each provide a recipe for a combination of the columns of $A$ that gives $\bm{0}$.
 
 \begin{example}
   Calculate the null space matrix of $A$.
@@ -848,7 +847,7 @@ The null space matrix $N$ is always as tall as $A$ was wide, and it has one colu
 \subsection*{Activity for \S \thesection}
 
 \begin{activity}
-  \item The following matrices $A$ are in RREF. Find the complete solution to $A\mathbf{x}=\mathbf{0}$ in parametric form. Then write the null space matrix $N$ and check that $AN=0$.
+  \item The following matrices $A$ are in RREF. Find the complete solution to $A\bm{x}=\bm{0}$ in parametric form. Then write the null space matrix $N$ and check that $AN=0$.
   \begin{enumerate}\itemsep10pt
     \item $A=\begin{bmatrix}1&0&1\\0&1&-1\end{bmatrix}$
     \item $A=\begin{bmatrix}1&0&2&3\\0&1&4&5\\0&0&0&0\end{bmatrix}$
@@ -872,14 +871,14 @@ The null space matrix $N$ is always as tall as $A$ was wide, and it has one colu
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The complete solution to $A\mathbf{x}=\mathbf{b}$}
+\section{The complete solution to $Ax=b$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Based on ILA 5th, \S 3.3.
 
-In the previous section we showed how to find the complete solution to a system of linear equations $A\mathbf{x}=\mathbf{0}$. A system with $\mathbf{0}$ on the right-hand side is called a \emph{homogeneous} system, just as in differential equations. We will now use this as a stepping stone to solving a general system of linear equations, $A\mathbf{x}=\mathbf{b}$.
+In the previous section we showed how to find the complete solution to a system of linear equations $A\bm{x}=\bm{0}$. A system with $\bm{0}$ on the right-hand side is called a \emph{homogeneous} system, just as in differential equations. We will now use this as a stepping stone to solving a general system of linear equations, $A\bm{x}=\bm{b}$.
 
-Recall that the solutions to $A\mathbf{x}=\mathbf{b}$ form the \emph{null space} of $A$, which is a vector subspace of $\R^n$. It turns out that solutions to the system $A\mathbf{x}=\mathbf{0}$ form a \emph{translation} of the null space of $A$.
+Recall that the solutions to $A\bm{x}=\bm{b}$ form the \emph{null space} of $A$, which is a vector subspace of $\R^n$. It turns out that solutions to the system $A\bm{x}=\bm{0}$ form a \emph{translation} of the null space of $A$.
 
 To get the idea, let's look at the case of one equation in two variables. For example, first consider the \emph{homogeneous} equation:
 \[2x+3y=0
@@ -911,25 +910,25 @@ The solutions to this equation form a line, but not through the origin. It is th
   \end{tikzpicture}
 \end{center}
 
-We can redo this problem in matrix notation. We are using the matrix $A=\begin{bmatrix}2&3\end{bmatrix}$. First we find the general solution to $A\mathbf{x}=\mathbf{0}$, that is, the null space of $A$:
-\[\mathbf{x}_{\mathrm{null}}
+We can redo this problem in matrix notation. We are using the matrix $A=\begin{bmatrix}2&3\end{bmatrix}$. First we find the general solution to $A\bm{x}=\bm{0}$, that is, the null space of $A$:
+\[\bm{x}_{\mathrm{null}}
   =\begin{bmatrix}-3/2\\1\end{bmatrix}y
 \]
-The null space is the line through the origin that we found above. The general solution to $A\mathbf{x}=[3]$ is then:
-\[\mathbf{x}_{\mathrm{general}}
+The null space is the line through the origin that we found above. The general solution to $A\bm{x}=[3]$ is then:
+\[\bm{x}_{\mathrm{general}}
   =\begin{bmatrix}3/2\\0\end{bmatrix}
   +\begin{bmatrix}-3/2\\1\end{bmatrix}y
 \]
 which is the line translated away from the origin that we found above.
 
-In general, we will find that the general solution to a system of linear equations $A\mathbf{x}=\mathbf{b}$ will be equal to a single vector (the particular solution) added to the vectors in the null space (the parametric vector form). This strongly mirrors the method from systems of linear differential equations.
+In general, we will find that the general solution to a system of linear equations $A\bm{x}=\bm{b}$ will be equal to a single vector (the particular solution) added to the vectors in the null space (the parametric vector form). This strongly mirrors the method from systems of linear differential equations.
 
 \begin{example}
-  Consider the system $A\mathbf{x}=\mathbf{b}$:
+  Consider the system $A\bm{x}=\bm{b}$:
   \[\begin{bmatrix}
       1&3&0&2\\0&0&1&4\\1&3&1&6
     \end{bmatrix}
-    \mathbf{x}=
+    \bm{x}=
     \begin{bmatrix}
       1\\6\\7
     \end{bmatrix}
@@ -943,16 +942,16 @@ In general, we will find that the general solution to a system of linear equatio
       \end{bmatrix}
     \]
   \item Step two. Find the null space. Forget about the right-hand side briefly, pretend it is zeros, and find the null space of $A$ in \emph{parametric vector form}.
-  \[\mathbf{x}_{\mathrm{null}}
+  \[\bm{x}_{\mathrm{null}}
   =\begin{bmatrix}-3\\1\\0\\0\end{bmatrix}x_2
   +\begin{bmatrix}-2\\0\\-4\\1\end{bmatrix}x_4
   \]
   \item Step three. Find the particular solution to the original system by setting the free variables to zero. Note there is a trick here: put zeros in the free variable rows and the RHS of $R$ in the free variable rows.
-  \[\mathbf{x}_{\mathrm{partic}}
+  \[\bm{x}_{\mathrm{partic}}
   =\begin{bmatrix}1\\0\\6\\0\end{bmatrix}
   \]
   \item Step four. Write the solution; it is just the sum of the particular and general solutions.
-    \[\mathbf{x}_{\mathrm{general}}
+    \[\bm{x}_{\mathrm{general}}
       =\begin{bmatrix}1\\0\\6\\0\end{bmatrix}
       +\begin{bmatrix}-3\\1\\0\\0\end{bmatrix}x_2
       +\begin{bmatrix}-2\\0\\-4\\1\end{bmatrix}x_4
@@ -968,16 +967,16 @@ In general, we will find that the general solution to a system of linear equatio
   \begin{enumerate}\itemsep10pt
     \item $\systeme{x+z=1,2x+3y-z=1}$
     \item $\systeme{x+3y+3z=1,2x+6y+9z=5,-x-3y+3z=5}$
-    \item $\begin{bmatrix}1&3&1&2\\2&6&4&8\\0&0&2&4\end{bmatrix}\mathbf{x}
+    \item $\begin{bmatrix}1&3&1&2\\2&6&4&8\\0&0&2&4\end{bmatrix}\bm{x}
       =\begin{bmatrix}1\\3\\1\end{bmatrix}$
-    \item $\begin{bmatrix}0&1\\0&-3\end{bmatrix}\mathbf{x}
+    \item $\begin{bmatrix}0&1\\0&-3\end{bmatrix}\bm{x}
       =\begin{bmatrix}2\\-6\end{bmatrix}$
   \end{enumerate}
   \item Give an example of a system with two equations and three variables whose general solution is:
-  \[\mathbf{x}=
+  \[\bm{x}=
   \begin{bmatrix}2\\4\\0\end{bmatrix}+\begin{bmatrix}1\\1\\1\end{bmatrix}z
   \]
-  \item Suppose that $A$ is $m\times n$ and has $r$ many pivots. Assume you know the system $A\mathbf x=\mathbf b$ is consistent. What is the \emph{dimension} of the set of solutions? (This is equivalent to asking how many free variables there are in the general solution.) Explain your answer.
+  \item Suppose that $A$ is $m\times n$ and has $r$ many pivots. Assume you know the system $A\bm x=\bm b$ is consistent. What is the \emph{dimension} of the set of solutions? (This is equivalent to asking how many free variables there are in the general solution.) Explain your answer.
 \end{activity}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1023,7 +1022,7 @@ Turning to practical matters, suppose we are given a matrix $A$, and asked to fi
 We also wish to find a basis for the null space of $A$. In fact we have already done this: the basis simply consists of the the column vectors in the paramteric vector form.
 
 \begin{example}
-  The basis for the null space of the matrix in the previous problem consists of the column vectors in the parametric vector form of the solution to $A\mathbf{x}=\mathbf{0}$:
+  The basis for the null space of the matrix in the previous problem consists of the column vectors in the parametric vector form of the solution to $A\bm{x}=\bm{0}$:
   \[\text{basis for $N(A)$: }\begin{bmatrix}2\\1\\0\\0\end{bmatrix},
   \begin{bmatrix}-3\\0\\-4\\1\end{bmatrix}
   \]
@@ -1075,8 +1074,8 @@ We can apply the same reasoning to remove the redundant elements from any set of
   \item Suppose you are given a set of four vectors in $\R^3$. Your friend tells you the set cannot possibly be independent. Decide whether this true or false, and explain why.
   % \item
   % \begin{enumerate}
-  %   \item Give an example of three vectors $\mathbf{v}_1,\mathbf{v}_2,\mathbf{v}_3$ such that (1) the vectors are linearly dependent, and (2) if you remove any one of them the remaining two are linearly independent.
-  %   \item Give an example of three vectors $\mathbf{w}_1,\mathbf{w}_2,\mathbf{w}_3$ such that (1) the vectors are linearly dependent; (2) if you remove $\mathbf{w}_1$ then the remaining two are linearly independent, and; (3) if you remove $\mathbf{w}_2$ then the remaining two are linearly dependent.
+  %   \item Give an example of three vectors $\bm{v}_1,\bm{v}_2,\bm{v}_3$ such that (1) the vectors are linearly dependent, and (2) if you remove any one of them the remaining two are linearly independent.
+  %   \item Give an example of three vectors $\bm{w}_1,\bm{w}_2,\bm{w}_3$ such that (1) the vectors are linearly dependent; (2) if you remove $\bm{w}_1$ then the remaining two are linearly independent, and; (3) if you remove $\bm{w}_2$ then the remaining two are linearly dependent.
   % \end{enumerate}
 \end{activity}
 
@@ -1104,18 +1103,18 @@ We can view the rows of a matrix as columns of the ``transpose'' matrix.
 The four fundamental subspaces corresponding to a matrix $A$ are the following.
 \begin{itemize}
   \item $C(A)$, the \emph{column space}, the span (combinations) of the columns of $A$
-  \item $N(A)$, the \emph{null space}, the solutions to $A\mathbf{x}=\mathbf{0}$ (the combinations of the columns that give zero, also the equations of the row space)
+  \item $N(A)$, the \emph{null space}, the solutions to $A\bm{x}=\bm{0}$ (the combinations of the columns that give zero, also the equations of the row space)
   \item $R(A)$, the \emph{row space}, the span (combinations) of the rows of $A$
-  \item $LN(A)$, the \emph{left null space}, the solutions to $\mathbf{y}^TA=\mathbf{0}$ (the combinations of the rows that give zero, also the equations of the column space)
+  \item $LN(A)$, the \emph{left null space}, the solutions to $\bm{y}^TA=\bm{0}$ (the combinations of the rows that give zero, also the equations of the column space)
 \end{itemize}
 
 The four subspaces are depicted on the cover of our book.
 
-We wish to find bases and dimensions of the four fundamental subspaces corresponding to $A$. We first need to calculate the RREF of $A$ augmented with an unknown right-hand side $\mathbf{b}$. Then we have:
+We wish to find bases and dimensions of the four fundamental subspaces corresponding to $A$. We first need to calculate the RREF of $A$ augmented with an unknown right-hand side $\bm{b}$. Then we have:
 
 \begin{itemize}
   \item $C(A)$: The basis consists of the columns of the \emph{original matrix} corresponding to basic columns of the RREF matrix.
-  \item $N(A)$: The basis consists of the vectors in the parametric vector solution to $A\mathbf{x}=\mathbf{0}$. (If there are no free variables, the basis is $\emptyset$.)
+  \item $N(A)$: The basis consists of the vectors in the parametric vector solution to $A\bm{x}=\bm{0}$. (If there are no free variables, the basis is $\emptyset$.)
   \item $R(A)$: The basis consists of the nonzero rows of the \emph{RREF matrix}.
   \item $LN(A)$: The basis consists of the coefficients of the equations in the $b_i$'s corresponding to zero rows of the RREF matrix. (If there are no zero rows, the basis is $\emptyset$.)
 \end{itemize}
@@ -1126,7 +1125,7 @@ We wish to find bases and dimensions of the four fundamental subspaces correspon
       1&3&0&5\\2&6&1&16\\5&15&0&25
     \end{bmatrix}
   \]
-  We first augment the matrix with an unknown right-hand side $\mathbf{b}$, and find RREF.
+  We first augment the matrix with an unknown right-hand side $\bm{b}$, and find RREF.
   \[R=\begin{bmatrix}
     1&3&0&5&\vline&b_1\\
     &&1&6&\vline&b_2-2b_1\\
@@ -1180,8 +1179,8 @@ The number of pivots $r$ is called the \emph{rank} of the matrix $A$. The rank i
     \item $A$ is a $3\times 5$ matrix with $2$ pivots. What are the dimensions of all four fundamental subspaces corresponding to $A$? Explain your reasoning.
     \item $A$ is a matrix whose null space is a $3$-dimensional subspace of $\R^5$ and whose left-null space is a subspace of $\R^7$. What are the dimensions of all four fundamental subspaces corresponding to $A$? Explain your reasoning.
   \end{enumerate}
-  \item Fill in the blanks and explain: Any vector in the row space times any vector in the \underline{\hspace{.5in}} space gives $\mathbf{0}$. Any vector in the column space times any vector in the \underline{\hspace{.5in}} space gives $\mathbf{0}$.
-  % \item Let $P$ be the plane with equation $\begin{bmatrix}2&3&-1\end{bmatrix}\mathbf{x}=0$. Find all solutions to the equation in parametric vector form. Which of the four subspaces is this? Recall that the \emph{normal line} is perpendicular to the plane and passes through $(2,3,-1)$. Which of the four subspaces is this?
+  \item Fill in the blanks and explain: Any vector in the row space times any vector in the \underline{\hspace{.5in}} space gives $\bm{0}$. Any vector in the column space times any vector in the \underline{\hspace{.5in}} space gives $\bm{0}$.
+  % \item Let $P$ be the plane with equation $\begin{bmatrix}2&3&-1\end{bmatrix}\bm{x}=0$. Find all solutions to the equation in parametric vector form. Which of the four subspaces is this? Recall that the \emph{normal line} is perpendicular to the plane and passes through $(2,3,-1)$. Which of the four subspaces is this?
 \end{activity}
 
 \newpage
@@ -1194,26 +1193,26 @@ Based on ILA 5th, \S 4.1.
 In previous sections we saw that solving systems of linear equations is related to two ``fundamental'' subspaces of a matrix: the column space (which determines when it is consistent), and the null space (which are the solutions up to a translation). We then defined two more fundamental subspaces, the row space and the left null space. We saw that the four spaces are related to each other. In this section we reveal one more special property of the four subspaces.
 
 \begin{definition}
-  Vectors $\mathbf{v},\mathbf{w}$ are \emph{orthogonal}, written $\mathbf{v}\perp\mathbf{w}$, if they are perpendicular (at 90 degree angles to one another). Vector spaces $V,W$ in $\R^n$ are \emph{orthogonal}, written $V\perp W$, if every vector of $V$ is orthogonal to every vector of $W$.
+  Vectors $\bm{v},\bm{w}$ are \emph{orthogonal}, written $\bm{v}\perp\bm{w}$, if they are perpendicular (at 90 degree angles to one another). Vector spaces $V,W$ in $\R^n$ are \emph{orthogonal}, written $V\perp W$, if every vector of $V$ is orthogonal to every vector of $W$.
 \end{definition}
 
-You may recall from previous courses that orthogonality is related to the dot product of vectors. In linear algebra we write the dot product as $\mathbf{v}^T\mathbf{w}$ instead of $\mathbf{v}\cdot\mathbf{w}$.
+You may recall from previous courses that orthogonality is related to the dot product of vectors. In linear algebra we write the dot product as $\bm{v}^T\bm{w}$ instead of $\bm{v}\cdot\bm{w}$.
 
 \begin{lemma}
-  Vectors $\mathbf{v},\mathbf{w}$ are orthogonal if and only if $\mathbf{v}^T\mathbf{w}=0$.
+  Vectors $\bm{v},\bm{w}$ are orthogonal if and only if $\bm{v}^T\bm{w}=0$.
 \end{lemma}
 
 \begin{proof}
-  Observe that $\mathbf{v},\mathbf{w}$ are orthogonal if and only if the triangle with corners $\mathbf{0},\mathbf{v},\mathbf{w}$ is a right triangle. By the Pythagorean theorem, this is the case if and only if
-  \[|\mathbf{v}|^2+|\mathbf{w}|^2=|\mathbf{v-w}|^2
+  Observe that $\bm{v},\bm{w}$ are orthogonal if and only if the triangle with corners $\bm{0},\bm{v},\bm{w}$ is a right triangle. By the Pythagorean theorem, this is the case if and only if
+  \[|\bm{v}|^2+|\bm{w}|^2=|\bm{v-w}|^2
   \]
-  We now use the distance formula, which states that the length of a vector is $|\mathbf{v}|=\sqrt{\sum v_i^2}$ (the distance formula is yet another version of the Pythagorean theorem). Thus the previous equation is equivalent to
+  We now use the distance formula, which states that the length of a vector is $|\bm{v}|=\sqrt{\sum v_i^2}$ (the distance formula is yet another version of the Pythagorean theorem). Thus the previous equation is equivalent to
   \[\sum v_i^2+\sum w_i^2=\sum(v_i-w_i)^2
   \]
   Applying the distributive property term-by-term to the right-hand side, we arrive at:
   \[\sum v_i^2+\sum w_i^2=\sum v_i^2-\sum 2v_iw_i+\sum w_i^2
   \]
-  Most terms cancel, leaving $\sum v_iw_i=0$, or in other words, $\mathbf{v}^T\mathbf{w}=0$.
+  Most terms cancel, leaving $\sum v_iw_i=0$, or in other words, $\bm{v}^T\bm{w}=0$.
 \end{proof}
 
 \begin{example}
@@ -1223,7 +1222,7 @@ You may recall from previous courses that orthogonality is related to the dot pr
 For any subspace $V$, there is always a largest subspace $W$ such that $V,W$ are orthogonal.
 
 \begin{definition}
-  If $V$ is a subspace of some Euclidean space $\R^n$, its \emph{orthogonal complement} $V^\perp$ is the subspace consisting of all vectors $\mathbf{w}$ that are orthogonal to all vectors in $V$.
+  If $V$ is a subspace of some Euclidean space $\R^n$, its \emph{orthogonal complement} $V^\perp$ is the subspace consisting of all vectors $\bm{w}$ that are orthogonal to all vectors in $V$.
 \end{definition}
 
 \begin{example}
@@ -1293,56 +1292,56 @@ This theorem completes our understanding of the four fundamental subspaces. It a
 
 Based on ILA 5th, \S 4.2.
 
-Given a system of linear equations $A\mathbf{x}=\mathbf{b}$, if it is consistent we know how to solve it. If it is inconsistent, $\mathbf{b}$ isn't in the column space of $A$ and we can't find any solution. In this case, we can still ask for a \emph{best approximate solution} $\mathbf{x}$ that makes $A\mathbf{x}$ and $\mathbf{b}$ as close as possible. The method is to replace $\mathbf{b}$ with the \emph{nearest vector} $\mathbf{p}$ that is in the column space of $A$ and to solve $A\hat{\mathbf{x}}=\mathbf{p}$ instead.
+Given a system of linear equations $A\bm{x}=\bm{b}$, if it is consistent we know how to solve it. If it is inconsistent, $\bm{b}$ isn't in the column space of $A$ and we can't find any solution. In this case, we can still ask for a \emph{best approximate solution} $\bm{x}$ that makes $A\bm{x}$ and $\bm{b}$ as close as possible. The method is to replace $\bm{b}$ with the \emph{nearest vector} $\bm{p}$ that is in the column space of $A$ and to solve $A\hat{\bm{x}}=\bm{p}$ instead.
 
-Geometrically, if $A\mathbf{x}=\mathbf{b}$ is inconsistent, and $\mathbf{b}$ doesn't lie in the column space of $A$, we want to ``project'' $\mathbf{b}$ to the column space, or in other words find its shadow.
+Geometrically, if $A\bm{x}=\bm{b}$ is inconsistent, and $\bm{b}$ doesn't lie in the column space of $A$, we want to ``project'' $\bm{b}$ to the column space, or in other words find its shadow.
 
 \begin{figure}[h]
   [Picture]
 \end{figure}
 
-It is not difficult to see that an optimal solution is achieved exactly when the error vector $\mathbf{b}-A\hat{\mathbf{x}}$ is orthogonal to the column space of $A$.
+It is not difficult to see that an optimal solution is achieved exactly when the error vector $\bm{b}-A\hat{\bm{x}}$ is orthogonal to the column space of $A$.
 
-The theory for finding $\hat{\mathbf{x}}$ and $\mathbf{p}$ is known as \emph{orthogonal projection} and runs as follows. Given an inconsistent system $A\mathbf{x}=\mathbf{b}$, we set the error vector orthogonal to the columns of $A$:
-\[A^T(\mathbf{b}-A\hat{\mathbf{x}})=0
+The theory for finding $\hat{\bm{x}}$ and $\bm{p}$ is known as \emph{orthogonal projection} and runs as follows. Given an inconsistent system $A\bm{x}=\bm{b}$, we set the error vector orthogonal to the columns of $A$:
+\[A^T(\bm{b}-A\hat{\bm{x}})=0
 \]
 This simplifies to:
-\[A^TA\hat{\mathbf{x}}=A^T\mathbf{b}
+\[A^TA\hat{\bm{x}}=A^T\bm{b}
 \]
-We then solve this modified system in the usual way to find the best approximate solution $\hat{\mathbf{x}}$. Finally we can find the \emph{projection} vector $\mathbf{p}$ by multiplying $A\hat{\mathbf{x}}$.
+We then solve this modified system in the usual way to find the best approximate solution $\hat{\bm{x}}$. Finally we can find the \emph{projection} vector $\bm{p}$ by multiplying $A\hat{\bm{x}}$.
 
 \begin{example}
-  Let $A\mathbf{x}=\mathbf{b}$ be the inconsistent system below. Find the best approximate solution $\hat{\mathbf{x}}$ and the projection $\mathbf{p}$ of $\mathbf{b}$ to $C(A)$.
-  \[\begin{bmatrix}1&0\\1&1\\1&2\end{bmatrix}\mathbf{x}
+  Let $A\bm{x}=\bm{b}$ be the inconsistent system below. Find the best approximate solution $\hat{\bm{x}}$ and the projection $\bm{p}$ of $\bm{b}$ to $C(A)$.
+  \[\begin{bmatrix}1&0\\1&1\\1&2\end{bmatrix}\bm{x}
     =\begin{bmatrix}6\\0\\0\end{bmatrix}
   \]
-  The first step is to make the modified system $A^TA\hat{\mathbf{x}}=A^T\mathbf{b}$. It turns out to be:
-  \[\begin{bmatrix}3&3\\3&5\end{bmatrix}\hat{\mathbf{x}}
+  The first step is to make the modified system $A^TA\hat{\bm{x}}=A^T\bm{b}$. It turns out to be:
+  \[\begin{bmatrix}3&3\\3&5\end{bmatrix}\hat{\bm{x}}
   =\begin{bmatrix}6\\0\end{bmatrix}
   \]
-  The second step is to solve using old-fashioned elimination and back-solving. The third step is to find the projection vector $\mathbf{p}=A\hat{\mathbf{x}}$. The solutions are:
-  \[\hat{\mathbf{x}}=\begin{bmatrix}5\\-3\end{bmatrix},\quad 
-  \mathbf{p}=\begin{bmatrix}5\\2\\-1\end{bmatrix}
+  The second step is to solve using old-fashioned elimination and back-solving. The third step is to find the projection vector $\bm{p}=A\hat{\bm{x}}$. The solutions are:
+  \[\hat{\bm{x}}=\begin{bmatrix}5\\-3\end{bmatrix},\quad 
+  \bm{p}=\begin{bmatrix}5\\2\\-1\end{bmatrix}
   \]
 \end{example}
 
-The situation is somewhat simpler when $A$ is just a single vector $\mathbf{a}$. In this case we are projecting $\mathbf{b}$ onto the line through $\mathbf{a}$. Once again, we set the error vector $\mathbf{b}-\mathbf{a}\hat x$ orthogonal to $\mathbf{a}$:
-\[\mathbf{a}^T(\mathbf{b}-\mathbf{a}\hat{x})=0
+The situation is somewhat simpler when $A$ is just a single vector $\bm{a}$. In this case we are projecting $\bm{b}$ onto the line through $\bm{a}$. Once again, we set the error vector $\bm{b}-\bm{a}\hat x$ orthogonal to $\bm{a}$:
+\[\bm{a}^T(\bm{b}-\bm{a}\hat{x})=0
 \]
 This time we solve explicitly to obtain
-\[\hat x=\mathbf{a}^T\mathbf{b}/\mathbf{a}^T\mathbf{a}
+\[\hat x=\bm{a}^T\bm{b}/\bm{a}^T\bm{a}
 \]
 We can also explicitly find the projection
-\[\mathbf{p}=\mathbf{a}\hat{x}
-  =\frac{\mathbf{a}^T\mathbf{b}}{\mathbf{a}^T\mathbf{a}}\mathbf{a}
+\[\bm{p}=\bm{a}\hat{x}
+  =\frac{\bm{a}^T\bm{b}}{\bm{a}^T\bm{a}}\bm{a}
 \]
 
 \begin{example}
-  Find the projection of $\mathbf{b}$ onto the line through $\mathbf{a}$.
-  \[\mathbf{a}=(1,2,3),\quad \mathbf{b}=(4,6,4)
+  Find the projection of $\bm{b}$ onto the line through $\bm{a}$.
+  \[\bm{a}=(1,2,3),\quad \bm{b}=(4,6,4)
   \]
   The solution is:
-  \[\mathbf{p}=\frac{\begin{bmatrix}1&2&3\end{bmatrix}
+  \[\bm{p}=\frac{\begin{bmatrix}1&2&3\end{bmatrix}
   \begin{bmatrix}4\\6\\4\end{bmatrix}}
   {\begin{bmatrix}1&2&3\end{bmatrix}\begin{bmatrix}1\\2\\3\end{bmatrix}}
   \begin{bmatrix}1\\2\\3\end{bmatrix}
@@ -1351,7 +1350,7 @@ We can also explicitly find the projection
   \]
 \end{example}
 
-We close by mentioning that given any matrix $A$, there is a single \emph{projection matrix} $P$ which carries vectors $\mathbf{b}$ to their projections $\mathbf{p}$ in the column space of $A$. To find a formula for $P$, we can use matrix algebra to write $\hat{\mathbf{x}}=(A^TA)^{-1}A^T\mathbf{b}$ and $\mathbf{p}=A\hat{\mathbf{x}}=A(A^TA)^{-1}A^T\mathbf{b}$. In other words we see that:
+We close by mentioning that given any matrix $A$, there is a single \emph{projection matrix} $P$ which carries vectors $\bm{b}$ to their projections $\bm{p}$ in the column space of $A$. To find a formula for $P$, we can use matrix algebra to write $\hat{\bm{x}}=(A^TA)^{-1}A^T\bm{b}$ and $\bm{p}=A\hat{\bm{x}}=A(A^TA)^{-1}A^T\bm{b}$. In other words we see that:
 \[P=A(A^TA)^{-1}A^T
 \]
 
@@ -1362,7 +1361,7 @@ We close by mentioning that given any matrix $A$, there is a single \emph{projec
   \begin{bmatrix}1&1&1\\0&1&2\end{bmatrix}
   =\frac16\begin{bmatrix}5&2&-1\\2&2&2\\-1&2&5\end{bmatrix}
   \]
-  We see that this matrix multiplies $\mathbf{b}$ to give the projection $\mathbf{p}$:
+  We see that this matrix multiplies $\bm{b}$ to give the projection $\bm{p}$:
   \[\frac16\begin{bmatrix}5&2&-1\\2&2&2\\-1&2&5\end{bmatrix}
   \begin{bmatrix}6\\0\\0\end{bmatrix}
   =\begin{bmatrix}5\\2\\-1\end{bmatrix}
@@ -1373,21 +1372,21 @@ We close by mentioning that given any matrix $A$, there is a single \emph{projec
 \subsection*{Activity for \S \thesection}
 
 \begin{activity}
-  \item Let $A\mathbf{x}=\mathbf{b}$ be the inconsistent system below. Find the best approximate solution $\hat{\mathbf{x}}$ and the projection $\mathbf{p}$ of $\mathbf{b}$ to $C(A)$. Finally find the projection matrix $P$ corresponding to $C(A)$.
+  \item Let $A\bm{x}=\bm{b}$ be the inconsistent system below. Find the best approximate solution $\hat{\bm{x}}$ and the projection $\bm{p}$ of $\bm{b}$ to $C(A)$. Finally find the projection matrix $P$ corresponding to $C(A)$.
   \begin{enumerate}
     \item $\begin{bmatrix}1&1\\0&1\\0&0\end{bmatrix}
-      \mathbf{x}=\begin{bmatrix}2\\3\\4\end{bmatrix}$
+      \bm{x}=\begin{bmatrix}2\\3\\4\end{bmatrix}$
     \item $\begin{bmatrix}1&1\\1&1\\0&1\end{bmatrix}
-      \mathbf{x}=\begin{bmatrix}4\\6\\6\end{bmatrix}$ % new try on RHS
+      \bm{x}=\begin{bmatrix}4\\6\\6\end{bmatrix}$ % new try on RHS
   \end{enumerate}
-  \item Find the projection $\mathbf{p}$ of $\mathbf{b}$ onto the line through $\mathbf{a}$. In each case confirm that $\mathbf{b}-\mathbf{p}$ is orthogonal to $\mathbf{a}$.
+  \item Find the projection $\bm{p}$ of $\bm{b}$ onto the line through $\bm{a}$. In each case confirm that $\bm{b}-\bm{p}$ is orthogonal to $\bm{a}$.
   \begin{enumerate}
-    \item $\mathbf a=\begin{bmatrix}1\\1\\1\end{bmatrix}$,
-      $\mathbf b=\begin{bmatrix}1\\2\\2\end{bmatrix}$
-    \item $\mathbf a=\begin{bmatrix}1\\2\\0\\1\end{bmatrix}$,
-      $\mathbf b=\begin{bmatrix}1\\0\\1\\0\end{bmatrix}$
+    \item $\bm a=\begin{bmatrix}1\\1\\1\end{bmatrix}$,
+      $\bm b=\begin{bmatrix}1\\2\\2\end{bmatrix}$
+    \item $\bm a=\begin{bmatrix}1\\2\\0\\1\end{bmatrix}$,
+      $\bm b=\begin{bmatrix}1\\0\\1\\0\end{bmatrix}$
   \end{enumerate}
-  \item When projecting $\mathbf{b}$ onto the column space of a matrix $A$, which of the four subspaces contains the projection $\mathbf{p}$? Which of the four subspaces contains the error vector $\mathbf{b}-\mathbf{p}$? Explain your answers.
+  \item When projecting $\bm{b}$ onto the column space of a matrix $A$, which of the four subspaces contains the projection $\bm{p}$? Which of the four subspaces contains the error vector $\bm{b}-\bm{p}$? Explain your answers.
 \end{activity}
 
 \newpage
@@ -1397,14 +1396,14 @@ We close by mentioning that given any matrix $A$, there is a single \emph{projec
 
 Based on ILA 5th, \S 4.3.
 
-In the previous section, we described how to find the orthogonal projection of a given vector $\mathbf{b}$ onto a vector subspace. The projection vector $\mathbf{p}$ is optimal in the sense that it is as close as possible to $\mathbf{b}$.
+In the previous section, we described how to find the orthogonal projection of a given vector $\bm{b}$ onto a vector subspace. The projection vector $\bm{p}$ is optimal in the sense that it is as close as possible to $\bm{b}$.
 
 This concept has an enormous application in statistics, where it is called ``least squares optimization''. We often see data sets which, when plotted, do not form a line, but instead have a visible ``trend''. Given an arbitrary data set, we wish to find the line that most closely fits the data. We will use the fact that the possible data sets form a vector space, and the linear data sets form a subspace. We will take a given data set and \emph{project} it onto the subspace consisting of linear data sets! This is a beautiful example illustrating of the power of abstract mathematics!
 
 Here is how it works. Given a sequence of data points $(t_1,b_1),\ldots,(t_n,b_n)$, the data lie on a line of the form $C+Dt=y$ if and only if the following system is consistent:
 \[\begin{cases}1C+t_1 D=b_1\\\quad\vdots\\1C+t_nD=b_n\end{cases}
 \]
-If the system is not consistent we use the method of orthogonal projection, replacing $\mathbf{b}$ with $\mathbf{p}$ and finding the best approximate solutions $\hat C,\hat D$ for $C,D$.
+If the system is not consistent we use the method of orthogonal projection, replacing $\bm{b}$ with $\bm{p}$ and finding the best approximate solutions $\hat C,\hat D$ for $C,D$.
 
 \begin{example}
   Recall the example that we gave on the very first day of class. Given the following measurements, find the line that best fits the data.
@@ -1415,17 +1414,17 @@ If the system is not consistent we use the method of orthogonal projection, repl
   \]
   Write it as a matrix equation:
   \[\begin{bmatrix}1&2\\1&3\\1&6\end{bmatrix}
-    \mathbf{C}=\begin{bmatrix}3\\5\\6\end{bmatrix}
+    \bm{C}=\begin{bmatrix}3\\5\\6\end{bmatrix}
   \]
-  The data do not lie on a line, so the system is inconsistent. Instead we find the best approximate solution. We proceed with $A^TA\hat{\mathbf{c}}=A^T\mathbf{b}$:
-  \[\begin{bmatrix}3&11\\11&49\end{bmatrix}\hat{\mathbf{x}}=\begin{bmatrix}14\\57\end{bmatrix}
+  The data do not lie on a line, so the system is inconsistent. Instead we find the best approximate solution. We proceed with $A^TA\hat{\bm{c}}=A^T\bm{b}$:
+  \[\begin{bmatrix}3&11\\11&49\end{bmatrix}\hat{\bm{x}}=\begin{bmatrix}14\\57\end{bmatrix}
   \]
-  After elimination we get $\hat{\mathbf{c}}=(59/26,17/26)$. Thus $C\approx2.27$ and $D\approx0.65$. The best fit line is roughly $2.27+0.65t=y$.
+  After elimination we get $\hat{\bm{c}}=(59/26,17/26)$. Thus $C\approx2.27$ and $D\approx0.65$. The best fit line is roughly $2.27+0.65t=y$.
 
-  We didn't really need the projection vector $\mathbf{p}$. In this case $\mathbf{p}\approx(3.58,4.23,6.19)$, which is simply the vector of $y$-coordinates along the best fit line. The error vector is $\mathbf{b}-\mathbf{p}\approx(-0.58,0.76,0.19)$ and corresponds to the ``residuals''.
+  We didn't really need the projection vector $\bm{p}$. In this case $\bm{p}\approx(3.58,4.23,6.19)$, which is simply the vector of $y$-coordinates along the best fit line. The error vector is $\bm{b}-\bm{p}\approx(-0.58,0.76,0.19)$ and corresponds to the ``residuals''.
 \end{example}
 
-For a larger data set $(t_i,b_i)$, the $A$ matrix and $\mathbf{b}$ vector will always look like the following:
+For a larger data set $(t_i,b_i)$, the $A$ matrix and $\bm{b}$ vector will always look like the following:
 \[A=\begin{bmatrix}
     1&t_1\\
     2&t_2\\
@@ -1433,7 +1432,7 @@ For a larger data set $(t_i,b_i)$, the $A$ matrix and $\mathbf{b}$ vector will a
     1&t_n
   \end{bmatrix}
   ,\quad
-  \mathbf{b}=\begin{bmatrix}b_1\\b_2\\\vdots\\b_n\end{bmatrix}
+  \bm{b}=\begin{bmatrix}b_1\\b_2\\\vdots\\b_n\end{bmatrix}
 \]
 
 Here is the really cool part: The method can be used to find the best fit for any linear model, not just a line! Here a linear model means any linear combination of functions. For example we can find a best fit \emph{parabola} using the model $C+Dt+Et^2=y$.
@@ -1448,7 +1447,7 @@ Here is the really cool part: The method can be used to find the best fit for an
   The data lie on a parabola if and only if the system is consistent:
   \[\systeme[CDE]{1C+0D+0E=6,1C+1D+1E=0,1C+2D+4E=0,1C+3D+9E=2}
   \]
-  In other words, the $A$ matrix and $\mathbf{b}$ vector are:
+  In other words, the $A$ matrix and $\bm{b}$ vector are:
   \[A=\begin{bmatrix}
       1&t_1&t_1^2\\
       1&t_2&t_2^2\\
@@ -1456,7 +1455,7 @@ Here is the really cool part: The method can be used to find the best fit for an
       1&t_n&t_n^2
     \end{bmatrix}
     ,\quad
-    \mathbf{b}=\begin{bmatrix}
+    \bm{b}=\begin{bmatrix}
       b_1\\b_2\\\vdots\\b_n
     \end{bmatrix}
   \]
@@ -1790,17 +1789,17 @@ Let's first look at the $2$-dimensional parallelogram with vector sides $(a,b)$ 
   \end{tikzpicture}
 \end{center}
 
-Perhaps surprisingly, this turns out to be true in higher dimensions. The $n$-dimensional volume of the parallelepiped with vector edges $\mathbf{v}_1,\ldots,\mathbf{v}_n$ is given by
+Perhaps surprisingly, this turns out to be true in higher dimensions. The $n$-dimensional volume of the parallelepiped with vector edges $\bm{v}_1,\ldots,\bm{v}_n$ is given by
 \[V=\left|\det\begin{bmatrix}
       |&&|\\
-      \mathbf{v}_1&\cdots&\mathbf{v}_n\\
+      \bm{v}_1&\cdots&\bm{v}_n\\
       |&&|
     \end{bmatrix}\right|
 \]
 
 To understand briefly how this can be true, we can see that the volume of a parallelepiped satisfies the same four properties that we used to define the determinant.
 \begin{itemize}
-  \item (Identity) If $\mathbf{v}_i$ are the columns of the identity matrix, then the parallelepiped is the unit hypercube, which clearly has volume $1$.
+  \item (Identity) If $\bm{v}_i$ are the columns of the identity matrix, then the parallelepiped is the unit hypercube, which clearly has volume $1$.
   \item (Scaling) If you scale one of the sides of a paralellepiped by $t$ this clearly scales its volume by $t$.
   \item (Elimination) Adding a multiple of one vector to another shears the parallelepiped along one of its sides. This has no effect on its volume.
   \item (Row exchange) This has no effect on volume, but if we consider the volume to be signed, we can assume this is true.
@@ -1853,17 +1852,17 @@ What will happen to the two populations over time? It isn't easy to tell just by
 It looks like in the limit, the population distribution will tend towards 60\% for city $C$ and 40\% for city $D$. How could we find the limit population distribution without just estimating? Linear algebra can come to our aid. It turns out that the dynamics of this scenario are controled by a matrix, and the limit population distribution is an \emph{eigenvector} associated with that matrix.
 
 \begin{definition}
-  Let $A$ be a square matrix. Let $\mathbf{x}$ be a vector and $\lambda$ be a number such that $A\mathbf{x}=\lambda\mathbf{x}$. Then the vector $\mathbf x$ is called an \emph{eigenvector} of $A$ and the number $\lambda$ is called an \emph{eigenvalue} of $A$.
+  Let $A$ be a square matrix. Let $\bm{x}$ be a vector and $\lambda$ be a number such that $A\bm{x}=\lambda\bm{x}$. Then the vector $\bm x$ is called an \emph{eigenvector} of $A$ and the number $\lambda$ is called an \emph{eigenvalue} of $A$.
 \end{definition}
 
-If $\mathbf{x}$ is an eigenvector of $A$, then $\mathbf{x}$ is special because $A$ doesn't change what direction it points in. It simply scales $\mathbf{x}$ by a factor of $\lambda$.
+If $\bm{x}$ is an eigenvector of $A$, then $\bm{x}$ is special because $A$ doesn't change what direction it points in. It simply scales $\bm{x}$ by a factor of $\lambda$.
 
 We now turn to the problem of finding eigenvectors and eigenvalues for a given matrix $A$. First we will lay out the theory, and later we will show how it works with an example. Given a matrix $A$, we follow the following steps.
 
 \begin{itemize}
-  \item Step 0. We are looking for $\mathbf{x}$, $\lambda$ which make $A\mathbf{x}=\lambda\mathbf{x}$ true. We rewrite this as $A\mathbf{x}-\lambda\mathbf{x}=0$, and then again as $(A-\lambda I)\mathbf{x}=\mathbf{0}$.
+  \item Step 0. We are looking for $\bm{x}$, $\lambda$ which make $A\bm{x}=\lambda\bm{x}$ true. We rewrite this as $A\bm{x}-\lambda\bm{x}=0$, and then again as $(A-\lambda I)\bm{x}=\bm{0}$.
   \item Step 1. The last equation tells us we want to find out when $A-\lambda I$ has a nontrivial null space. We know this happens when $A-\lambda I$ is singular, or in other words when $\det(A-\lambda I)=0$. So we set $\det(A-\lambda I)=0$ and solve for $\lambda$.
-  \item Step 2. For each solution $\lambda$ obtained in step $1$, plug it into $A-\lambda I$ and find the basis for the null space. This vector is the eigenvector $\mathbf{x}$ corresponding to $\lambda$. (Sometimes there will be several vectors $\mathbf{x}$ corresponding to $\lambda$.)
+  \item Step 2. For each solution $\lambda$ obtained in step $1$, plug it into $A-\lambda I$ and find the basis for the null space. This vector is the eigenvector $\bm{x}$ corresponding to $\lambda$. (Sometimes there will be several vectors $\bm{x}$ corresponding to $\lambda$.)
 \end{itemize}
 
 \begin{example}
@@ -1881,10 +1880,10 @@ We now turn to the problem of finding eigenvectors and eigenvalues for a given m
   Thus the eigenvalues are $0$ and $5$. To find the eigenvectors we move on to Step 2. For the eigenvalue $\lambda=0$ we find the null space of the matrix:
   \[\begin{bmatrix}1-0&2\\2&4-0\end{bmatrix}
   \]
-  Thus the eigenvector corresponding to $\lambda=0$ is $\mathbf{x}=(-2,1)^T$. For the eigenvalue $\lambda=5$ we find the null space of the matrix:
+  Thus the eigenvector corresponding to $\lambda=0$ is $\bm{x}=(-2,1)^T$. For the eigenvalue $\lambda=5$ we find the null space of the matrix:
   \[\begin{bmatrix}1-5&2\\2&4-5\end{bmatrix}
   \]
-  Thus the eigenvector corresponding to $\lambda=5$ is $\mathbf{x}=(1,2)^T$. We can check our solutions by confirming that $A(-2,1)^T=0(-2,1)^T$ and $A(1,2)^T=5(1,2)^T$.
+  Thus the eigenvector corresponding to $\lambda=5$ is $\bm{x}=(1,2)^T$. We can check our solutions by confirming that $A(-2,1)^T=0(-2,1)^T$ and $A(1,2)^T=5(1,2)^T$.
 \end{example}
   
 \begin{example}
@@ -1910,7 +1909,7 @@ We now turn to the problem of finding eigenvectors and eigenvalues for a given m
 \subsection*{Activity for \S \thesection}
 
 \begin{activity}
-  \item For each matrix $A$, find the eigenvalues $\lambda$ and corresponding eigenvectors $\mathbf{x}$. In each case, check that $A\mathbf{x}=\lambda\mathbf{x}$.
+  \item For each matrix $A$, find the eigenvalues $\lambda$ and corresponding eigenvectors $\bm{x}$. In each case, check that $A\bm{x}=\lambda\bm{x}$.
   \begin{enumerate}
     \item $A=\begin{bmatrix}0&2\\1&1\end{bmatrix}$
     \item $A=\begin{bmatrix}
@@ -1931,7 +1930,7 @@ We now turn to the problem of finding eigenvectors and eigenvalues for a given m
 
 Based on ILA 5th, \S 6.2.
 
-In the previous section we said that for a square matrix $A$, if the special equation $A\mathbf{x}=\lambda\mathbf{x}$ is true then we say that $\lambda$ is an eigenvalue and $\mathbf{x}$ is a corresponding eigenvector of $A$. In most cases, if $A$ is $n\times n$ then there will be exactly $n$ distinct eigenvectors (not counting scalar multiples). Moreover the eigenvectors are linearly independent, which means they make a \emph{basis} for $\R^n$. The basis of eigenvectors is very special, because $A$ acts really nicely (diagonally) with respect to this basis.
+In the previous section we said that for a square matrix $A$, if the special equation $A\bm{x}=\lambda\bm{x}$ is true then we say that $\lambda$ is an eigenvalue and $\bm{x}$ is a corresponding eigenvector of $A$. In most cases, if $A$ is $n\times n$ then there will be exactly $n$ distinct eigenvectors (not counting scalar multiples). Moreover the eigenvectors are linearly independent, which means they make a \emph{basis} for $\R^n$. The basis of eigenvectors is very special, because $A$ acts really nicely (diagonally) with respect to this basis.
 
 To begin exploring this idea, assume that $A$ is $n\times n$ and has $n$ distinct eigenvectors. We let $X$ be the $n\times n$ matrix whose columns are the eigenvectors. Then the matrices $A$ and $X$ interact in a very special way, which we will explore by example first.
 
@@ -1967,17 +1966,17 @@ We find that $AX=$ the matrix $X$ again but with each column multiplied by the c
 
 \[AX=A\begin{bmatrix}
     \vdots&&\vdots\\
-    \mathbf{x}_1&\cdots&\mathbf{x}_n\\
+    \bm{x}_1&\cdots&\bm{x}_n\\
     \vdots&&\vdots
   \end{bmatrix}
   =\begin{bmatrix}
     \vdots&&\vdots\\
-    \lambda_1\mathbf{x}_1&\cdots&\lambda_n\mathbf{x}_n\\
+    \lambda_1\bm{x}_1&\cdots&\lambda_n\bm{x}_n\\
     \vdots&&\vdots
   \end{bmatrix}
   =\begin{bmatrix}
     \vdots&&\vdots\\
-    \mathbf{x}_1&\cdots&\mathbf{x}_n\\
+    \bm{x}_1&\cdots&\bm{x}_n\\
     \vdots&&\vdots
   \end{bmatrix}
   \begin{bmatrix}
@@ -2144,10 +2143,10 @@ Taking a limit we botain
 This calculation in this example works for a very general class of problems. A vector that sums to $1$ is called a \emph{probability vector}. A matrix whose columns are all probability vectors is called a \emph{Markov matrix}.
 
 \begin{theorem}[Markov matrix thoerem]
-  Suppose $A$ is a Markov matrix whose entries are nonzero and $\mathbf{x_0}$ is a probability vector. Then $\lim_{n\to\infty}A^n\mathbf{x_0}$ is equal to the eigenvector corresponding to $\lambda=1$ (normalized to be a probability vector).
+  Suppose $A$ is a Markov matrix whose entries are nonzero and $\bm{x_0}$ is a probability vector. Then $\lim_{n\to\infty}A^n\bm{x_0}$ is equal to the eigenvector corresponding to $\lambda=1$ (normalized to be a probability vector).
 \end{theorem}
 
-This theorem is actually a special case of the much more powerful Perron--Frobenius theorem: If $A$ is almost any reasonable matrix, then its dominant eigenvalue (the greatest in magnitude) $\lambda_d$ is real and positive. The growth rate of the powers $A^n\mathbf{x}$ is given by $\lambda_d$ and the limit distribution is given by the normalized eigenvector $\mathbf{x}_d$ corresponding to $\lambda_d$.
+This theorem is actually a special case of the much more powerful Perron--Frobenius theorem: If $A$ is almost any reasonable matrix, then its dominant eigenvalue (the greatest in magnitude) $\lambda_d$ is real and positive. The growth rate of the powers $A^n\bm{x}$ is given by $\lambda_d$ and the limit distribution is given by the normalized eigenvector $\bm{x}_d$ corresponding to $\lambda_d$.
 
 As an example of this theorem, we present the Leslie matrix, which describes how a population changes through the generations.
   
@@ -2199,20 +2198,20 @@ As an example of this theorem, we present the Leslie matrix, which describes how
 
 Based on ILA 5th, \S 6.3.
 
-In our study of discrete processes such as Markov processes, we always have the recursive equation $\mathbf{x_{n+1}}=A\mathbf{x_n}$ and an initial state $\mathbf{x_0}$ given. Here the variables at time $n+1$ depend in a linear way on the variables at time $n$.
+In our study of discrete processes such as Markov processes, we always have the recursive equation $\bm{x_{n+1}}=A\bm{x_n}$ and an initial state $\bm{x_0}$ given. Here the variables at time $n+1$ depend in a linear way on the variables at time $n$.
 
-The continuous analog of this situation is a differential equation $\mathbf{u}'=A\mathbf{u}$ and an initial condition $\mathbf{u}(0)=\mathbf{u_0}$. Here the growth rate of the variables depends in a linear way on the variables themselves.
+The continuous analog of this situation is a differential equation $\bm{u}'=A\bm{u}$ and an initial condition $\bm{u}(0)=\bm{u_0}$. Here the growth rate of the variables depends in a linear way on the variables themselves.
 
 Beginning with the single variable case, suppose that $y'=ky$ and $y(0)=y_0$. This differential equation models unrestricted population growth, and we know from calculus that the solution is $y=y_0e^{kt}$, or exponential growth.
 
 Moving to the multivariable version, suppose we are given the system of first-order linear ordinary differential equations:
 \[\begin{cases}
-    \mathbf{u}'=A\mathbf{u}\\
-    \mathbf{u}(0)=\mathbf{u_0}
+    \bm{u}'=A\bm{u}\\
+    \bm{u}(0)=\bm{u_0}
   \end{cases}
 \]
 It turns out that we can write the solution to such an equation as
-\[\mathbf{u}(t)=e^{At}\mathbf{u_0}
+\[\bm{u}(t)=e^{At}\bm{u_0}
 \]
 But this leaves us with three big questions. First, what exactly is $e^{At}$? Second, why does $e^{At}$ help solve the system of differential equations? And third, how can we calculate $e^{At}$?
 
@@ -2221,18 +2220,18 @@ For the first question (what is $e^{At}$), recall that $e^{kt}$ may be defined u
 \]
 It is a fact that this infinite series of matrices always converges.
 
-For the second question (why does $e^{At}\mathbf{u_0}$ solve $\mathbf{u}'=A\mathbf{u}$), we take the derivative of $e^{At}\mathbf{u_0}$ as follows:
+For the second question (why does $e^{At}\bm{u_0}$ solve $\bm{u}'=A\bm{u}$), we take the derivative of $e^{At}\bm{u_0}$ as follows:
 \begin{align*}
-  \frac{d}{dt}e^{At}\mathbf{u_0}
+  \frac{d}{dt}e^{At}\bm{u_0}
   &=\frac{d}{dt}\left[
     I+At+\frac{(At)^2}{2}+\frac{(At)^3}{3!}+\cdots
-    \right]\mathbf{u_0}\\
+    \right]\bm{u_0}\\
   &=\left[0+A+A^2t+A\frac{(At)^2}{2}+\cdots\right]
-    \mathbf{u_0}\\
-  &=A\left[I+At+\frac{(At)^2}{2}+\cdots\right]\mathbf{u}_0\\
-  &=Ae^{At}\mathbf{u_0}
+    \bm{u_0}\\
+  &=A\left[I+At+\frac{(At)^2}{2}+\cdots\right]\bm{u}_0\\
+  &=Ae^{At}\bm{u_0}
 \end{align*}
-Thus we see that if $\mathbf{u}=e^{At}\mathbf{u_0}$, then $\mathbf{u}'=A\mathbf{u}$.
+Thus we see that if $\bm{u}=e^{At}\bm{u_0}$, then $\bm{u}'=A\bm{u}$.
 
 For the last question (how to calculate $e^{At}$), if $A$ is diagonalizable then one can compute $e^{At}$ using diagonalization. To see this, if $A=X\Lambda X^{-1}$ then
 \begin{align*}
@@ -2267,7 +2266,7 @@ Since $\Lambda$ is diagonal, it is easy to calculate $e^{\Lambda t}$ simply by a
     \begin{bmatrix}-1&-1\\-1&1\end{bmatrix}
   \]
   And finally
-  \[\mathbf{u}=e^{At}\mathbf{u}_0
+  \[\bm{u}=e^{At}\bm{u}_0
     =\begin{bmatrix}1&1\\1&-1\end{bmatrix}
     \begin{bmatrix}1\\&e^{-2t}\end{bmatrix}
     \frac{1}{-2}
@@ -2275,7 +2274,7 @@ Since $\Lambda$ is diagonal, it is easy to calculate $e^{\Lambda t}$ simply by a
     \begin{bmatrix}15\\5\end{bmatrix}
   \]
   Carrying through the matrix products, we arrive at the solution:
-  \[\mathbf{u}
+  \[\bm{u}
     =\begin{bmatrix}10+5e^{-2t}\\10-5e^{-2t}\end{bmatrix}
   \]
   We observe that in the limit, the two chambers will have an equal proportion of gas.
@@ -2337,7 +2336,7 @@ We model browsing with a matrix as follows. We postulate a generic user who clic
   \end{bmatrix}
 \]
 
-If we initially assume that the pages are visited with some probability vector $\mathbf{u}_0$, then $A^n\mathbf{u}_0$ gives the likelihood of being on each page after $n$ clicks. The big idea is that the limit $A^\infty\mathbf{u}_0$ gives us a reasonable measurement of the relative importance of each web page!
+If we initially assume that the pages are visited with some probability vector $\bm{u}_0$, then $A^n\bm{u}_0$ gives the likelihood of being on each page after $n$ clicks. The big idea is that the limit $A^\infty\bm{u}_0$ gives us a reasonable measurement of the relative importance of each web page!
 
 Since $A$ is a Markov matrix, we can calculate the limit simply by finding the eigenvector corresponding to $\lambda=1$. Using a computer, we find that $A-I$ has the RREF form
 \[A-I\sim\begin{bmatrix}
@@ -2393,9 +2392,9 @@ This tells us that E is the most popular, followed by D.
 
 Based on ILA 5th, \S 6.4.
 
-We have previously discussed the concept of basis for $\R^n$: a family of $n$ vectors $\mathbf{v_1},\ldots,\mathbf{v_n}$ that are linearly independent. A basis is special because any vector in $\R^n$ can be written as a combination of basis vectors.
+We have previously discussed the concept of basis for $\R^n$: a family of $n$ vectors $\bm{v_1},\ldots,\bm{v_n}$ that are linearly independent. A basis is special because any vector in $\R^n$ can be written as a combination of basis vectors.
 
-In this section we introduce the concept of \emph{orthonormal basis}. First, an \emph{orthogonal basis} is a family of $n$ vectors $\mathbf{v_1},\ldots,\mathbf{v_n}$ such that $\mathbf{v_i}\perp\mathbf{v_j}$ for all $i\neq j$. An \emph{orthonormal basis} is an orthogonal basis all of whose vectors have magnitude $1$. An orthonormal basis is very special because it has the shape of the standard basis (the usual axes), except possibly rotated and reflected.
+In this section we introduce the concept of \emph{orthonormal basis}. First, an \emph{orthogonal basis} is a family of $n$ vectors $\bm{v_1},\ldots,\bm{v_n}$ such that $\bm{v_i}\perp\bm{v_j}$ for all $i\neq j$. An \emph{orthonormal basis} is an orthogonal basis all of whose vectors have magnitude $1$. An orthonormal basis is very special because it has the shape of the standard basis (the usual axes), except possibly rotated and reflected.
 
 An example of an orthogonal basis for $\R^2$ would be $(3,4)^T,(-4,3)^T$. Note that you can always normalize the vectors (divide each by its madnitude) to make it into an orthonormal basis. In this example we obtain $(3/5,4/5)^T,(-4/5,3/5)^T$.
 
@@ -2430,24 +2429,24 @@ The matrix in the previous example is \emph{symmetric}, meaning $A^T=A$. It turn
   Let $A$ be an $n\times n$ real symmetric matrix. Then the eigenvalues and eigenvectors of $A$ are real, and there are $n$ pairwise orthogonal eigenvectors. Thus $A$ can be diagonalized $A=Q\Lambda Q^T$, where the columns of $Q$ are an orthonormal basis.
 \end{theorem}
 
-We will briefly explain why part of this theorem is true. First we show why a symmetric matrix will have real eigenvalues (recall it is fully possible for a matrix to have complex eigenvalues). Suppose $A$ is symmetric and that $A\mathbf{x}=\lambda\mathbf{x}$. Then we have:
-\[\lambda\|\mathbf{x}\|^2=\lambda \bar{\mathbf{x}}^T\mathbf{x}
-  =\bar{\mathbf{x}}^TA\mathbf{x}
-  =\bar{\mathbf{x}}^TA^T\mathbf{x}
-  =(\overline{A\mathbf{x}})^T\mathbf{x}
-  =\bar\lambda\bar{\mathbf{x}}^T\mathbf{x}
-  =\bar\lambda\|\mathbf{x}\|^2
+We will briefly explain why part of this theorem is true. First we show why a symmetric matrix will have real eigenvalues (recall it is fully possible for a matrix to have complex eigenvalues). Suppose $A$ is symmetric and that $A\bm{x}=\lambda\bm{x}$. Then we have:
+\[\lambda\|\bm{x}\|^2=\lambda \bar{\bm{x}}^T\bm{x}
+  =\bar{\bm{x}}^TA\bm{x}
+  =\bar{\bm{x}}^TA^T\bm{x}
+  =(\overline{A\bm{x}})^T\bm{x}
+  =\bar\lambda\bar{\bm{x}}^T\bm{x}
+  =\bar\lambda\|\bm{x}\|^2
 \]
 It follows that $\lambda=\bar\lambda$.
 
-Next we show why a symmetric matrix will have orthogonal eigenvectors. Suppose $A$ is symmtric, $\lambda_1\neq\lambda_2$, and $A\mathbf{x_1}=\lambda_1\mathbf{x_1}$ and $A\mathbf{x_2}=\lambda_2\mathbf{x_2}$. Then we have:
-\[\lambda_2\mathbf{x_1}^T\mathbf{x_2}
-  =\mathbf{x_1}^TA\mathbf{x_2}
-  =\mathbf{x_1}^TA^T\mathbf{x_2}
-  =(A\mathbf{x_1})^T\mathbf{x_2}
-  =\lambda_1\mathbf{x_1}^T\mathbf{x_2}
+Next we show why a symmetric matrix will have orthogonal eigenvectors. Suppose $A$ is symmtric, $\lambda_1\neq\lambda_2$, and $A\bm{x_1}=\lambda_1\bm{x_1}$ and $A\bm{x_2}=\lambda_2\bm{x_2}$. Then we have:
+\[\lambda_2\bm{x_1}^T\bm{x_2}
+  =\bm{x_1}^TA\bm{x_2}
+  =\bm{x_1}^TA^T\bm{x_2}
+  =(A\bm{x_1})^T\bm{x_2}
+  =\lambda_1\bm{x_1}^T\bm{x_2}
 \]
-It follows that $\mathbf{x_1}^T\mathbf{x_2}=\mathbf{0}$.
+It follows that $\bm{x_1}^T\bm{x_2}=\bm{0}$.
 
 It remains only to prove that a symmetric matrix $A$ must always have exactly $n$ distinct eigenvectors. We leave this to the textbook.
 
@@ -2487,15 +2486,15 @@ The key idea to achieve this decomposition is that for any matrix $A$, the two m
 Here are the steps to find the SVD of an $m\times n$ matrix $A$.
 
 \begin{itemize}
-  \item Find $A^TA$ and diagonalize it in an orthonormal way. Let $\lambda_i$ be the eigenvalues of $A^TA$ and $\mathbf{v_i}$ a corresponding orthonormal family of eigenvectors. The right singular vectors of $A$ are just the vectors $\mathbf{v_i}$. Put these into the columns of a matrix $V$.
+  \item Find $A^TA$ and diagonalize it in an orthonormal way. Let $\lambda_i$ be the eigenvalues of $A^TA$ and $\bm{v_i}$ a corresponding orthonormal family of eigenvectors. The right singular vectors of $A$ are just the vectors $\bm{v_i}$. Put these into the columns of a matrix $V$.
   \item Next define the singular values of $A$ by $\sigma_i=\sqrt{\lambda_i}$. Put these in the diagonal entries of an $m\times n$ matrix $\Sigma$.
-  \item Now for each nonzero singular value $\sigma_i$ we define the left singular vector $\mathbf{u_i}=A\mathbf{v_i}/\sigma_i$. Put these in the columns of the matrix $U$.
+  \item Now for each nonzero singular value $\sigma_i$ we define the left singular vector $\bm{u_i}=A\bm{v_i}/\sigma_i$. Put these in the columns of the matrix $U$.
   \item (We will avoid exercises that require this step, but if necessary, extend $U$ to an $m\times m$ matrix by adding additional columns orthogonal to the rest.)
 \end{itemize}
 
-Some explanation is necessary to see that these steps work. First to take $\sqrt{\lambda_i}$ we need to know $\lambda_i\geq0$. For this, observe that $\|A\mathbf{v_i}\|^2=\mathbf{v_i}^TA^TA\mathbf{v_i}=\mathbf{v_i}^T\lambda_i\mathbf{v_i}=\lambda_i\|\mathbf{v_i}\|^2=\lambda_i$.
+Some explanation is necessary to see that these steps work. First to take $\sqrt{\lambda_i}$ we need to know $\lambda_i\geq0$. For this, observe that $\|A\bm{v_i}\|^2=\bm{v_i}^TA^TA\bm{v_i}=\bm{v_i}^T\lambda_i\bm{v_i}=\lambda_i\|\bm{v_i}\|^2=\lambda_i$.
 
-Next, we know the $\mathbf{v_i}$ are orthogonal because they are eigenvectors of a symmetric matrix $A^TA$. We can additionally say that $\mathbf{u_i}$ are orthogonal because they are eigenvectors of $AA^T$. To see this, observe that $AA^T\mathbf{u_i}=AA^TA\mathbf{v_i}/\sigma_i=A\lambda_i\mathbf{v_i}/\sigma_i=\lambda_i\mathbf{u_i}$.
+Next, we know the $\bm{v_i}$ are orthogonal because they are eigenvectors of a symmetric matrix $A^TA$. We can additionally say that $\bm{u_i}$ are orthogonal because they are eigenvectors of $AA^T$. To see this, observe that $AA^T\bm{u_i}=AA^TA\bm{v_i}/\sigma_i=A\lambda_i\bm{v_i}/\sigma_i=\lambda_i\bm{u_i}$.
 
 \begin{example}
   Let $A$ be the matrix below. Find the singular decomposition $A=U\Sigma V^T$.
@@ -2549,7 +2548,7 @@ A matrix may be used to represent an image, with each component representing a p
 %   \]
 %   We can see that the eigenvalues of $A^TA$ are $\lambda=9,4,1,0$ and the corresponding eigenvectors are $(0,0,0,1)^T$, $(0,0,1,0)^T$, $(0,1,0,0)^T$, and $(0,0,0,1)^T$.
 %   
-%   Now the singular values are $\sigma=3,2,1,0$ and the corresponding right singular vectors are just the same as above. To find the right singular vectors, for each $\sigma_i=3,2,1$ we calculate $A\mathbf{v_i}/\sigma$. We get the vectors $(0,0,1)^T$, $(0,1,0)^T$, and $(1,0,0)^T$. The final SVD is thus:
+%   Now the singular values are $\sigma=3,2,1,0$ and the corresponding right singular vectors are just the same as above. To find the right singular vectors, for each $\sigma_i=3,2,1$ we calculate $A\bm{v_i}/\sigma$. We get the vectors $(0,0,1)^T$, $(0,1,0)^T$, and $(1,0,0)^T$. The final SVD is thus:
 %   \[A=\begin{bmatrix}&&1\\&1\\1&&\end{bmatrix}
 %   \begin{bmatrix}3\\&2\\&&1&0\end{bmatrix}
 %   \begin{bmatrix}&&&1\\&&1\\&1\\1\end{bmatrix}
